@@ -1,1 +1,23 @@
-/* Here you can write your page specic css code. */
+.hero__section {
+
+    .hero__container {
+
+        .hero__layout {
+          min-height: 500px;
+          align-items: center;
+
+          .hero__heading {
+            text-align: center;
+          }
+
+          .hero__subheading {
+            text-align: center;
+          }
+
+          .hero__btn_wrapper {
+            display: flex;
+            justify-content: center;
+          }
+        }
+    }
+}
