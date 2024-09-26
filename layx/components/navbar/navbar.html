@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar Demo</title>
+
+        <link rel="stylesheet" href="navbar.css">
+
+        <link rel="stylesheet" href="/layx/main/base/base.css">
+        <link rel="stylesheet" href="/layx/main/typography/typography.css">
+        <link rel="stylesheet" href="/layx/components/button/button.css">
+        <link rel="stylesheet" href="/layx/main/container/container.css">
+        <link rel="stylesheet" href="/layx/main/base/scrollbar.css">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 200vh;
+                padding-block: 10rem;
+                font-family: "Red Hat Display", sans-serif;
+                background-color: antiquewhite;
+            }
+
+            .main-navbar {
+                --navbar-bg: rgba(255, 255, 255, 0.5);
+                --radius: .5rem;
+                --blur: 10px;
+            }
+
+            .other-navbar {
+                --navbar-bg: rgba(255, 255, 255, .6);
+                margin-bottom: 1rem;
+            }
+
+            container {
+                display: grid;
+                place-content: center;
+                height: 200px;
+                background: rgba(255, 255, 255, 0.5);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+
+            <navbar class="fixed main-navbar update-scroll-state">
+                <div class="wrapper">
+                    <div class="main modern center move">
+                        <div class="brand">
+                            <h5 class="logo-text">Layx</h5>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able left">
+                            <button class="close"></button>
+                            <div>
+                                <nav class="link-wrapper">
+                                    <a href="" class="link">Home</a>
+                                    <a href="" class="link">Amout</a>
+                                    <a href="" class="link">Demo</a>
+                                    <a href="" class="link">Conatact</a>
+                                    <a href="" class="link">FAQs</a>
+                                    <a href="" class="link">Test</a>
+                                </nav>
+                            </div>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+            <navbar class="other-navbar">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="brand">
+                            <h5 class="logo-text">Logo</h5>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able right">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+            <navbar class="other-navbar">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="brand">
+                            <h5 class="logo-text">Logo</h5>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able end left">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+            <navbar class="other-navbar">
+                <div class="wrapper">
+                    <div class="main center">
+                        <div class="brand">
+                            <h5 class="logo-text">Logo</h5>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able full">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                                <a href="" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+        </header>
+
+        <container>
+            <p class="ui-text">Container</p>
+        </container>
+
+        <script type="module">
+            import Navbar from './navbar.js';
+        </script>
+    </body>
+
+</html>

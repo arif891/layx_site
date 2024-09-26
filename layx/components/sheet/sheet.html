@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheet Demo</title>
+
+    <link rel="stylesheet" href="sheet.css">
+
+    <link rel="stylesheet" href="/layx/main/base/base.css">
+    <link rel="stylesheet" href="/layx/main/typography/typography.css">
+    <link rel="stylesheet" href="/layx/components/button/button.css">
+
+    <style>
+      body {
+        font-family: "Red Hat Display", sans-serif;
+        background-color: antiquewhite;
+        overscroll-behavior: none;
+      }
+
+      sheet {
+        --padding: 1.5rem;
+        --bg: rgba(255, 255, 255, .8);
+       
+        height: 450px;
+
+        &~backdrop {
+          --backdrop-bg:rgba(255, 255, 255, .3);
+        }
+
+        .wrapper {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button data-sheet-target="#mySheet">Open Sheet</button>
+
+    <sheet id="mySheet" class="bottom">
+      <div class="wrapper">
+        <h3>Sheet Demo</h3>
+        <button class="close"></button>
+      </div>
+    </sheet>
+
+  </body>
+
+  <script type="module">
+    import Sheet from "./sheet.js";
+  </script>
+
+</html>
