@@ -165,10 +165,13 @@ navbar,.navbar {
 
             &.modern {
                 padding: var(--padding-y, var(--padding, .5rem)) var(--padding-x, var(--padding, .5rem));
-                background: var(--navbar-bg, #fff);
                 border: var(--border);
                 border-radius: var(--radius);
-                backdrop-filter: blur(var(--blur));
+                
+                &:not(.move) {
+                    background: var(--navbar-bg, #fff);
+                    backdrop-filter: blur(var(--blur));
+                }
             }
 
 
@@ -261,6 +264,7 @@ navbar,.navbar {
                 @media (width >=992px) {
                     margin-top: unset;
                     translate: 0 20px;
+                    backdrop-filter: blur(var(--blur));
 
                     .main {
                         flex-grow: 0;

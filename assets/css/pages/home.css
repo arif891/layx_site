@@ -1,23 +1,63 @@
+.layx__navbar {
+  --navbar-bg: rgba(255, 255, 255, .6);
+  --radius: .5rem;
+  --blur: 10px;
+}
+
 .hero__section {
 
-    .hero__container {
+  .hero__container {
 
-        .hero__layout {
-          min-height: 500px;
-          align-items: center;
+    .hero__layout {
+      --num-x: 6;
+      --grid-color: rgba(0, 225, 255, 0.3);
+      --gap-color: transparent;
+      min-height: 80svh;
+      align-items: center;
+      background:
+        linear-gradient(to bottom, var(--bg-color) 0% 45%, transparent),
+        linear-gradient(to bottom, transparent 80%, var(--bg-color)),
+        repeating-linear-gradient(to right,
+          var(--grid-color),
+          var(--grid-color) calc(100% / var(--num-x, 12) - var(--gap-x)),
+          var(--gap-color) calc(100% / var(--num-x, 12) - var(--gap-x)),
+          var(--gap-color) calc(100% / var(--num-x, 12) + (var(--gap-x) / 12)));
 
-          .hero__heading {
-            text-align: center;
-          }
+      @media (width >=992px) {
+        --num-x: 12;
+      }
 
-          .hero__subheading {
-            text-align: center;
-          }
+      .hero__wrapper {
+        margin-bottom: 10%;
 
-          .hero__btn_wrapper {
-            display: flex;
-            justify-content: center;
-          }
+        .hero__heading {
+          text-align: center;
         }
+
+        .hero__subheading {
+          text-align: center;
+        }
+
+        .hero__btn_wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: var(--base-space);
+          padding-inline: .5rem;
+
+          .learn__btn {
+            --bg: rgba(255, 255, 255, .8);
+            display: flex;
+            gap: calc(var(--base-space) / 2);
+          }
+
+          .download__btn {}
+        }
+      }
     }
+  }
+}
+
+body {
+  height: 200vh;
 }
