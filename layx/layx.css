@@ -2,6 +2,7 @@
 @import url(main/base/variable.css);
 @import url(main/base/scrollbar.css);
 @import url(main/base/base.css);
+@import url(main/base/animation.css);
 @import url(main/typography/typography.css);
 
 /* Core componets */

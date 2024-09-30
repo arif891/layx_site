@@ -12,10 +12,10 @@
       --num-x: 6;
       --grid-color: rgba(0, 225, 255, 0.3);
       --gap-color: transparent;
-      min-height: 80svh;
+      min-height: 90svh;
       align-items: center;
       background:
-        linear-gradient(to bottom, var(--bg-color) 0% 45%, transparent , var(--bg-color) 100%),
+        linear-gradient(to bottom, var(--bg-color) 0% 45%, transparent, var(--bg-color) 100%),
         repeating-linear-gradient(to right,
           var(--grid-color),
           var(--grid-color) calc(100% / var(--num-x, 12) - var(--gap-x)),
@@ -46,7 +46,7 @@
           padding-inline: .5rem;
 
           .learn__btn {
-            --bg: rgba(255, 255, 255, .8);
+            --bg: rgba(251, 254, 255, 0.8);
             display: flex;
             gap: calc(var(--base-space) / 2);
           }
@@ -56,4 +56,97 @@
       }
     }
   }
+}
+
+.inspire__section {
+  margin-bottom: 10vh;
+  height: 300vh;
+  overflow-x: clip;
+  view-timeline: --inspire-sec;
+
+  .inspoire__layout {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+
+    &::before {
+      animation: linear ins_left forwards;
+    }
+
+    &::after {
+      right: 0;
+      animation: linear ins_right forwards;
+    }
+
+    &::before,&::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      background-color: rgba(231, 251, 255, 0.3);
+      backdrop-filter: blur(15px);
+      animation-timeline: --inspire-sec;
+      animation-range: contain 0% contain 75%;
+    }
+  }
+}
+
+@keyframes ins_left {
+  to {
+    translate: -100% 0;
+  }
+}
+
+@keyframes ins_right {
+  to {
+    translate: 100% 0;
+  }
+}
+
+.feature__section {
+
+  .feature__container {
+
+    .feature__layout {
+      gap: 1rem;
+
+      .feature__sub {
+        padding: 2rem;
+        min-height: 400px;
+        background-color: #fafafa;
+        background-repeat: no-repeat;
+        background-size: auto 60%;
+        background-position: bottom -25% right;
+        border-radius: .5rem;
+      }
+
+      .modular__component {
+        background-image: url(/assets/image/home/modular_component.webp);
+      }
+
+      .responsive__design {
+        background-image: url(/assets/image/home/responsive_design.webp);
+      }
+
+      .customizable {
+        background-image: url(/assets/image/home/customizable.webp);
+      }
+
+      .performance {
+        background-image: url(/assets/image/home/performance.webp);
+      }
+
+      .efficient__development {
+        background-image: url(/assets/image/home/efficient_development.webp);
+      }
+
+      .browser__compatibility {
+        background-image: url(/assets/image/home/browser_compatibility.webp);
+      }
+    }
+  }
+}
+
+.benefit__section {
+  display: none;
 }
