@@ -59,15 +59,74 @@
 }
 
 .inspire__section {
-  margin-bottom: 10vh;
+  margin-block: 10vh;
   height: 300vh;
   overflow-x: clip;
   view-timeline: --inspire-sec;
+ 
 
   .inspoire__layout {
     position: sticky;
     top: 0;
+    align-items: center;
     height: 100vh;
+    background: 
+    conic-gradient(from 290deg at 35% 40%, #cef2ff 0%, transparent 2.5%),
+    conic-gradient(from 110deg at 65% 60%, #cef2ff 0%, transparent 2.5%)
+    ;
+
+    .ins__layx_text {
+      font-size: clamp(5rem, 15vw, 12.5rem);
+      background: linear-gradient(135deg, #dcf6ff, #56cdf9);
+      color: transparent;
+      width: fit-content;
+      margin-inline: auto;
+      -webkit-background-clip: text;
+    }
+
+    .reveal__text_wrapper {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+
+      h2 {
+        margin: unset;
+        line-height: 1;
+      }
+
+      ._is {
+        opacity: .6;
+        z-index: -1;
+      }
+
+      .swap__text_wrapper {
+        height: 1em;
+
+        .text_1 {
+          translate: 0 100%;
+          animation: linear ins_text_1 forwards;
+          animation-range: contain 30% contain 55%;
+        }
+
+        .text_2 {
+          animation: linear ins_text_2 forwards;
+          animation-range: contain 55% contain 80%;
+        }
+
+        .text_3 {
+          translate: 0 -100%;
+          animation: linear ins_text_3 forwards;
+          animation-range: contain 80% contain 100%;
+        }
+
+        .text_1, .text_2, .text_3 {
+          display: block;
+          animation-timeline: --inspire-sec;
+          opacity: 0;
+        }
+
+      }
+    }
 
     &::before {
       animation: linear ins_left forwards;
@@ -83,23 +142,87 @@
       position: absolute;
       height: 100%;
       width: 50%;
-      background-color: rgba(231, 251, 255, 0.3);
+      background-color: rgba(220, 250, 255, 0.3);
       backdrop-filter: blur(15px);
       animation-timeline: --inspire-sec;
-      animation-range: contain 0% contain 75%;
+      animation-range: contain 0% contain 40%;
     }
   }
 }
 
 @keyframes ins_left {
+  from {
+    translate: 0 0;
+  }
+
   to {
-    translate: -100% 0;
+    translate:-100% 0;
   }
 }
 
 @keyframes ins_right {
+  from {
+    translate: 0 0;
+  }
+
   to {
     translate: 100% 0;
+  }
+}
+
+@keyframes ins_text_1 {
+  0% {
+    translate:0 100% ;
+    opacity: 0;
+  }
+
+  50% {
+    translate:0 0%;
+    opacity: 1;
+  }
+
+  75% {
+    translate:0 0%;
+    opacity: 1;
+  }
+
+  100% {
+    translate:0 -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes ins_text_2 {
+  0% {
+    translate:0 0%;
+    opacity: 0;
+  }
+
+  50% {
+    translate:0 -100%;
+    opacity: 1;
+  }
+
+  75% {
+    translate:0 -100%;
+    opacity: 1;
+  }
+
+  100% {
+    translate:0 -200%;
+    opacity: 0;
+  }
+}
+
+@keyframes ins_text_3 {
+  0% {
+    translate:0 -100%;
+    opacity: 0;
+  }
+
+  100% {
+    translate:0 -200%;
+    opacity: 1;
   }
 }
 
