@@ -128,4 +128,4 @@ class SmoothScroll {
 }
 
 // Usage example:
-new SmoothScroll();
+export default new SmoothScroll();

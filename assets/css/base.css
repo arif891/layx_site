@@ -46,6 +46,18 @@ body {
                 &.active {
                     --bg: var(--accent-color);
                 }
+
+                &::before {
+                    opacity: .6;
+                }
+            }
+
+            @media (width < 992px) {
+                background-color: var(--bg);
+
+                button {
+                    padding: .5rem;
+                }
             }
         }
     }
