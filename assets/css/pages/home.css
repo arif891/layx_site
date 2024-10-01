@@ -16,6 +16,10 @@
           var(--gap-color) calc(100% / var(--num-x, 12) - var(--gap-x)),
           var(--gap-color) calc(100% / var(--num-x, 12) + (var(--gap-x) / 12)));
 
+      [theme=dark] & {
+        --grid-color: rgb(0, 240, 255);
+      }   
+
       @media (width >=992px) {
         --num-x: 12;
         min-height: 100svh;
@@ -40,7 +44,7 @@
           padding-inline: .5rem;
 
           .learn__btn {
-            --bg: rgba(251, 254, 255, 0.8);
+            --bg: rgba(var(--bg-color-rgb), 0.8);
             display: flex;
             gap: calc(var(--base-space) / 2);
           }
@@ -246,7 +250,7 @@
       .feature__sub {
         padding: 2rem;
         min-height: 400px;
-        background-color: #fafafa;
+        background-color: var(--bg);
         background-repeat: no-repeat;
         background-size: auto 60%;
         background-position: bottom -25% right;
