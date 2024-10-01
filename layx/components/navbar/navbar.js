@@ -26,6 +26,7 @@ class Navbar {
     }
 
     addCloseButtonListeners(navbar, closeButton, wrapper) {
+        if (!closeButton) return;
         closeButton.addEventListener('click', () => {
             this.closeNavbar(navbar, wrapper);
         });

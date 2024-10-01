@@ -1,1 +1,85 @@
-/* Here you can write your base css code, it will be added after layx code */
+body {
+    transition: color .3s, background-color .6s;
+}
+
+.layx__navbar {
+    --navbar-bg: rgba(var(--bg-color-rgb), .6);
+    --radius: .5rem;
+    --blur: 10px;
+
+    .nav__end {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav__theme_wrapper {
+
+        &::before {
+            display: none;
+        }
+
+        .nav__theme {
+            display: flex;
+            gap: .25rem;
+            padding: .25rem;
+            border-radius: 5rem;
+            background-color: var(--bg-color);
+
+            button {
+                --radius: 5rem;
+                --bg: transparent;
+                aspect-ratio: 1;
+                flex-shrink: 0;
+                padding: .25rem;
+                transition: .3s;
+
+                &:hover {
+                    --bg: rgba(var(--color-rgb), .05);
+                }
+
+                &.active {
+                    --bg: var(--accent-color);
+                }
+            }
+        }
+    }
+
+    @media (width >=992px) {
+        .nav__end {
+            flex-direction: row;
+        }
+
+        .nav__theme_wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                display: block;
+                opacity: .5;
+            }
+
+            .nav__theme {
+                position: absolute;
+                inset: 0 0 0 auto;
+                padding: 0;
+                width: 0px;
+                overflow: hidden;
+                transition: .3s;
+            }
+
+            &:hover .nav__theme {
+                width: auto;
+                padding: .25rem;
+            }
+        }
+    }
+}
+
+.sec__text {
+    width: fit-content;
+    color: transparent;
+    background: linear-gradient(160deg, rgba(var(--color-rgb), .3), rgba(var(--color-rgb), .8));
+    -webkit-background-clip: text;
+}
