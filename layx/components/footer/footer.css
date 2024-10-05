@@ -1,3 +1,24 @@
 footer {
-    
+    --padding: 1rem;
+
+    &:not(.defult) {
+        margin-block: clamp(1rem, 5vh, 3rem);
+        layout {
+            min-height: 30vh;
+            background: var(--bg);
+            padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
+        }
+    }
+
+    .link-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+        }
+    }
 }
