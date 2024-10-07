@@ -369,6 +369,7 @@
         display: block;
         margin-inline: auto;
         margin-top: 1rem;
+        width: fit-content;
       }
 
       img {
@@ -420,6 +421,7 @@
       .sponsor__btn {
         display: block;
         margin-inline: auto;
+        width: fit-content;
         margin-top: 1rem;
       }
     }
