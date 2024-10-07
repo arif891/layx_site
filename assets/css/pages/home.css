@@ -378,6 +378,7 @@
 
       .right {
         translate: -5%;
+        justify-self: end;
       }
 
       .left {
