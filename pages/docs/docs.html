@@ -1,21 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Document</title>
 
-    <link rel="stylesheet" href="layx/layx.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demo Document</title>
 
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/pages/docs.css">
+        <link rel="stylesheet" href="/layx/layx.css">
 
-</head>
-<body>
-    
-    <script src="layx/layx.js" type="module"></script>
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/pages/docs.css">
 
-    <script src="assets/js/base.js"></script>
-    <script src="assets/js/pages/docs.js"></script>
-</body>
+    </head>
+
+    <body>
+        <header>
+            <navbar class="fixed layx__navbar update-scroll-state">
+                <div class="wrapper">
+                    <div class="main modern center move">
+                        <div class="brand">
+                            <a href="/">
+                                <h5 class="logo-text">Layx</h5>
+                            </a>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able left">
+                            <div>
+                                <nav class="link-wrapper">
+                                    <a href="/pages/docs/docs.html" class="link">Docs</a>
+                                    <a href="/pages/components.html" class="link">Components</a>
+                                    <a href="/pages/download.html" class="link">Download</a>
+                                    <a href="/pages/about.html" class="link">About</a>
+                                    <a href="/pages/blog.html" class="link">Blog</a>
+                                </nav>
+                            </div>
+                            <div class="nav__end">
+                                <div class="theme-update nav__theme_wrapper">
+                                    <div class="nav__theme">
+                                        <button data-theme-value="light"></button>
+                                        <button data-theme-value="dark"></button>
+                                        <button data-theme-value="auto"></button>
+                                    </div>
+                                </div>
+                                <a class="btn dark wide" href="#">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+        </header>
+
+        <main>
+
+        </main>
+
+        <footer class="footer__secton">
+            <container class="footer__container">
+                <layout class="footer__layout gap">
+                    <div class="x-12 sub-x footer__middle">
+                        <div class="x-12 x-lg-4 brand">
+                            <div class="brand__text_wrapper">
+                                <h2 class="brand__text">LayX</h2>
+                            </div>
+                            <p>A modern layout framework that makes building websites faster, easier, and more flexible.
+                            </p>
+                        </div>
+                        <div class="link__block x-12 x-lg-6 xs-lg-7">
+                            <div class="link-wrapper">
+                                <h5>Main</h5>
+                                <a href="/pages/docs/docs.html">Docs</a>
+                                <a href="/pages/components.html">Components</a>
+                                <a href="/pages/examples.html">Examples</a>
+                                <a href="/pages/download.html">Download</a>
+                            </div>
+                            <div class="link-wrapper">
+                                <h5>About</h5>
+                                <a href="/pages/approach.html">Approach</a>
+                                <a href="/pages/features.html">Features</a>
+                                <a href="/pages/about.html">About</a>
+                                <a href="/pages/blog.html">Blog</a>
+                            </div>
+                            <div class="link-wrapper">
+                                <h5>Other</h5>
+                                <a href="/pages/sponsor.html">Sponsor</a>
+                                <a href="/pages/contributing.html">Contributing</a>
+                                <a href="/pages/issues.html">Issues</a>
+                                <a href="/pages/license.html">License</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-12 footer__end">
+                        <p>© 2024 LayX</p>
+                        <a class="footer__github" href="https://github.com/arif891/Layx">
+                            <svg class="icon">
+                                <use href="/assets/image/svg/icons.svg#github" />
+                            </svg>
+                        </a>
+                        <p>MIT License</p>
+                    </div>
+                </layout>
+            </container>
+        </footer>
+
+        <script src="/layx/layx.js" type="module"></script>
+
+        <script src="/assets/js/base.js"></script>
+        <script src="/assets/js/pages/docs.js"></script>
+    </body>
+
 </html>

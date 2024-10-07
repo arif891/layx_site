@@ -1,3 +1,8 @@
+:root {
+    --page-transition-duration: 1.2s;
+    --page-transition-bg-color: rgb(240, 250, 255);
+}
+
 body {
     transition: color .3s, background-color .6s;
 }
