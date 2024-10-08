@@ -18,7 +18,7 @@
     --heading-color: #000;
     --paragraph-color: #000;
     --accent-color: #bae7ff;
-    --scrollbar-color: rgba(var(--color-rgb), .4);
+    --scrollbar-color: rgba(var(--color-rgb), .3);
     --color: rgb(var(--color-rgb));
     --bg-color: rgb(var(--bg-color-rgb));
     color-scheme: light;

@@ -1,0 +1,63 @@
+.doc__section {
+    background-color: #fdf4ff;
+
+    [theme=dark] & {
+        background-color: var(--bg-color);
+    }
+
+    .doc__container {
+        position: relative;
+
+        .doc__layout {
+            padding-top: 5rem;
+
+            .side__nav,
+            .main,
+            .side__progress {
+                padding: 1.5rem;
+                background-color: var(--bg-color);
+
+                [theme=dark] & {
+                    background-color: var(--bg);
+                }
+            }
+
+            .side__nav,
+            .side__progress {
+                height: 100dvh;
+                position: sticky;
+                top: 0;
+                overflow-y: auto;
+                border-radius: .5rem;
+                scrollbar-width: thin;
+            }
+
+            .side__nav {
+
+                .links__wrapper {
+
+                    &:not(:last-child) {
+                        margin-bottom: 2rem;
+                    }
+
+                    .links {
+                        display: flex;
+                        flex-direction: column;
+
+                        .link {
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+
+            .main {
+                height: 300vh;
+                border-radius: .5rem;
+            }
+
+            .side__progress {}
+        }
+    }
+}
