@@ -55,7 +55,32 @@
                         .link {
                             text-decoration: none;
                             color: inherit;
-                        }
+                            padding-block: .15rem;
+                            margin-block: .05rem;
+                            padding-inline-start: .75rem;
+                            border-left: 2px solid #efefef;
+
+                            &.active {
+                                border-left: 2px solid #67e8f9;
+                                pointer-events: none;
+                            }
+
+                            &:hover {
+                                border-left: 2px solid #afafaf;
+                            }
+
+                            [theme=dark] & {
+                                border-left: 2px solid #3e3e3e;
+
+                                &.active {
+                                    border-left: 2px solid #06b6d4;
+                                }
+
+                                &:hover {
+                                    border-left: 2px solid #747474;
+                                }  
+                            }
+                        } 
                     }
                 }
             }
