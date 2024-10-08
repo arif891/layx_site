@@ -44,6 +44,10 @@ hr {
 
 ol,ul {
     padding-inline-start: 2rem;
+
+    li {
+        padding-block: .25rem;
+    }
 }
 
 ol,ul,dl {

@@ -7,6 +7,10 @@
 
     [theme=dark] & {
         background-color: var(--bg-color);
+
+        [data-code-lang] {
+            background-color: var(--bg-color);
+        }
     }
 
     .doc__container {
