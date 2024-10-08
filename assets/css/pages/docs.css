@@ -1,3 +1,7 @@
+@view-transition {
+    navigation: none;
+}
+
 .doc__section {
     background-color: #fdf4ff;
 
