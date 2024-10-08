@@ -57,7 +57,7 @@
             }
 
             .main {
-                height: 300vh;
+                min-height: 100vh;
                 border-radius: .5rem;
             }
 
