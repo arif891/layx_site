@@ -41,6 +41,11 @@
             }
 
             .side__nav {
+                position: fixed;
+
+                @media (width >=992px) {
+                    position: sticky;
+                }
 
                 .links__wrapper {
 
@@ -78,9 +83,9 @@
 
                                 &:hover {
                                     border-left: 2px solid #747474;
-                                }  
+                                }
                             }
-                        } 
+                        }
                     }
                 }
             }
@@ -90,7 +95,13 @@
                 border-radius: .5rem;
             }
 
-            .side__progress {}
+            .side__progress {
+                display: none;
+
+                @media (width >=992px) {
+                    display: block;
+                }
+            }
         }
     }
 }
