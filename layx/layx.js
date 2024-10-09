@@ -9,4 +9,8 @@ import {Sheet} from "./components/sheet/sheet.js";
 /* Other */
 import CodeHighlighter from "./others/syntax_highlighter/syntax_highlighter.js";
 
-new Sheet('#side-nav');
+const mediaQuery = window.matchMedia('(max-width: 992px)');
+
+if (mediaQuery.matches) {
+    new Sheet('#side-nav');
+}

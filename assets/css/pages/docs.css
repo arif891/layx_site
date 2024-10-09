@@ -119,5 +119,15 @@
                 }
             }
         }
+
+        .side__nav_toggler {
+            position: fixed;
+            top: 5rem;
+            right: .75rem;
+
+            @media (width >=992px) {
+                display: none;
+            }
+        }
     }
 }
