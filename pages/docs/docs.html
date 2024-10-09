@@ -54,12 +54,14 @@
             <section class="doc__section">
                 <container class="doc__container">
                     <layout class="doc__layout gap">
-                        <div class="x-3 side__nav">
+                        <div class="x-3 side__nav" id="side-nav">
                             <div class="links__wrapper">
                                 <h6>Getting started</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/getting_started/introduction.html" class="link">Introduction</a>
-                                    <a href="/pages/docs/getting_started/installation.html" class="link">Installation</a>
+                                    <a href="/pages/docs/getting_started/introduction.html" class="link"
+                                        id="int-link">Introduction</a>
+                                    <a href="/pages/docs/getting_started/installation.html"
+                                        class="link">Installation</a>
                                     <a href="/pages/docs/getting_started/quick_start.html" class="link">Quick Start</a>
                                     <a href="/pages/docs/getting_started/cli.html" class="link">CLI</a>
                                 </div>
@@ -80,8 +82,10 @@
                                 <h6>Layout System</h6>
                                 <div class="links">
                                     <a href="/pages/docs/layout_system/breakpoints.html" class="link">Breakpoints</a>
-                                    <a href="/pages/docs/layout_system/container_component.html" class="link">Container Component</a>
-                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout Component</a>
+                                    <a href="/pages/docs/layout_system/container_component.html" class="link">Container
+                                        Component</a>
+                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout
+                                        Component</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -147,9 +151,11 @@
                                     <a href="/pages/docs/other/dynamic.html" class="link">Dynamic</a>
                                     <a href="/pages/docs/other/icon.html" class="link">Icon</a>
                                     <a href="/pages/docs/other/pwa.html" class="link">PWA</a>
-                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven Animation</a>
+                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven
+                                        Animation</a>
                                     <a href="/pages/docs/other/smooth_scroll.html" class="link">Smooth Scroll</a>
-                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax Highlighter</a>
+                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax
+                                        Highlighter</a>
                                     <a href="/pages/docs/other/theme.html" class="link">Theme</a>
                                     <a href="/pages/docs/other/view_transition.html" class="link">View Transition</a>
                                 </div>
@@ -162,10 +168,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="x-6 main">
+                        <div class="x-6 main" id="main">
 
                         </div>
-                        <div class="x-3 side__progress">
+                        <div class="x-3 side__progress" id="side-progress">
 
                         </div>
                     </layout>
@@ -220,6 +226,146 @@
                 </layout>
             </container>
         </footer>
+
+        <script>
+            const sideNav = document.getElementById('side-nav');
+            const main = document.getElementById('main');
+            const sideProgress = document.getElementById('side-progress');
+
+            const navLinks = sideNav.querySelectorAll('a');
+
+            navLinks.forEach((link) => {
+                link.setAttribute('data-main-url', `${getPathFromUrl(link.href)}parital/main/${getFileNameFromUrl(link.href)}`);
+                link.setAttribute('data-side-url', `${getPathFromUrl(link.href)}parital/side/${getFileNameFromUrl(link.href)}`);
+                handleLink(link);
+            });
+
+            function handleLink(link) {
+                const href = link.href;
+                const mainUrl = link.dataset.mainUrl;
+                const sideUrl = link.dataset.sideUrl;
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    handleClick(e, mainUrl, sideUrl, href, link);
+                });
+            }
+
+            function handleClick(e, mainUrl, sideUrl, href, link) {
+                e.preventDefault();
+                fetchContent(mainUrl, sideUrl, href, link, true); // 'true' to indicate manual navigation
+            }
+
+            async function fetchContent(mainUrl, sideUrl, href, link, pushState = false) {
+                try {
+                    const [mainResponse, sideResponse] = await Promise.all([
+                        fetch(mainUrl),
+                        fetch(sideUrl)
+                    ]);
+
+                    if (mainResponse.ok && sideResponse.ok) {
+                        const mainContent = await mainResponse.text();
+                        const sideContent = await sideResponse.text();
+
+                        document.getElementById('main').innerHTML = mainContent;
+                        document.getElementById('side-progress').innerHTML = sideContent;
+
+                        // Update the browser URL if it's a manual navigation
+                        if (pushState) {
+                            history.pushState({ mainUrl, sideUrl }, '', href);
+                        }
+
+                        // Update the active link
+                        updateActiveLink(href);
+
+                    } else {
+                        // If the partial content fetch fails, check if the original link works
+                        checkOriginalLink(href);
+                    }
+
+                } catch (error) {
+                    // On error, check if the original link works
+                    console.error('Error fetching content:', error);
+                    checkOriginalLink(href);
+                }
+            }
+
+            // Function to check if the original link works, and if so, redirect the user to that URL
+            async function checkOriginalLink(href) {
+                try {
+                    const response = await fetch(href);
+
+                    if (response.ok) {
+                        // If the original link works, redirect to the original document
+                        window.location.href = href;
+                    } else {
+                        console.error('Original document is also unavailable:', response.status);
+                    }
+                } catch (error) {
+                    console.error('Error checking original document:', error);
+                }
+            }
+
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', (e) => {
+                e.preventDefault(); // Prevent default behavior
+
+                if (e.state && e.state.mainUrl && e.state.sideUrl) {
+                    // Fetch the content based on the stored state in the history
+                    fetchContent(e.state.mainUrl, e.state.sideUrl, document.location.href, null, false);
+                } else {
+                    // If there's no state (e.g., initial page load), load the current URL
+                    const link = findLinkByHref(document.location.href);
+                    if (link) {
+                        handleClick(e, link.dataset.mainUrl, link.dataset.sideUrl, document.location.href, link);
+                    } else {
+                        // If no matching link is found, you might want to handle this case (e.g., show a 404 page)
+                        console.error('No matching link found for:', document.location.href);
+                    }
+                }
+            });
+
+            // New function to update the active link
+            function updateActiveLink(href) {
+                navLinks.forEach((link) => {
+                    if (link.href === href) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // New function to find a link by its href
+            function findLinkByHref(href) {
+                return Array.from(navLinks).find(link => link.href === href);
+            }
+
+            function getPathFromUrl(url) {
+                const urlObj = new URL(url);
+                const path = urlObj.pathname;
+
+                return path.substring(0, path.lastIndexOf('/')) + '/';
+            }
+
+            function getFileNameFromUrl(url) {
+                return url.substring(url.lastIndexOf('/') + 1);
+            }
+
+            // Initial content load from the first link
+            document.addEventListener('DOMContentLoaded', () => {
+                if (navLinks.length > 0) {
+                    const firstLink = navLinks[0];
+                    const mainUrl = firstLink.dataset.mainUrl;
+                    const sideUrl = firstLink.dataset.sideUrl;
+                    const href = firstLink.href;
+
+                    fetchContent(mainUrl, sideUrl, href, firstLink, true);
+                } else {
+                    console.error('No navigation links found');
+                }
+            });
+        </script>
 
         <script src="/layx/layx.js" type="module"></script>
 
