@@ -93,6 +93,7 @@ backdrop {
     inset: 0;
     visibility: hidden;
     opacity: 0;
+    z-index: 2;
     background: var(--backdrop-bg, rgba(0,0,0,.3));
     transition: var(--backdrop-transition, .3s);
 

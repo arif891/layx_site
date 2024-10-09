@@ -215,3 +215,4 @@ class CodeHighlighter {
 }
 
 export default new CodeHighlighter();
+export {CodeHighlighter};

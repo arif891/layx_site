@@ -41,9 +41,25 @@
             }
 
             .side__nav {
-                position: fixed;
+               
+                @media (width < 992px) {
+                    position: fixed;
+                    z-index: 3;
+                    top:5rem;
+                    left: auto;
+                    right: 0;
+                    height: calc(100dvh - 5rem);
+                    border-radius: .5rem 0 0 0;
+                    translate: 100%;
+                    transition: .6s;
+
+                    &[open] {
+                        translate: 0; 
+                    }
+                }
 
                 @media (width >=992px) {
+                    top:0;
                     position: sticky;
                 }
 
