@@ -278,6 +278,8 @@
                         // Update the active link
                         updateActiveLink(href);
 
+                        codeInt();
+
                     } else {
                         // If the partial content fetch fails, check if the original link works
                         checkOriginalLink(href);
@@ -361,10 +363,37 @@
                     const href = firstLink.href;
 
                     fetchContent(mainUrl, sideUrl, href, firstLink, true);
+                    codeInt();
                 } else {
                     console.error('No navigation links found');
                 }
             });
+
+            function codeInt() {
+
+                const codeElements = main.querySelectorAll('[data-code-lang][copy]');
+                codeElements.forEach(element => {
+                    const button = document.createElement('button');
+                    button.className = 'copy-btn';
+                    button.addEventListener('click', () => copyToClipboard(element));
+
+                    element.appendChild(button);
+                });
+
+
+                function copyToClipboard(element) {
+                    const text = element.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const button = element.querySelector('.copy-btn');
+                        button.classList.add('copied');
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
+                }
+            }
         </script>
 
         <script src="/layx/layx.js" type="module"></script>
