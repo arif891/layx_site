@@ -1,7 +1,3 @@
-@view-transition {
-    navigation: none;
-}
-
 .doc__section {
     background-color: #fdf4ff;
 
@@ -19,9 +15,7 @@
         .doc__layout {
             padding-top: 5rem;
 
-            .side__nav,
-            .main,
-            .side__progress {
+            .side__nav,.main,.side__progress {
                 padding: 1.5rem;
                 background-color: var(--bg-color);
 
@@ -30,8 +24,7 @@
                 }
             }
 
-            .side__nav,
-            .side__progress {
+            .side__nav,.side__progress {
                 height: 100dvh;
                 position: sticky;
                 top: 0;
@@ -86,7 +79,7 @@
                                 pointer-events: none;
                             }
 
-                            &:hover {
+                            &:hover:not(.active) {
                                 border-left: 2px solid #afafaf;
                             }
 
