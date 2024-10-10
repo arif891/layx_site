@@ -45,6 +45,7 @@
                     border-radius: .5rem 0 0 0;
                     translate: 100%;
                     transition: .6s;
+                    overscroll-behavior: contain;
 
                     &[open] {
                         translate: 0; 
@@ -117,6 +118,14 @@
             position: fixed;
             top: 5rem;
             right: .75rem;
+            height: 2rem;
+            width: 2rem;
+
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-list' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+            background-color: #f0fdf4;
 
             @media (width >=992px) {
                 display: none;

@@ -109,3 +109,7 @@ body {
     background: linear-gradient(160deg, rgba(var(--color-rgb), .3), rgba(var(--color-rgb), .8));
     -webkit-background-clip: text;
 }
+
+.ts {
+    padding-top: 3rem;
+}

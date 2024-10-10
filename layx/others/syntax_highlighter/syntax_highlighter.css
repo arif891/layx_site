@@ -9,7 +9,7 @@
     padding: var(--padding);
     margin-block: .5rem;
     border-radius: .5rem;
-    font-size: min(calc(.9rem + .3vw), 1.2rem);
+    font-size: min(calc(.9rem + .3vw), 1.1rem);
     overflow: auto;
 
     .line {}

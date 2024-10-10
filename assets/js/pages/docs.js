@@ -50,6 +50,11 @@ async function fetchContent(mainUrl, sideUrl, href, link, pushState = false) {
 
             codeInt();
 
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
         } else {
             // If the partial content fetch fails, check if the original link works
             checkOriginalLink(href);

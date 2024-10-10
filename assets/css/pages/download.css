@@ -1,0 +1,87 @@
+.download__section {
+
+    .download__container {
+
+        .download__layout {
+
+            .download__box {
+                padding: 1rem;
+                border-radius: .5rem;
+                background-color: var(--bg);
+
+                @media (width >=992px) {
+                    padding: 2rem;
+                }
+
+                p {
+                    max-width: 60ch;
+                }
+
+                .link__wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    a {
+                        text-decoration: none;
+                        flex-grow: 1;
+
+                        h5 {
+                            display: flex;
+                            gap: .5rem;
+                            align-items: center;
+                            color: #454545;
+                            background-color: var(--bg-color);
+                            padding: 1rem;
+                            border-radius: .5rem;
+
+                            .icon {
+                                height: 1lh;
+                            }
+
+                            .icon.download {
+                                padding: .45rem;
+                                background-color: #f0fdf4;
+                                border-radius: 5rem;
+                                margin-left: auto;
+
+                                use {
+                                    fill: #34d399;
+                                    border-radius: 0;
+                                }
+                            }
+
+                            [theme=dark] & {
+                                color: #dcdcdc;
+                            }
+                        }
+
+                        &.not__available {
+                            cursor: not-allowed;
+                            opacity: .6;
+                        }
+                    }
+                }
+
+                .installation_sec {
+                    max-width: 52.5ch;
+                    margin-top: 1.5rem;
+    
+                    [data-code-lang] {
+                        background-color: var(--bg-color);
+                    }
+                }
+
+                .note__text {
+                    width: fit-content;
+                    margin-inline: auto;
+                    margin-bottom: 0;
+                    padding: 1rem;
+                    border-radius: .5rem;
+                    color: #2a2a2a;
+                    background-color: #fefce8;
+                }
+            }
+        }
+    }
+}
