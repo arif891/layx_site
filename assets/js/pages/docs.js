@@ -4,10 +4,35 @@ const sideProgress = document.getElementById('side-progress');
 
 const navLinks = sideNav.querySelectorAll('a');
 
+// Create an Intersection Observer
+const linkObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Get the link element
+            const link = entry.target;
+            const mainUrl = link.dataset.mainUrl;
+            const sideUrl = link.dataset.sideUrl;
+
+            // Prefetch the content
+            fetch(mainUrl).catch(() => { }); // Silently handle any prefetch errors
+            fetch(sideUrl).catch(() => { });
+
+            // Unobserve the link after prefetching
+            linkObserver.unobserve(link);
+        }
+    });
+}, {
+    // Options for the observer
+    rootMargin: '50px', // Start loading slightly before the link comes into view
+    threshold: 0.1 // Trigger when even just 10% of the element is visible
+});
+
 navLinks.forEach((link) => {
     link.setAttribute('data-main-url', `${getPathFromUrl(link.href)}parital/main/${getFileNameFromUrl(link.href)}`);
     link.setAttribute('data-side-url', `${getPathFromUrl(link.href)}parital/side/${getFileNameFromUrl(link.href)}`);
     handleLink(link);
+    // Start observing the link
+    linkObserver.observe(link);
 });
 
 function handleLink(link) {
@@ -102,7 +127,6 @@ window.addEventListener('popstate', (e) => {
     }
 });
 
-
 function updateActiveLink(href) {
     navLinks.forEach((link) => {
         if (link.href === href) {
@@ -113,7 +137,6 @@ function updateActiveLink(href) {
     });
 }
 
-
 function findLinkByHref(href) {
     return Array.from(navLinks).find(link => link.href === href);
 }
@@ -121,7 +144,6 @@ function findLinkByHref(href) {
 function getPathFromUrl(url) {
     const urlObj = new URL(url);
     const path = urlObj.pathname;
-
     return path.substring(0, path.lastIndexOf('/')) + '/';
 }
 
