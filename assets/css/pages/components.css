@@ -1,0 +1,25 @@
+.components__section {
+
+    .components__container {
+        padding-block: 2.5rem;
+
+        .components__layout {
+            padding-block: .5rem;
+
+            .components__box {
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                img {
+                    border-radius: .5rem;
+                }
+            }
+
+            h4,h6 {
+                margin: unset;
+            }
+        }
+    }
+}
