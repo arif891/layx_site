@@ -81,10 +81,12 @@
                             <div class="links__wrapper">
                                 <h6>Layout System</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/layout_system/breakpoints.html" class="link active">Breakpoints</a>
+                                    <a href="/pages/docs/layout_system/breakpoints.html"
+                                        class="link active">Breakpoints</a>
                                     <a href="/pages/docs/layout_system/container_component.html" class="link">Container
                                         Component</a>
-                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout Component</a>
+                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout
+                                        Component</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -170,8 +172,10 @@
                         <div class="x-12 x-lg-6 main" id="main">
                             <section class="breakpoints__section">
                                 <h5>Breakpoints in LayX</h5>
-                                <p>LayX uses a flexible and responsive grid system with predefined breakpoints that adapt layouts to various screen sizes. These breakpoints allow you to design responsive websites effortlessly, ensuring optimal layouts across devices.</p>
-                            
+                                <p>LayX uses a flexible and responsive grid system with predefined breakpoints that
+                                    adapt layouts to various screen sizes. These breakpoints allow you to design
+                                    responsive websites effortlessly, ensuring optimal layouts across devices.</p>
+
                                 <h6>Available Breakpoints</h6>
                                 <ul>
                                     <li><strong>sm</strong>: 576px</li>
@@ -183,66 +187,130 @@
                                     <li><strong>uwd</strong>: 21 / 9</li>
                                     <li><strong>swd</strong>: 32 / 9</li>
                                 </ul>
-                            
-                                <p>LayX’s breakpoints allow you to define different styles and layout structures based on screen width, making it simple to achieve fully responsive designs.</p>
-                            
+
+                                <p>LayX’s breakpoints allow you to define different styles and layout structures based
+                                    on screen width, making it simple to achieve fully responsive designs.</p>
+
                                 <h6>Usage Example</h6>
                                 <p>Here’s an example of how you can use breakpoints in your CSS:</p>
-<code data-code-lang="css" copy><span class="line"><span class="css-comment">/* (sm) Small devices (landscape phones, 576px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">576px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* (md) Medium devices (tablets, 768px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">768px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* (lg) Large devices (desktops, 992px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">992px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* (xl) X-Large devices (large desktops, 1200px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1200px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* (xxl) XX-Large devices (larger desktops, 1400px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1400px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* (xxxl) XXX-Large devices (Extra larger desktops, 1800px and up) */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1800px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* Wide screens */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">16</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1800px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* Ultrawide screens */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">21</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">2000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">  <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span>
-<span class="line">    </span>
-<span class="line"><span class="css-comment">/* Super ultrawide screens */</span></span>
-<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">32</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">3000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
-<span class="line">   <span class="css-unknown">...</span></span>
-<span class="line"><span class="css-punctuation">}</span></span></code>
-
-<h6>max-width</h6>
-
-<code data-code-lang="css">
+<code data-code-lang="css">/* Define breakpoints for different screen sizes */
+:root {
+    --breakpoint-xs: 0px;       /* Extra small devices (phones, less than 576px) */
+    --breakpoint-sm: 576px;     /* Small devices (tablets) */
+    --breakpoint-md: 768px;     /* Medium devices (desktops) */
+    --breakpoint-lg: 992px;     /* Large devices (larger desktops) */
+    --breakpoint-xl: 1200px;    /* Extra large devices (wider desktops) */
+    --breakpoint-xxl: 1400px;   /* Extra extra large (very wide desktops) */
+    --breakpoint-xxxl: 1800px;  /* Extra extra extra large (ultra-wide screens) */
     
+    /* Aspect ratio breakpoints */
+    --breakpoint-wd: 16 / 9;     /* Standard widescreen (16:9 aspect ratio) */
+    --breakpoint-uwd: 21 / 9;    /* Ultrawide screens (21:9 aspect ratio) */
+    --breakpoint-suwd: 32 / 9;   /* Super ultrawide screens (32:9 aspect ratio) */
+}
+
+/* Media Queries for larger screens */
+
+/* (sm) Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Add styles for small devices here */
+}
+
+/* (md) Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Add styles for medium devices here */
+}
+
+/* (lg) Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Add styles for large devices here */
+}
+
+/* (xl) Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    /* Add styles for extra-large devices here */
+}
+
+/* (xxl) Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+    /* Add styles for very wide screens here */
+}
+
+/* (xxxl) Ultra-wide screens (1800px and up) */
+@media (min-width: 1800px) {
+    /* Add styles for ultra-wide screens here */
+}
+
+/* Aspect ratio-based media queries */
+
+/* Widescreen displays (16:9 and wider, 1800px and up) */
+@media (min-aspect-ratio: 16 / 9) and (min-width: 1800px) {
+    /* Styles for wide screens here */
+}
+
+/* Ultrawide displays (21:9 and wider, 2000px and up) */
+@media (min-aspect-ratio: 21 / 9) and (min-width: 2000px) {
+    /* Styles for ultrawide screens here */
+}
+
+/* Super ultrawide displays (32:9 and wider, 3000px and up) */
+@media (min-aspect-ratio: 32 / 9) and (min-width: 3000px) {
+    /* Styles for super ultrawide screens here */
+}
+
+/* Media Queries for smaller screens */
+
+/* (xs) Extra small devices (below 576px) */
+@media (max-width: 575px) {
+    /* Add styles for extra small devices here */
+}
+
+/* (sm) Small devices (below 768px) */
+@media (max-width: 767px) {
+    /* Add styles for small devices here */
+}
+
+/* (md) Medium devices (below 992px) */
+@media (max-width: 991px) {
+    /* Add styles for medium devices here */
+}
+
+/* (lg) Large devices (below 1200px) */
+@media (max-width: 1199px) {
+    /* Add styles for large devices here */
+}
+
+/* (xl) Extra large devices (below 1400px) */
+@media (max-width: 1399px) {
+    /* Add styles for extra large devices here */
+}
+
+/* (xxl) Extra extra large devices (below 1800px) */
+@media (max-width: 1799px) {
+    /* Add styles for extra extra large devices here */
+}
+
+/* Narrower than widescreen (below 16:9 aspect ratio, 1800px) */
+@media (max-aspect-ratio: 16 / 9) and (max-width: 1799px) {
+    /* Styles for narrower than wide screens here */
+}
+
+/* Narrower than ultrawide (below 21:9 aspect ratio, 2000px) */
+@media (max-aspect-ratio: 21 / 9) and (max-width: 1999px) {
+    /* Styles for narrower than ultrawide screens here */
+}
+
+/* Narrower than super ultrawide (below 32:9 aspect ratio, 3000px) */
+@media (max-aspect-ratio: 32 / 9) and (max-width: 2999px) {
+    /* Styles for narrower than super ultrawide screens here */
+}    
 </code>
 
-                            
-                                <p>By customizing breakpoints, you can create adaptable layouts that look great on all screen sizes.</p>
+
+                                <p>By customizing breakpoints, you can create adaptable layouts that look great on all
+                                    screen sizes.</p>
                             </section>
-                            
+
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
