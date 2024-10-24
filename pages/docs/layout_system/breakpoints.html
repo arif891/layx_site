@@ -168,21 +168,81 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <div class="breakpoints__sec">
-                                <h5>Breakpoints</h5>
-                                <p>Layx's layout system includes the following breakpoints to handle different screen
-                                    sizes:</p>
+                            <section class="breakpoints__section">
+                                <h5>Breakpoints in LayX</h5>
+                                <p>LayX uses a flexible and responsive grid system with predefined breakpoints that adapt layouts to various screen sizes. These breakpoints allow you to design responsive websites effortlessly, ensuring optimal layouts across devices.</p>
+                            
+                                <h6>Available Breakpoints</h6>
                                 <ul>
-                                    <li><strong>Extra Small (xs):</strong> <code>480px</code></li>
-                                    <li><strong>Small (sm):</strong> <code>576px</code></li>
-                                    <li><strong>Medium (md):</strong> <code>768px</code></li>
-                                    <li><strong>Large (lg):</strong> <code>992px</code></li>
-                                    <li><strong>Extra Large (xl):</strong> <code>1200px</code></li>
-                                    <li><strong>XXL:</strong> <code>1400px</code></li>
+                                    <li><strong>sm</strong>: 576px</li>
+                                    <li><strong>md</strong>: 768px</li>
+                                    <li><strong>lg</strong>: 992px</li>
+                                    <li><strong>xl</strong>: 1200px</li>
+                                    <li><strong>xxl</strong>: 1400px</li>
+                                    <li><strong>wd</strong>: 16 / 9</li>
+                                    <li><strong>uwd</strong>: 21 / 9</li>
+                                    <li><strong>swd</strong>: 32 / 9</li>
                                 </ul>
-                                <p>These breakpoints are customizable and ensure that layouts adjust to various screen
-                                    sizes for responsive design.</p>
-                            </div>
+                            
+                                <p>LayX’s breakpoints allow you to define different styles and layout structures based on screen width, making it simple to achieve fully responsive designs.</p>
+                            
+                                <h6>Usage Example</h6>
+                                <p>Here’s an example of how you can use breakpoints in your CSS:</p>
+<code data-code-lang="css" copy><span class="line"><span class="css-comment">/* (sm) Small devices (landscape phones, 576px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">576px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* (md) Medium devices (tablets, 768px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">768px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* (lg) Large devices (desktops, 992px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">992px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* (xl) X-Large devices (large desktops, 1200px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1200px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* (xxl) XX-Large devices (larger desktops, 1400px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1400px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* (xxxl) XXX-Large devices (Extra larger desktops, 1800px and up) */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1800px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* Wide screens */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">16</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">1800px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* Ultrawide screens */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">21</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">2000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">  <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line">    </span>
+<span class="line"><span class="css-comment">/* Super ultrawide screens */</span></span>
+<span class="line"><span class="css-atrule">@media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">32</span> <span class="css-unknown">/</span> <span class="css-unknown">9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">3000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span> </span>
+<span class="line">   <span class="css-unknown">...</span></span>
+<span class="line"><span class="css-punctuation">}</span></span></code>
+
+<h6>max-width</h6>
+
+<code data-code-lang="css">
+    
+</code>
+
+                            
+                                <p>By customizing breakpoints, you can create adaptable layouts that look great on all screen sizes.</p>
+                            </section>
+                            
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
