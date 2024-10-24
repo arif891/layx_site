@@ -1,8 +1,8 @@
-.templates__section {
+.blog__section {
 
-    .templates__container {
+    .blog__container {
 
-        .templates__layout {
+        .blog__layout {
             display: grid;
             place-items: center;
             min-height: 600px;
