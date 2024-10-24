@@ -1,4 +1,57 @@
-<section class="docs__sec">
-    <h5>Doc Section</h5>
-    
+<section class="customize__section">
+    <h5>Customize LayX</h5>
+    <p>LayX is designed with flexibility at its core, allowing you to tailor the framework
+        for your project’s unique needs. Whether you want to adjust styles, add new
+        components, or configure the build, LayX provides all the tools necessary to make
+        customization simple.</p>
+
+    <h6>How to Customize</h6>
+    <p>With LayX, customization begins even before installation. Its no-dependency approach
+        allows you to modify the setup entirely to create a unique experience for your
+        projects.</p>
+
+    <p>By customizing LayX's setup before installation, each new project you create will be
+        uniquely suited to your needs.</p>
+
+    <h6>Step 1: Modify Variables</h6>
+    <p>LayX utilizes CSS variables for easy customization. You can change default values in
+        your project's CSS file:</p>
+<code data-code-lang="css" copy><span class="line"><span
+                class="css-class">.my__container</span> <span
+                class="css-punctuation">{</span> </span>
+<span class="line"><span class="css-property">--edge-offset-x</span><span
+                class="css-value">: .75rem</span><span
+                class="css-punctuation">;</span></span>
+
+<span class="line"><span class="css-atrule"> @media</span> <span
+                class="css-punctuation">(</span><span class="css-unknown">width</span> <span
+                class="css-unknown">&gt;=</span> <span class="css-unit">576px</span><span
+                class="css-punctuation">)</span> <span
+                class="css-punctuation">{</span></span>
+<span class="line"> <span class="css-property">--edge-offset-x</span><span
+                class="css-value">: 2.5%</span><span class="css-punctuation">;</span></span>
+<span class="line"> <span class="css-punctuation">}</span></span>
+<span class="line"><span class="css-punctuation">}</span></span></code>
+
+    <h6>Step 2: Extend Components</h6>
+    <p>LayX allows you to extend its components by adding new classes or modifying existing
+        ones. To customize a button, for example:</p>
+<code data-code-lang="css" copy><span class="line"><span
+                class="css-class">.my__button</span> <span
+                class="css-punctuation">{</span></span>
+<span class="line"><span class="css-property">--padding-x</span><span
+                class="css-value">: 1rem</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">--padding-y</span><span
+                class="css-value">: .5rem</span><span
+                class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">--bg</span><span class="css-value">: var(--primary-color)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span></code>
+
+    <h6>Step 3: Add New Components</h6>
+    <p>If LayX’s pre-built components aren’t enough for your project, you can create your
+        own custom components in <code>layx/components</code>. Include your custom CSS and
+        JS in <code>layx/layx.css</code> and <code>layx/layx.js</code>.</p>
+
+    <p>By following these steps, you can fully customize LayX to fit your project’s specific
+        requirements.</p>
 </section>
