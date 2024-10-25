@@ -58,8 +58,10 @@
                             <div class="links__wrapper">
                                 <h6>Getting started</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/getting_started/introduction.html" class="link">Introduction</a>
-                                    <a href="/pages/docs/getting_started/installation.html" class="link">Installation</a>
+                                    <a href="/pages/docs/getting_started/introduction.html"
+                                        class="link">Introduction</a>
+                                    <a href="/pages/docs/getting_started/installation.html"
+                                        class="link">Installation</a>
                                     <a href="/pages/docs/getting_started/quick_start.html" class="link">Quick Start</a>
                                     <a href="/pages/docs/getting_started/cli.html" class="link">CLI</a>
                                 </div>
@@ -80,8 +82,10 @@
                                 <h6>Layout System</h6>
                                 <div class="links">
                                     <a href="/pages/docs/layout_system/breakpoints.html" class="link">Breakpoints</a>
-                                    <a href="/pages/docs/layout_system/container_component.html" class="link">Container Component</a>
-                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout Component</a>
+                                    <a href="/pages/docs/layout_system/container_component.html" class="link">Container
+                                        Component</a>
+                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout
+                                        Component</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -147,9 +151,11 @@
                                     <a href="/pages/docs/other/dynamic.html" class="link">Dynamic</a>
                                     <a href="/pages/docs/other/icon.html" class="link">Icon</a>
                                     <a href="/pages/docs/other/pwa.html" class="link">PWA</a>
-                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven Animation</a>
+                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven
+                                        Animation</a>
                                     <a href="/pages/docs/other/smooth_scroll.html" class="link">Smooth Scroll</a>
-                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax Highlighter</a>
+                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax
+                                        Highlighter</a>
                                     <a href="/pages/docs/other/theme.html" class="link">Theme</a>
                                     <a href="/pages/docs/other/view_transition.html" class="link">View Transition</a>
                                 </div>
@@ -163,6 +169,57 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
+                            <section class="docs__base-styles">
+                                <h5>Base Styles</h5>
+                                <p>Your base styles layer, inspired by Bootstrap’s Reboot, establishes consistent styling across all elements, optimizing layout, typography, and accessibility through the use of CSS variables and responsive properties.</p>
+                            
+                                <h6>Universal Box Sizing</h6>
+                                <p>Applies <code>box-sizing: border-box;</code> universally to ensure predictable element sizing, simplifying responsive layouts and avoiding overflow issues.</p>
+                                <code data-code-lang="css" copy><span class="line"><span class="css-unknown">*,</span> <span class="css-unknown">*::before,</span> <span class="css-unknown">*::after</span> <span class="css-punctuation">{</span> <span class="css-property">box-sizing</span><span class="css-value">: border-box</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span></code>
+                            
+                                <h6>Responsive Media</h6>
+                                <p>Images, SVGs, and videos are responsive by default, preventing overflow and improving mobile performance.</p>
+                                <code data-code-lang="css" copy><span class="line"><span class="css-unknown">img</span> <span class="css-unknown">,</span> <span class="css-unknown">svg</span> <span class="css-unknown">,</span> <span class="css-selector">video</span> <span class="css-punctuation">{</span> <span class="css-property">display</span><span class="css-value">: block</span><span class="css-punctuation">;</span> <span class="css-property">max-width</span><span class="css-value">: 100%</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span></code>
+                            
+                                <h6>Typography &amp; Structure</h6>
+                                <p>Consistent typography and structural defaults are applied to <code>body</code> and text elements, leveraging CSS variables for colors, font sizes, and spacing.</p>
+<code data-code-lang="css" copy><span class="line"><span class="css-selector">body</span> <span class="css-punctuation">{</span></span>
+<span class="line"><span class="css-property">margin</span><span class="css-value">: 0</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">min-height</span><span class="css-value">: 100vh</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">color</span><span class="css-value">: var(--color)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">background-color</span><span class="css-value">: var(--bg-color)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">font-family</span><span class="css-value">: var(--font-family, sans-serif)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">font-size</span><span class="css-value">: var(--font-size)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">font-weight</span><span class="css-value">: var(--font-weight)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">line-height</span><span class="css-value">: var(--line-height)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span></code>
+                            
+                                <h6>Additional Elements</h6>
+                                <p>Consistent styling is applied to <code>hr</code>, lists, code blocks, and <code>backdrop</code> elements for seamless visuals and user interactions.</p>
+<code data-code-lang="css" copy><span class="line"><span class="css-selector">hr</span> <span class="css-punctuation">{</span> </span>
+<span class="line"><span class="css-property">color</span><span class="css-value">: inherit</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">border-width</span><span class="css-value">: 1px</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">opacity</span><span class="css-value">: .25</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-selector">kbd</span> <span class="css-punctuation">{</span> </span>
+<span class="line"><span class="css-property">color</span><span class="css-value">: #fff</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">background-color</span><span class="css-value">: #252525</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">border-radius</span><span class="css-value">: 0.25rem</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-selector">backdrop</span> <span class="css-punctuation">{</span> </span>
+<span class="line"><span class="css-property">position</span><span class="css-value">: fixed</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">inset</span><span class="css-value">: 0</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">visibility</span><span class="css-value">: hidden</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">opacity</span><span class="css-value">: 0</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">transition</span><span class="css-value">: .3s</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span></code>
+                            
+                                <p>These base styles provide a foundation for consistent, responsive, and accessible design across your layouts.</p>
+                            </section>                            
 
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
