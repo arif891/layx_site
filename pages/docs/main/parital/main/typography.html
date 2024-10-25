@@ -1,4 +1,31 @@
-<section class="docs__sec">
-    <h5>Doc Section</h5>
-    
+<section class="docs__typography">
+    <h5>Typography</h5>
+    <p>The typography settings provide responsive, scalable text styles that emphasize clarity and accessibility, using a consistent font and line-height system.</p>
+
+    <h6>Font Face</h6>
+    <p>By default it uses the <code>'Red Hat Display'</code> font with a weight range from 300 to 900 for flexible emphasis and optimized loading with <code>font-display: swap</code>.</p>
+<code data-code-lang="css" copy><span class="line"><span class="css-atrule">@font-face</span> <span class="css-punctuation">{</span></span>
+<span class="line"><span class="css-property">font-family</span><span class="css-value">: 'Red Hat Display'</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">font-weight</span><span class="css-value">: 300 900</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">font-display</span><span class="css-value">: swap</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">src</span><span class="css-value">: url(/assets/font/Red_Hat_Display.woff2) format('woff2')</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span></code>
+
+    <h6>Headings</h6>
+    <p>Headings <code>h1</code> through <code>h6</code> and their utility classes <code>.h1</code> to <code>.h6</code> have responsive font sizes, weight of 500, and customizable colors.</p>
+<code data-code-lang="css" copy><span class="line"><span class="css-selector">h1</span>, <span class="css-class">.h1</span> <span class="css-punctuation">{</span> <span class="css-property">font-size</span><span class="css-value">: min(calc(1.5rem + 1.8vw), 4.125rem)</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span>
+<span class="line"><span class="css-selector">h2</span>, <span class="css-class">.h2</span> <span class="css-punctuation">{</span> <span class="css-property">font-size</span><span class="css-value">: min(calc(1.4rem + 1.5vw), 3.625rem)</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span>
+<span class="line"></span></code>
+
+    <h6>Paragraphs</h6>
+    <p>Paragraphs <code>p</code> and class <code>.p</code> have a responsive font size, margin, and line height for readability.</p>
+
+<code data-code-lang="css" copy><span class="line"><span class="css-selector">p</span>, <span class="css-class">.p</span> <span class="css-punctuation">{</span></span>
+<span class="line"><span class="css-property">font-size</span><span class="css-value">: min(calc(.9rem + .3vw), 1.1rem)</span><span class="css-punctuation">;</span></span>
+<span class="line"><span class="css-property">margin-block</span><span class="css-value">: 0 .5rem</span><span class="css-punctuation">;</span> </span>
+<span class="line"><span class="css-punctuation">}</span></span>
+<span class="line"></span></code>
+
+    <p>This typography system ensures that text is adaptable, legible, and harmonized across your layout.</p>
 </section>
