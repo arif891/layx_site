@@ -76,7 +76,6 @@ class Form {
 
 // Usage
 new Form();
-export {Form};
 
 const modernRangeInputs = document.querySelectorAll('input[type="range"].modern');
 
