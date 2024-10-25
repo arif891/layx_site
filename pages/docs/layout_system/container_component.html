@@ -58,8 +58,10 @@
                             <div class="links__wrapper">
                                 <h6>Getting started</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/getting_started/introduction.html" class="link">Introduction</a>
-                                    <a href="/pages/docs/getting_started/installation.html" class="link">Installation</a>
+                                    <a href="/pages/docs/getting_started/introduction.html"
+                                        class="link">Introduction</a>
+                                    <a href="/pages/docs/getting_started/installation.html"
+                                        class="link">Installation</a>
                                     <a href="/pages/docs/getting_started/quick_start.html" class="link">Quick Start</a>
                                     <a href="/pages/docs/getting_started/cli.html" class="link">CLI</a>
                                 </div>
@@ -80,8 +82,10 @@
                                 <h6>Layout System</h6>
                                 <div class="links">
                                     <a href="/pages/docs/layout_system/breakpoints.html" class="link">Breakpoints</a>
-                                    <a href="/pages/docs/layout_system/container_component.html" class="link active">Container Component</a>
-                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout Component</a>
+                                    <a href="/pages/docs/layout_system/container_component.html"
+                                        class="link active">Container Component</a>
+                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout
+                                        Component</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -147,9 +151,11 @@
                                     <a href="/pages/docs/other/dynamic.html" class="link">Dynamic</a>
                                     <a href="/pages/docs/other/icon.html" class="link">Icon</a>
                                     <a href="/pages/docs/other/pwa.html" class="link">PWA</a>
-                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven Animation</a>
+                                    <a href="/pages/docs/other/scroll_driven_animation.html" class="link">Scroll Driven
+                                        Animation</a>
                                     <a href="/pages/docs/other/smooth_scroll.html" class="link">Smooth Scroll</a>
-                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax Highlighter</a>
+                                    <a href="/pages/docs/other/syntax_highlighter.html" class="link">Syntax
+                                        Highlighter</a>
                                     <a href="/pages/docs/other/theme.html" class="link">Theme</a>
                                     <a href="/pages/docs/other/view_transition.html" class="link">View Transition</a>
                                 </div>
@@ -163,6 +169,98 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
+                            <section class="container__component_section">
+                                <h5>Container Component</h5>
+                                <p>The LayX Container component centers and structures content for responsive layouts,
+                                    with adaptive spacing that adjusts to various screen sizes and aspect ratios. The
+                                    Container also includes an optional edge-aligned grid layout for full-width content
+                                    displays.</p>
+
+                                <h6>Usage</h6>
+                                <p>Use the <code>container</code> tag or <code>.container</code> class to create a centered layout, or add the
+                                    <code>.edge</code> class for layouts aligned to screen edges with
+                                    designated grid columns. Here’s an example:
+                                </p>
+
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">container</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text">Content here...</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">container</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"></span></code>
+
+<p>or</p>
+
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"container"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text"> Content here...</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"></span></code>
+
+                                <h6>Responsive Spacing</h6>
+                                <p>The container adapts spacing with custom properties for different breakpoints:</p>
+                                <ul>
+                                    <li><code>--edge-offset-x</code> adjusts horizontal margins:</li>
+                                    <ul>
+                                        <li><strong>Small screens (&gt;576px):</strong> 2.5%</li>
+                                        <li><strong>Large screens (&gt;992px):</strong> 5%</li>
+                                        <li><strong>Ultrawide (&gt;2000px):</strong> 15%</li>
+                                        <li><strong>Super Ultrawide (&gt;3000px):</strong> 25%</li>
+                                    </ul>
+                                </ul>
+
+                                <h6>Edge Mode</h6>
+                                <p>The <code>.edge</code> class transforms the container into a grid with
+                                    three columns. Content defaults to the center column, but can span all columns with
+                                    the <code>.full</code> class, making it ideal for full-width elements.</p>
+
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">container</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"edge"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text"> </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text"> Content here...</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text">   </span></span>
+<span class="line"><span class="html-text"> </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"full"</span><span class="html-punctuation">&gt;</span><span class="html-text"> </span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text"> full-width content here...</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text"> </span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">container</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"></span></code>
+
+                                <h6>CSS code</h6>
+
+<code data-code-lang="css"><span class="line"><span class="css-class">container</span> <span class="css-unknown">,</span> <span class="css-class">.container</span> <span class="css-punctuation">{</span></span>
+<span class="line">    <span class="css-property">--edge-offset-x</span><span class="css-value">: .75rem</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-property">display</span><span class="css-value">: block</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-property">margin-inline</span><span class="css-value">: var(--edge-offset-x)</span><span class="css-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="css-unknown">&amp;</span><span class="css-class">.edge</span> <span class="css-punctuation">{</span></span>
+<span class="line">        <span class="css-property">display</span><span class="css-value">: grid</span><span class="css-punctuation">;</span></span>
+<span class="line">        <span class="css-property">grid-template-columns</span><span class="css-value">: var(--edge-offset-x, 0px) 1fr var(--edge-offset-x, 0px)</span><span class="css-punctuation">;</span></span>
+<span class="line">        <span class="css-property">margin-inline</span><span class="css-value">: unset</span><span class="css-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">        <span class="css-unknown">&amp;</span> <span class="css-unknown">&gt;</span> <span class="css-unknown">*</span> <span class="css-punctuation">{</span></span>
+<span class="line">            <span class="css-property">grid-column</span><span class="css-value">: 2</span><span class="css-punctuation">;</span></span>
+<span class="line">        <span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">        <span class="css-unknown">&amp;</span> <span class="css-unknown">&gt;</span> <span class="css-class">.full</span> <span class="css-punctuation">{</span> </span>
+<span class="line">            <span class="css-property">grid-column</span><span class="css-value">: span 3</span><span class="css-punctuation">;</span></span>
+<span class="line">        <span class="css-punctuation">}</span></span>
+<span class="line">    <span class="css-punctuation">}</span></span>
+<span class="line"> </span>
+<span class="line"><span class="css-atrule">    @media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">576px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span></span>
+<span class="line">        <span class="css-property">--edge-offset-x</span><span class="css-value">: 2.5%</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-atrule">    @media</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">992px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span></span>
+<span class="line">        <span class="css-property">--edge-offset-x</span><span class="css-value">: 5%</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-atrule">    @media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">21/9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">2000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span></span>
+<span class="line">        <span class="css-property">--edge-offset-x</span><span class="css-value">: 15%</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-atrule">    @media</span> <span class="css-punctuation">(</span><span class="css-unknown">aspect-ratio</span> <span class="css-unknown">&gt;=</span> <span class="css-unknown">32/9)</span> <span class="css-unknown">and</span> <span class="css-punctuation">(</span><span class="css-unknown">width</span> <span class="css-unknown">&gt;=</span> <span class="css-unit">3000px</span><span class="css-punctuation">)</span> <span class="css-punctuation">{</span></span>
+<span class="line">        <span class="css-property">--edge-offset-x</span><span class="css-value">: 25%</span><span class="css-punctuation">;</span></span>
+<span class="line">    <span class="css-punctuation">}</span></span>
+<span class="line"><span class="css-punctuation">}</span>    </span>
+<span class="line"></span></code>
+
+                                <p>With this flexible structure, you can easily manage responsive and edge-to-edge
+                                    layouts for diverse screen configurations.</p>
+                            </section>
 
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
