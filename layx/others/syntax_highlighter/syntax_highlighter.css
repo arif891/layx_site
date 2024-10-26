@@ -76,6 +76,19 @@
     color: #d73a49;
 }
 
+
+[theme=dark] {
+    .html-text {
+        color: #f8f8f8;
+    }
+
+    .html-string {
+        color: #3fb4ce;
+    }
+}
+
+
+
 /* CSS */
 .css-atrule {
     color: #cf2b6a;
@@ -146,6 +159,14 @@
 .css-function {
     color: #b9cd0e;
 }
+
+[theme=dark] {
+    .css-punctuation {
+        color: #bbbbbb;
+    }
+}
+
+
 
 /* JavaScript */
 .js-control-flow {
@@ -221,6 +242,11 @@
     color: #999;
 }
 
+[theme=dark] {
+
+}
+
+
 
 /* Batch */
 .batch-program-name {
@@ -229,4 +255,8 @@
 
 .batch-program-command {
     color: #0d6efd;
+}
+
+[theme=dark] {
+    
 }
