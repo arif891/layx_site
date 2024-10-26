@@ -1,4 +1,4 @@
-class Navigation {
+class DocumentNavigation {
     constructor(options = {}) {
         // Default options
         this.options = {
@@ -11,11 +11,13 @@ class Navigation {
         // DOM elements
         this.sideNav = document.getElementById(this.options.sideNavId);
         this.main = document.getElementById(this.options.mainContentId);
+        this.sideProgress = document.getElementById(this.options.sideProgressId);
         this.navLinks = this.sideNav.querySelectorAll('a');
-        
+
         // Instance properties
-        this.pageNav = null;
+        this.headings = [];
         this.linkObserver = null;
+        this.headingObserver = null;
 
         // Initialize
         this.init();
@@ -25,7 +27,7 @@ class Navigation {
         this.setupLinkObserver();
         this.setupNavLinks();
         this.setupPopStateHandler();
-        this.initializePageNavigation();
+        this.updatePageNavigation();
     }
 
     setupLinkObserver() {
@@ -34,10 +36,10 @@ class Navigation {
                 if (entry.isIntersecting) {
                     const link = entry.target;
                     const mainUrl = link.dataset.mainUrl;
-                    
+
                     // Prefetch the content
                     fetch(mainUrl).catch(() => { });
-                    
+
                     // Unobserve the link after prefetching
                     this.linkObserver.unobserve(link);
                 }
@@ -50,7 +52,7 @@ class Navigation {
 
     setupNavLinks() {
         this.navLinks.forEach((link) => {
-            link.setAttribute('data-main-url', 
+            link.setAttribute('data-main-url',
                 `${this.getPathFromUrl(link.href)}parital/main/${this.getFileNameFromUrl(link.href)}`
             );
             this.handleLink(link);
@@ -86,8 +88,8 @@ class Navigation {
                 }
 
                 this.updateActiveLink(href);
-                this.initializePageNavigation();
-                
+                this.updatePageNavigation();
+
                 if (typeof codeInt === 'function') {
                     codeInt();
                 }
@@ -161,48 +163,21 @@ class Navigation {
         return url.substring(url.lastIndexOf('/') + 1);
     }
 
-    initializePageNavigation() {
-        if (this.pageNav) {
-            this.pageNav.destroy();
+    // Page Navigation Methods
+    updatePageNavigation() {
+        if (this.headingObserver) {
+            this.headingObserver.disconnect();
         }
-        this.pageNav = new PageNavigation();
-    }
-
-    destroy() {
-        // Clean up observers and event listeners
-        if (this.linkObserver) {
-            this.linkObserver.disconnect();
-        }
-        if (this.pageNav) {
-            this.pageNav.destroy();
-        }
-        // Remove popstate handler
-        window.removeEventListener('popstate', this.setupPopStateHandler);
-    }
-}
-
-// PageNavigation class remains the same
-class PageNavigation {
-    constructor(mainContentId = 'main', sideNavId = 'side-progress') {
-        this.mainContent = document.getElementById(mainContentId);
-        this.sideNav = document.getElementById(sideNavId);
-        this.headings = [];
-        this.observer = null;
-
-        this.init();
-    }
-
-    init() {
         this.collectHeadings();
         this.renderNavigation();
-        this.setupIntersectionObserver();
+        this.setupHeadingObserver();
         this.addScrollListeners();
     }
 
     collectHeadings() {
-        if (!this.mainContent) return;
+        if (!this.main) return;
 
-        const headingElements = this.mainContent.querySelectorAll('h5, h6');
+        const headingElements = this.main.querySelectorAll('h5, h6');
         this.headings = Array.from(headingElements).map(heading => ({
             id: heading.id || this.generateId(heading.textContent),
             text: heading.textContent,
@@ -223,9 +198,9 @@ class PageNavigation {
     }
 
     renderNavigation() {
-        if (!this.sideNav) return;
+        if (!this.sideProgress) return;
 
-        this.sideNav.innerHTML = `
+        this.sideProgress.innerHTML = `
             <h5>On This Page</h5>
             <div class="link-wrapper">
                 ${this.headings.map(heading => `
@@ -239,15 +214,15 @@ class PageNavigation {
         `;
     }
 
-    setupIntersectionObserver() {
-        this.observer = new IntersectionObserver(
+    setupHeadingObserver() {
+        this.headingObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
                     const id = entry.target.id;
-                    const navLink = this.sideNav.querySelector(`[data-heading-id="${id}"]`);
+                    const navLink = this.sideProgress.querySelector(`[data-heading-id="${id}"]`);
 
                     if (entry.isIntersecting) {
-                        this.sideNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                        this.sideProgress.querySelectorAll('a').forEach(a => a.classList.remove('active'));
                         navLink?.classList.add('active');
                     }
                 });
@@ -260,13 +235,13 @@ class PageNavigation {
         this.headings.forEach(heading => {
             const element = document.getElementById(heading.id);
             if (element) {
-                this.observer.observe(element);
+                this.headingObserver.observe(element);
             }
         });
     }
 
     addScrollListeners() {
-        this.sideNav.addEventListener('click', (e) => {
+        this.sideProgress.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
                 e.preventDefault();
                 const id = e.target.getAttribute('data-heading-id');
@@ -283,17 +258,18 @@ class PageNavigation {
     }
 
     destroy() {
-        if (this.observer) {
-            this.observer.disconnect();
+        // Clean up observers
+        if (this.linkObserver) {
+            this.linkObserver.disconnect();
+        }
+        if (this.headingObserver) {
+            this.headingObserver.disconnect();
         }
 
-        this.headings.forEach(heading => {
-            const element = document.getElementById(heading.id);
-            if (element && this.observer) {
-                this.observer.unobserve(element);
-            }
-        });
+        // Remove event listeners
+        window.removeEventListener('popstate', this.setupPopStateHandler);
     }
 }
 
- new Navigation();
+// Initialize the navigation
+const docNav = new DocumentNavigation();

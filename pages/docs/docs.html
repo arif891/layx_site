@@ -229,7 +229,14 @@
             </container>
         </footer>
 
+        <script src="/layx/layx.js" type="module"></script>
+
+        <script src="/assets/js/base.js"></script>
+        <script src="/assets/js/pages/docs.js"></script>
+
         <script>
+            const sideNav = document.getElementById('side-nav');
+            const navLinks = sideNav.querySelectorAll('a');
 
             // Initial content load from the first link
             document.addEventListener('DOMContentLoaded', () => {
@@ -239,7 +246,7 @@
                     const sideUrl = firstLink.dataset.sideUrl;
                     const href = firstLink.href;
 
-                    fetchContent(mainUrl, sideUrl, href, firstLink, true);
+                    docNav.fetchContent(mainUrl, sideUrl, href, firstLink, true);
                     codeInt();
                 } else {
                     console.error('No navigation links found');
@@ -247,13 +254,6 @@
             });
 
         </script>
-
-
-
-        <script src="/layx/layx.js" type="module"></script>
-
-        <script src="/assets/js/base.js"></script>
-        <script src="/assets/js/pages/docs.js"></script>
     </body>
 
 </html>
