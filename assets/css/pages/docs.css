@@ -114,6 +114,7 @@
                 .doc__example_box {
                     display: block;
                     padding: 1rem;
+                    margin-block: .5rem;
                     text-decoration: none;
                     background-color: #ecfdf5;
                     border-radius: .5rem;
