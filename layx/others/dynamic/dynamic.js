@@ -107,6 +107,3 @@ class Dynamic {
         return new Dynamic(selector);
     }
 }
-
-export default new Dynamic();
-export {Dynamic};
