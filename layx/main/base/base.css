@@ -25,7 +25,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-img,svg, video {
+img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
 }
