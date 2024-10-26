@@ -150,6 +150,29 @@
                 @media (width >=992px) {
                     display: block;
                 }
+
+                .link-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+    
+                    a {
+                        text-decoration: none;
+    
+                        &:not(.active) {
+                            color: inherit;
+                        }
+                    }
+    
+                    a:not(.subheading) {
+                        font-size: 1.25rem;
+                        
+                    }
+    
+                    .subheading {
+                        padding-left: 1rem;
+                    }
+                }
             }
         }
 

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Layout styles */
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 30vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Navigation styles */
+        .page-nav {
+            position: sticky;
+            top: 20px;
+            max-width: 250px;
+            padding: 16px;
+            margin: 16px;
+            border-left: 1px solid #eee;
+            height: fit-content;
+        }
+
+        .page-nav__title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .page-nav__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .page-nav__item {
+            margin-bottom: 8px;
+        }
+
+        .page-nav__link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: block;
+            padding: 4px 0;
+        }
+
+        .page-nav__link:hover {
+            color: #0066cc;
+        }
+
+        .page-nav__link--active {
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .page-nav__item--h3 {
+            padding-left: 16px;
+        }
+
+        /* Content styles */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="content">
+            <h1>Getting Started with Web Development</h1>
+            
+            <h2>Introduction to HTML</h2>
+            <p>HTML (HyperText Markup Language) is the backbone of any webpage. It provides the basic structure and content that you see in your web browser. Learning HTML is the first step in becoming a web developer.</p>
+            <p>Whether you're looking to create simple static websites or complex web applications, understanding HTML fundamentals is crucial.</p>
+            
+            <h3>Basic Structure</h3>
+            <p>Every HTML document starts with a DOCTYPE declaration and contains head and body sections. The head section contains metadata about the document, while the body section contains the visible content.</p>
+            <p>Understanding this basic structure is essential for creating well-formed HTML documents that browsers can interpret correctly.</p>
+            
+            <h3>Common Elements</h3>
+            <p>HTML provides various elements for structuring content, including headings, paragraphs, lists, and links. Each element serves a specific purpose in organizing and presenting information.</p>
+            
+            <h2>CSS Fundamentals</h2>
+            <p>CSS (Cascading Style Sheets) is what makes websites visually appealing. It handles all the styling and layout of your web pages, from colors and fonts to positioning and animations.</p>
+            <p>Modern CSS has evolved significantly, offering powerful features like Flexbox and Grid for creating complex layouts with ease.</p>
+            
+            <h3>Selectors and Properties</h3>
+            <p>CSS selectors allow you to target specific HTML elements for styling. Understanding how to use selectors effectively is key to writing maintainable CSS code.</p>
+            <p>Properties define the actual styles that will be applied to the selected elements, controlling everything from text appearance to box model characteristics.</p>
+            
+            <h2>JavaScript Basics</h2>
+            <p>JavaScript brings interactivity to web pages. It's a versatile programming language that can handle everything from simple DOM manipulation to complex application logic.</p>
+            <p>Modern JavaScript has introduced many new features that make it more powerful and easier to work with than ever before.</p>
+            
+            <h3>Variables and Functions</h3>
+            <p>Understanding how to declare variables and write functions is fundamental to JavaScript programming. These basics form the foundation for more advanced concepts.</p>
+            
+            <h3>DOM Manipulation</h3>
+            <p>The Document Object Model (DOM) is your gateway to interactive web pages. Learning how to manipulate the DOM with JavaScript allows you to create dynamic user experiences.</p>
+            
+            <h2>Responsive Design</h2>
+            <p>In today's mobile-first world, creating responsive websites that work well on all devices is crucial. This involves using flexible grids, responsive images, and media queries.</p>
+            <p>Understanding the principles of responsive design will help you create websites that provide a great user experience across all screen sizes.</p>
+            
+            <h3>Media Queries</h3>
+            <p>Media queries are the backbone of responsive design, allowing you to apply different styles based on device characteristics like screen size and orientation.</p>
+            
+            <h3>Flexible Layouts</h3>
+            <p>Creating flexible layouts that adapt to different screen sizes requires understanding concepts like relative units, flexible grids, and modern layout techniques like Flexbox and Grid.</p>
+        </main>
+
+        <nav class="page-nav">
+            <div class="page-nav__title">On this page</div>
+            <ul class="page-nav__list" id="pageNav"></ul>
+        </nav>
+    </div>
+
+    <script>
+        class PageNavigation {
+    constructor() {
+        this.nav = document.getElementById('pageNav');
+        this.headings = [];
+        this.currentActive = null;
+        this.init();
+    }
+
+    init() {
+        this.headings = Array.from(document.querySelectorAll('h2, h3'));
+        this.generateNav();
+        window.addEventListener('scroll', this.handleScroll.bind(this));
+        // Initial check for active section
+        this.handleScroll();
+    }
+
+    generateNav() {
+        this.headings.forEach(heading => {
+            if (!heading.id) {
+                heading.id = this.generateId(heading.textContent);
+            }
+
+            const listItem = document.createElement('li');
+            listItem.className = 'page-nav__item' + 
+                (heading.tagName === 'H3' ? ' page-nav__item--h3' : '');
+
+            const link = document.createElement('a');
+            link.href = `#${heading.id}`;
+            link.textContent = heading.textContent;
+            link.className = 'page-nav__link';
+
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                heading.scrollIntoView({ behavior: 'smooth' });
+                history.pushState(null, null, `#${heading.id}`);
+            });
+
+            listItem.appendChild(link);
+            this.nav.appendChild(listItem);
+        });
+    }
+
+    handleScroll() {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Check if we're at the bottom of the page
+        const isAtBottom = (scrollPosition + windowHeight) >= documentHeight - 10;
+
+        if (isAtBottom) {
+            // If at bottom, activate the last heading
+            this.activateHeading(this.headings[this.headings.length - 1]);
+            return;
+        }
+
+        // Find the last heading that's above the current scroll position (with offset)
+        const scrollOffset = 100; // Adjust this value to change when headings activate
+        let currentHeading = null;
+
+        for (let i = 0; i < this.headings.length; i++) {
+            const heading = this.headings[i];
+            const nextHeading = this.headings[i + 1];
+
+            // Get the heading's position relative to the top of the viewport
+            const headingTop = heading.getBoundingClientRect().top + window.scrollY;
+            
+            // If this is the last heading or if we're between this heading and the next
+            if (!nextHeading || 
+                (scrollPosition + scrollOffset >= headingTop && 
+                 scrollPosition + scrollOffset < nextHeading.getBoundingClientRect().top + window.scrollY)) {
+                currentHeading = heading;
+                break;
+            }
+        }
+
+        if (currentHeading) {
+            this.activateHeading(currentHeading);
+        }
+    }
+
+    activateHeading(heading) {
+        // Remove active class from previous link
+        if (this.currentActive) {
+            const oldLink = this.nav.querySelector(
+                `a[href="#${this.currentActive.id}"]`
+            );
+            oldLink?.classList.remove('page-nav__link--active');
+        }
+
+        // Add active class to new link
+        const newLink = this.nav.querySelector(
+            `a[href="#${heading.id}"]`
+        );
+        newLink?.classList.add('page-nav__link--active');
+        this.currentActive = heading;
+    }
+
+    generateId(text) {
+        return text
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+    }
+}
+    </script>
+</body>
+</html>
