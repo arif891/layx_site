@@ -162,6 +162,10 @@
                         &:not(.active) {
                             color: inherit;
                         }
+
+                        &.active {
+                            color: #0ea5e9;
+                        }
                     }
     
                     a:not(.subheading) {

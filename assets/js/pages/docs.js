@@ -18,6 +18,7 @@ class DocumentNavigation {
         this.headings = [];
         this.linkObserver = null;
         this.headingObserver = null;
+        this.isDocPage = window.location.pathname.includes('/docs/');
 
         // Initialize
         this.init();
@@ -28,6 +29,16 @@ class DocumentNavigation {
         this.setupNavLinks();
         this.setupPopStateHandler();
         this.updatePageNavigation();
+        
+        // Save initial state for proper back navigation
+        if (this.isDocPage) {
+            const currentState = {
+                mainUrl: `${this.getPathFromUrl(window.location.href)}parital/main/${this.getFileNameFromUrl(window.location.href)}`,
+                isDocPage: true,
+                referrer: document.referrer
+            };
+            history.replaceState(currentState, '', window.location.href);
+        }
     }
 
     setupLinkObserver() {
@@ -72,10 +83,15 @@ class DocumentNavigation {
 
     handleClick(e, mainUrl, href, link) {
         e.preventDefault();
-        this.fetchContent(mainUrl, href, link, true);
+        const state = {
+            mainUrl,
+            isDocPage: true,
+            referrer: document.referrer || window.location.href
+        };
+        this.fetchContent(mainUrl, href, link, true, state);
     }
 
-    async fetchContent(mainUrl, href, link, pushState = false) {
+    async fetchContent(mainUrl, href, link, pushState = false, state = null) {
         try {
             const mainResponse = await fetch(mainUrl);
 
@@ -84,7 +100,7 @@ class DocumentNavigation {
                 this.main.innerHTML = mainContent;
 
                 if (pushState) {
-                    history.pushState({ mainUrl }, '', href);
+                    history.pushState(state || { mainUrl, isDocPage: true }, '', href);
                 }
 
                 this.updateActiveLink(href);
@@ -124,17 +140,23 @@ class DocumentNavigation {
 
     setupPopStateHandler() {
         window.addEventListener('popstate', (e) => {
-            e.preventDefault();
-
-            if (e.state && e.state.mainUrl) {
-                this.fetchContent(e.state.mainUrl, document.location.href, null, false);
-            } else {
-                const link = this.findLinkByHref(document.location.href);
-                if (link) {
-                    this.handleClick(e, link.dataset.mainUrl, document.location.href, link);
+            if (!e.state) {
+                // If no state exists, likely going back to a non-doc page
+                if (document.referrer) {
+                    window.location.href = document.referrer;
                 } else {
-                    console.error('No matching link found for:', document.location.href);
+                    // Fallback to previous page if referrer is not available
+                    window.history.back();
                 }
+                return;
+            }
+
+            // Handle navigation between doc pages
+            if (e.state.isDocPage) {
+                this.fetchContent(e.state.mainUrl, document.location.href, null, false);
+            } else if (e.state.referrer) {
+                // Going back to non-doc page
+                window.location.href = e.state.referrer;
             }
         });
     }
@@ -163,7 +185,6 @@ class DocumentNavigation {
         return url.substring(url.lastIndexOf('/') + 1);
     }
 
-    // Page Navigation Methods
     updatePageNavigation() {
         if (this.headingObserver) {
             this.headingObserver.disconnect();
@@ -268,8 +289,13 @@ class DocumentNavigation {
 
         // Remove event listeners
         window.removeEventListener('popstate', this.setupPopStateHandler);
+        if (this.sideProgress) {
+            this.sideProgress.removeEventListener('click', this.addScrollListeners);
+        }
     }
 }
 
 // Initialize the navigation
-const docNav = new DocumentNavigation();
+new DocumentNavigation();
+
+codeInt();
