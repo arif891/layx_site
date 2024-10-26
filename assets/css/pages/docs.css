@@ -158,23 +158,30 @@
     
                     a {
                         text-decoration: none;
-    
-                        &:not(.active) {
-                            color: inherit;
-                        }
-
-                        &.active {
-                            color: #0ea5e9;
-                        }
+                        color: inherit;
+                        opacity: .8;
                     }
     
                     a:not(.subheading) {
                         font-size: 1.25rem;
-                        
                     }
     
                     .subheading {
                         padding-left: 1rem;
+                        transition: .3s;
+
+                        &:not(.active) {
+                            opacity: .7;
+                        }
+
+                        &.active {
+                            opacity: 1;
+                            color: #0ea5e9;
+                        }
+
+                        &:hover {
+                            opacity: 1;
+                        }
                     }
                 }
             }
