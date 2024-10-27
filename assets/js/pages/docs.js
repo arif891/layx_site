@@ -470,4 +470,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('Failed to initialize DocumentNavigationManager:', error);
     }
+
+    if (typeof codeInt === 'function') {
+        codeInt();
+    }
 });
+
