@@ -181,8 +181,7 @@
                                 <h6>Project Structure</h6>
                                 <p>Layx follows a structured directory layout for organized development:</p>
                             
-<code data-code-lang="text">
-layx_project
+<code data-code-lang="text">layx_project
 │   index.html
 ├───assets
 ├───layx
@@ -211,47 +210,46 @@ layx_project
                                 <p>In <code>layx</code>, the key files are <code>layx.css</code> and <code>layx.js</code>. Examples:</p>
                             
                                 <p><strong>layx.css:</strong></p>
-<code data-code-lang="css">
-/* Main */
-@import url(main/base/variable.css);
-@import url(main/base/scrollbar.css);
-@import url(main/base/base.css);
-@import url(main/typography/typography.css);
-
-/* Core components */
-@import url(main/container/container.css);
-@import url(main/layout/layout.css);
-
-/* Helpers */
-@import url(helpers/layout/layout_helper.css);
-
-/* Components */
-@import url(components/button/button.css);
-@import url(components/navbar/navbar.css);
-@import url(components/section/section.css);
-@import url(components/footer/footer.css);
-
-/* Utilities */
-@import url(utilities/color/color.css);
-
-/* Others */
-@import url(others/icon/icon.css);
-@import url(others/theme/theme.css);
-@import url(others/view_transition/mpa_view_transition/page_transition/page_transition.css);
-@import url(others/syntax_highlighter/syntax_highlighter.css);
-</code>
+<code data-code-lang="css"><span class="line"><span class="css-comment">/* Main */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/base/variable.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/base/scrollbar.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/base/base.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/typography/typography.css);</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-comment">/* Core components */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/container/container.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/layout/layout.css);</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-comment">/* Helpers */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">helpers/layout/layout_helper.css);</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-comment">/* Components */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">components/button/button.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">components/navbar/navbar.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">components/section/section.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">components/footer/footer.css);</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-comment">/* Utilities */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">utilities/color/color.css);</span></span>
+<span class="line"></span>
+<span class="line"><span class="css-comment">/* Others */</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/icon/icon.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/theme/theme.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/view_transition/mpa_view_transition/page_transition/page_transition.css);</span></span>
+<span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/syntax_highlighter/syntax_highlighter.css);</span></span>
+<span class="line"></span></code>
                             
                                 <p><strong>layx.js:</strong></p>
-<code data-code-lang="js">/* Theme */
-import Theme from "./others/theme/theme.js";
-
-/* Components */
-import Navbar from "./components/navbar/navbar.js";
-import { Sheet } from "./components/sheet/sheet.js";
-
-/* Other */
-import SmoothScroll from "./others/smooth_scroll/smooth_scroll.js";
-</code>
+<code data-code-lang="js"><span class="line"><span class="js-comment">/* Theme */</span></span>
+<span class="line"><span class="js-declaration">import</span> <span class="js-identifier">Theme</span> <span class="js-declaration">from</span> <span class="js-string">"./others/theme/theme.js"</span><span class="js-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="js-comment">/* Components */</span></span>
+<span class="line"><span class="js-declaration">import</span> <span class="js-identifier">Navbar</span> <span class="js-declaration">from</span> <span class="js-string">"./components/navbar/navbar.js"</span><span class="js-punctuation">;</span></span>
+<span class="line"><span class="js-declaration">import</span> <span class="js-punctuation">{</span> <span class="js-identifier">Sheet</span> <span class="js-punctuation">}</span> <span class="js-declaration">from</span> <span class="js-string">"./components/sheet/sheet.js"</span><span class="js-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="js-comment">/* Other */</span></span>
+<span class="line"><span class="js-declaration">import</span> <span class="js-identifier">SmoothScroll</span> <span class="js-declaration">from</span> <span class="js-string">"./others/smooth_scroll/smooth_scroll.js"</span><span class="js-punctuation">;</span></span>
+<span class="line"></span></code>
                             </section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">

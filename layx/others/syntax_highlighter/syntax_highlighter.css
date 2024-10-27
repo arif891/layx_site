@@ -243,7 +243,9 @@
 }
 
 [theme=dark] {
-
+    .js-identifier {
+        color: #e8e8e8;
+    }
 }
 
 
