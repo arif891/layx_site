@@ -105,6 +105,7 @@ class DocumentNavigation {
 
                 this.updateActiveLink(href);
                 this.updatePageNavigation();
+                this.updateTitle(link);
 
                 if (typeof codeInt === 'function') {
                     codeInt();
@@ -169,6 +170,10 @@ class DocumentNavigation {
                 link.classList.remove('active');
             }
         });
+    }
+
+    updateTitle(link) {
+        document.title = `${link.textContent} - LayX`;
     }
 
     findLinkByHref(href) {
