@@ -27,7 +27,7 @@
                         <div class="warp-able left">
                             <div>
                                 <nav class="link-wrapper">
-                                    <a href="/pages/docs/getting_started/introduction.html" class="link">Docs</a>                      
+                                    <a href="/pages/docs/getting_started/introduction.html" class="link">Docs</a>
                                     <a href="/pages/components.html" class="link">Components</a>
                                     <a href="/pages/download.html" class="link">Download</a>
                                     <a href="/pages/templates.html" class="link">Templates</a>
@@ -81,10 +81,10 @@
                             <div class="links__wrapper">
                                 <h6>Layout System</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/layout/breakpoints.html" class="link">Breakpoints</a>
-                                    <a href="/pages/docs/layout/container_component.html" class="link">Container
+                                    <a href="/pages/docs/layout_system/breakpoints.html" class="link">Breakpoints</a>
+                                    <a href="/pages/docs/layout_system/container_component.html" class="link">Container
                                         Component</a>
-                                    <a href="/pages/docs/layout/layout_component.html" class="link">Layout Component</a>
+                                    <a href="/pages/docs/layout_system/layout_component.html" class="link">Layout Component</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -171,16 +171,87 @@
                         <div class="x-12 x-lg-6 main" id="main">
                             <section class="overview__sec">
                                 <h5>Core Concepts</h5>
-                                <p>Layx provides a flexible and modular system designed to make modern web development
-                                    more efficient and customizable. At its core, Layx focuses on:</p>
+                                <p>Layx is a modern CSS framework built to streamline web development with a modular, flexible, and customizable system. Its core principles include:</p>
                                 <ul>
-                                    <li><strong>Modular Architecture:</strong> Each component and utility is designed to
-                                        work independently, allowing for flexible usage and easy maintenance.</li>
-                                    <li><strong>Customization:</strong> Layx can be tailored to fit any design
-                                        requirement, offering complete control over layout, components, and styles.</li>
-                                    <li><strong>Responsive Design:</strong> Built-in breakpoints ensure your website
-                                        looks great on any device.</li>
+                                    <li><strong>Modular Architecture:</strong> Each component and utility functions independently, providing flexibility and ease of maintenance.</li>
+                                    <li><strong>Customization:</strong> Layx is highly customizable to meet various design requirements, allowing control over layouts, components, and styling.</li>
+                                    <li><strong>Responsive Design:</strong> Built-in breakpoints ensure optimal display across devices.</li>
                                 </ul>
+                            
+                                <h6>Project Structure</h6>
+                                <p>Layx follows a structured directory layout for organized development:</p>
+                            
+<code data-code-lang="text">
+layx_project
+│   index.html
+├───assets
+├───layx
+│   │   layx.css
+│   │   layx.js
+│   ├───assets
+│   ├───components
+│   ├───helpers
+│   ├───main
+│   ├───others
+│   └───utilities
+└───pages
+</code>
+                            
+                                <p>Key Directories:</p>
+                                <ul>
+                                    <li><code>layx/</code>: The framework's core files, including components, main styles, and utilities.</li>
+                                    <li><code>layx/layx.[css|js]</code>: Imports modular CSS and JS files, bundled during the build process.</li>
+                                    <li><code>config/</code>: Configuration files, tools, and preferences for Layx setup.</li>
+                                    <li><code>assets/</code>: Contains all assets like CSS, JS, images, and media files.</li>
+                                    <li><code>assets/[css|js]/base.[css|js]</code>: Common base CSS/JS files, added after Layx core CSS/JS in the build process, with originals moved to <code>layx/assets/[css|js]/user_base.[css|js]</code>.</li>
+                                    <li><code>assets/[css|js]/pages/</code>: For page-specific CSS/JS, minified, with originals moved to <code>layx/assets/[css|js]/pages/</code>.</li>
+                                </ul>
+                            
+                                <h6>Important Files</h6>
+                                <p>In <code>layx</code>, the key files are <code>layx.css</code> and <code>layx.js</code>. Examples:</p>
+                            
+                                <p><strong>layx.css:</strong></p>
+<code data-code-lang="css">
+/* Main */
+@import url(main/base/variable.css);
+@import url(main/base/scrollbar.css);
+@import url(main/base/base.css);
+@import url(main/typography/typography.css);
+
+/* Core components */
+@import url(main/container/container.css);
+@import url(main/layout/layout.css);
+
+/* Helpers */
+@import url(helpers/layout/layout_helper.css);
+
+/* Components */
+@import url(components/button/button.css);
+@import url(components/navbar/navbar.css);
+@import url(components/section/section.css);
+@import url(components/footer/footer.css);
+
+/* Utilities */
+@import url(utilities/color/color.css);
+
+/* Others */
+@import url(others/icon/icon.css);
+@import url(others/theme/theme.css);
+@import url(others/view_transition/mpa_view_transition/page_transition/page_transition.css);
+@import url(others/syntax_highlighter/syntax_highlighter.css);
+</code>
+                            
+                                <p><strong>layx.js:</strong></p>
+<code data-code-lang="js">/* Theme */
+import Theme from "./others/theme/theme.js";
+
+/* Components */
+import Navbar from "./components/navbar/navbar.js";
+import { Sheet } from "./components/sheet/sheet.js";
+
+/* Other */
+import SmoothScroll from "./others/smooth_scroll/smooth_scroll.js";
+</code>
                             </section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
