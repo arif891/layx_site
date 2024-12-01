@@ -5,7 +5,7 @@ accordion, .accordion {
     --margin-bottom: 1rem;
     --item-bg: #fff;
     --bg: rgb(245, 245, 245);
-    --accent-color: rgb(178, 241, 255);
+    --transition-duration: .3s;
 
     display: block;
     padding: .5rem;
@@ -16,17 +16,16 @@ accordion, .accordion {
     .item {
         display: grid;
         grid-template-rows: max-content 0fr;
-        padding: var(--padding-y, var(--padding, .5rem)) var(--padding-x, var(--padding, .5rem));
         border-radius: var(--border-radius, .5rem);
         background: var(--item-bg);
         outline-color: transparent;
-        transition: grid-template-rows .3s ease-out;
+        transition: grid-template-rows var(--transition-duration) ease-out;
 
         &:not(:last-of-type) {
             margin-bottom: var(--margin-bottom, .5rem);
         }
 
-        &.active {
+        &[open] {
             grid-template-rows: max-content 1fr;
             
             .title::after {
@@ -46,13 +45,12 @@ accordion, .accordion {
             font-size: min(calc(1rem + .3vw), 1.375rem);
             font-weight: 600;
             text-align: start;
-            padding: unset;
+            padding: var(--padding-y, var(--padding, .5rem)) var(--padding-x, var(--padding, .5rem)) ;
             background: unset;
             border: unset;
             margin: unset;
             cursor: pointer;
             user-select: none;
-            -webkit-tap-highlight-color: transparent;
 
             &::after {
                 content: '';
@@ -71,14 +69,17 @@ accordion, .accordion {
 
         .content {
             overflow: hidden;
+            padding-inline: var(--padding-x, var(--padding, .5rem));
+            transition: margin-bottom var(--transition-duration) ease-out;
 
-            :first-child {
-              margin-top: .5rem;
+            [open] & {
+              margin-bottom: var(--padding-y, var(--padding, .5rem));
             }
 
             :last-child {
                margin-bottom: unset;
             }
+
             p {
                 color: rgb(40, 40, 50);
                 font-size: min(calc(.9rem + .3vw), 1.2rem);
@@ -86,4 +87,36 @@ accordion, .accordion {
         }
     }
 
+    
+    &.on-hover {
+        .item {
+            &:hover {
+                grid-template-rows: max-content 1fr;
+
+                .title::after {
+                    rotate: 180deg;
+                }
+
+                .content {
+                    margin-bottom: var(--padding-y, var(--padding, .5rem));
+                }
+            }
+        }
+    }
+
+    &.no-transition {
+        .item {
+            &, .content {
+                transition: none;
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion) {
+        .item {
+            &, .content {
+                transition: none;
+            }
+        }
+    }
 }

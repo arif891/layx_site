@@ -8,7 +8,6 @@ dialog {
   --bg-modern: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
   --blur: 15px;
   --close-btn-color: #fff;
-  --accent-color: rgb(178, 241, 255);
   --animation-duration: .6s;
 
   position: fixed;
@@ -39,7 +38,6 @@ dialog {
       opacity: 0;
       animation: dialog-content-show calc(var(--animation-duration) * .25) forwards calc(var(--animation-duration) * .75);
     }
-
   }
 
   .content {
@@ -56,7 +54,7 @@ dialog {
       .title {
         margin: unset;
       }
-      
+
       .close {
         padding: 0;
         height: 1.35rem;
@@ -75,7 +73,7 @@ dialog {
       flex-wrap: wrap;
       gap: var(--gap, .5rem);
 
-      &.center {
+      &.middle {
         justify-content: center;
       }
 
@@ -106,11 +104,11 @@ dialog {
     -webkit-backdrop-filter: blur(var(--blur));
   }
 
-  &:not(.center, .left, .rigth, .bottom) {
+  &:not(.bottom) {
     top: var(--edge-offset-y);
   }
 
-  &.center {
+  &.middle {
     inset-block: 0;
     transform-origin: center;
   }
@@ -120,7 +118,7 @@ dialog {
     transform-origin: top left;
   }
 
-  &.rigth {
+  &.right {
     inset-inline: auto var(--edge-offset-x);
     transform-origin: top right;
   }
@@ -130,26 +128,19 @@ dialog {
     transform-origin: bottom center;
   }
 
-  &.left.bottom,&.left.center {
+  &.left.bottom, &.left.middle {
     transform-origin: bottom left;
   }
 
-  &.rigth.bottom,&.rigth.center {
+  &.right.bottom, &.right.middle {
     transform-origin: bottom right;
   }
 
   &~backdrop {
-    --backdrop-bg: rgba(255,255,255,.3);
+    --backdrop-bg: rgba(255, 255, 255, .3);
     --transition: .6s;
   }
 }
-
-@starting-style {
-  dialog[open]::backdrop {
-    opacity: 0;
-  }
-}
-
 
 @keyframes dialog-show {
   0% {
