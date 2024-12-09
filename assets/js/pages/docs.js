@@ -135,7 +135,7 @@ class DocumentNavigationManager {
         if (this.state.isDocPage) {
             const currentLink = this.findLinkByHref(window.location.href);
             const currentState = {
-                mainUrl: `${this.getPathFromUrl(window.location.href)}parital/main/${this.getFileNameFromUrl(window.location.href)}`,
+                mainUrl: `${this.getPathFromUrl(window.location.href)}partial/main/${this.getFileNameFromUrl(window.location.href)}`,
                 isDocPage: true,
                 referrer: document.referrer,
                 title: currentLink ? currentLink.textContent : document.title
@@ -164,14 +164,24 @@ class DocumentNavigationManager {
     // Initialize navigation links
     initializeLinks() {
         if (!this.elements.navLinks) return;
-
+    
+        // Initialize side navigation links
         this.elements.navLinks.forEach(link => {
             const mainUrl = this.generateMainUrl(link.href);
             link.dataset.mainUrl = mainUrl;
             this.observers.link.observe(link);
             link.addEventListener('click', (e) => this.handleNavigation(e, link));
         });
-    }
+    
+        // Initialize .doc-link links within .main
+        const docLinks = this.elements.main.querySelectorAll('.doc-link');
+        docLinks.forEach(link => {
+            const mainUrl = this.generateMainUrl(link.href);
+            link.dataset.mainUrl = mainUrl;
+            this.observers.link.observe(link);
+            link.addEventListener('click', (e) => this.handleNavigation(e, link));
+        });
+    }    
 
     // Update page navigation
     updatePageNavigation() {
@@ -415,7 +425,7 @@ class DocumentNavigationManager {
     generateMainUrl(url) {
         const path = this.getPathFromUrl(url);
         const filename = this.getFileNameFromUrl(url);
-        return `${path}parital/main/${filename}`;
+        return `${path}partial/main/${filename}`;
     }
 
     getPathFromUrl(url) {
@@ -475,4 +485,3 @@ document.addEventListener('DOMContentLoaded', () => {
         codeInt();
     }
 });
-
