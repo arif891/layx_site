@@ -1,7 +1,7 @@
 class DocumentNavigationManager {
     static ROUTES_CACHE = new Map();
     static PREFETCH_QUEUE = new Set();
-    
+
     constructor({
         sideNavId = 'side-nav',
         mainContentId = 'main',
@@ -26,7 +26,7 @@ class DocumentNavigationManager {
         // Initialize observers and handlers
         this.observers = this.initializeObservers();
         this.eventHandlers = this.initializeEventHandlers();
-        
+
         // Start the system
         this.initialize();
     }
@@ -147,7 +147,8 @@ class DocumentNavigationManager {
     // Set up the navigation system
     setupNavigationSystem() {
         this.setupEventListeners();
-        this.initializeLinks();
+        this.initializeNavLinks();
+        this.initializeMainLinks();
         this.updatePageNavigation();
     }
 
@@ -155,16 +156,16 @@ class DocumentNavigationManager {
     setupEventListeners() {
         window.addEventListener('popstate', this.eventHandlers.popstate);
         window.addEventListener('scroll', this.eventHandlers.scroll, { passive: true });
-        
+
         if (this.elements.sideProgress) {
             this.elements.sideProgress.addEventListener('click', this.eventHandlers.click);
         }
     }
 
     // Initialize navigation links
-    initializeLinks() {
+    initializeNavLinks() {
         if (!this.elements.navLinks) return;
-    
+
         // Initialize side navigation links
         this.elements.navLinks.forEach(link => {
             const mainUrl = this.generateMainUrl(link.href);
@@ -172,7 +173,10 @@ class DocumentNavigationManager {
             this.observers.link.observe(link);
             link.addEventListener('click', (e) => this.handleNavigation(e, link));
         });
-    
+    }
+
+    // Initialize navigation links 
+    initializeMainLinks() {
         // Initialize .doc-link links within .main
         const docLinks = this.elements.main.querySelectorAll('.doc-link');
         docLinks.forEach(link => {
@@ -181,7 +185,7 @@ class DocumentNavigationManager {
             this.observers.link.observe(link);
             link.addEventListener('click', (e) => this.handleNavigation(e, link));
         });
-    }    
+    }
 
     // Update page navigation
     updatePageNavigation() {
@@ -269,12 +273,12 @@ class DocumentNavigationManager {
     // Handle navigation
     async handleNavigation(e, link) {
         e.preventDefault();
-        
+
         if (this.state.isNavigating) return;
-        
+
         const { href, dataset: { mainUrl } } = link;
         const state = this.createNavigationState(link);
-        
+
         try {
             this.state.isNavigating = true;
             await this.updateContent(mainUrl, href, state);
@@ -296,7 +300,7 @@ class DocumentNavigationManager {
     // Handle PopState
     handlePopState(e) {
         const state = e.state;
-        
+
         if (!state) {
             this.handleNoStateNavigation();
             return;
@@ -335,10 +339,10 @@ class DocumentNavigationManager {
     async updateContent(mainUrl, href, state, pushState = true) {
         try {
             const content = await this.fetchContent(mainUrl);
-            
+
             if (content) {
                 this.elements.main.innerHTML = content;
-                
+
                 if (pushState) {
                     history.pushState(state, '', href);
                 }
@@ -363,7 +367,7 @@ class DocumentNavigationManager {
     // Update active link
     updateActiveLink(href) {
         if (!this.elements.navLinks) return;
-        
+
         this.elements.navLinks.forEach(link => {
             if (link.href === href) {
                 link.classList.add('active');
@@ -396,7 +400,7 @@ class DocumentNavigationManager {
 
         const response = await fetch(url);
         if (!response.ok) throw new Error('Content fetch failed');
-        
+
         const content = await response.text();
         DocumentNavigationManager.ROUTES_CACHE.set(url, content);
         return content;
@@ -419,6 +423,8 @@ class DocumentNavigationManager {
         if (typeof codeInt === 'function') {
             codeInt();
         }
+
+        this.initializeMainLinks();
     }
 
     // Utility Methods
@@ -445,7 +451,7 @@ class DocumentNavigationManager {
     // Throttle utility
     throttle(func, limit) {
         let inThrottle;
-        return function(...args) {
+        return function (...args) {
             if (!inThrottle) {
                 func.apply(this, args);
                 inThrottle = true;
@@ -462,7 +468,7 @@ class DocumentNavigationManager {
         // Remove event listeners
         window.removeEventListener('popstate', this.eventHandlers.popstate);
         window.removeEventListener('scroll', this.eventHandlers.scroll);
-        
+
         if (this.elements.sideProgress) {
             this.elements.sideProgress.removeEventListener('click', this.eventHandlers.click);
         }
