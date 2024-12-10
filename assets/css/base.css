@@ -100,7 +100,7 @@ body {
                 transition: .3s;
             }
 
-            &:hover .nav__theme {
+            &:is(:hover, :focus-within) .nav__theme {
                 width: auto;
                 padding: .25rem;
             }
@@ -116,6 +116,7 @@ body {
     width: fit-content;
     color: transparent;
     background: linear-gradient(160deg, rgba(var(--color-rgb), .3), rgba(var(--color-rgb), .8));
+    background-clip: text;
     -webkit-background-clip: text;
 }
 
