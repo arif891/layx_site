@@ -100,7 +100,7 @@ body {
                 transition: .3s;
             }
 
-            &:is(:hover, :focus-within) .nav__theme {
+            &:is(:hover, :has(button:focus-visible)) .nav__theme {
                 width: auto;
                 padding: .25rem;
             }

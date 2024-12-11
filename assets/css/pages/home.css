@@ -117,9 +117,7 @@
           animation-range: contain 80% contain 100%;
         }
 
-        .text_1,
-        .text_2,
-        .text_3 {
+        .text_1,.text_2,.text_3 {
           display: block;
           animation-timeline: --inspire-sec;
           opacity: 0;
@@ -130,15 +128,24 @@
 
     &::before {
       animation: linear ins_left forwards;
+      clip-path: polygon(0 0, 85% 0, 85% 10%, 100% 15%, 100% 95%, 75% 95%, 60% 100%, 0% 100%);
+
+      @media (width >=992px) {
+        clip-path: polygon(0 0, 70% 0, 75% 5%, 100% 5%, 100% 80%, 95% 85%, 95% 100%, 0 100%);
+      }
     }
 
     &::after {
       right: 0;
       animation: linear ins_right forwards;
+      clip-path: polygon(15% 0, 15% 10%, 0 15%, 0 95%, 30% 95%, 40% 100%, 100% 100%, 100% 0%);
+     
+      @media (width >=992px) {
+        clip-path: polygon(0 5%, 25% 5%, 30% 0, 100% 0%, 100% 100%, 5% 100%, 5% 85%, 0 80%);
+      }
     }
 
-    &::before,
-    &::after {
+    &::before, &::after {
       content: '';
       position: absolute;
       height: 100%;

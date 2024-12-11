@@ -3,6 +3,12 @@
     .components__container {
         padding-block: 2.5rem;
 
+        .hero {
+            > * {
+                text-align: center;
+            }
+        }
+
         .components__category_text {
             margin-block: 2.5rem .5rem ;
         }

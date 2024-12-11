@@ -1,18 +1,27 @@
 .templates__section {
 
-    .templates__container {
+    .templates__hero_layout {
+        
+        .text__wrapper {
+            margin-top: 5%;
 
-        .templates__layout {
-            display: grid;
-            place-items: center;
-            min-height: 600px;
-            background-color: #f8fafc;
-            margin-top: 2.5rem;
-            border-radius: .5rem;
+            .templates__heading,
+            .templates__subheading {
+                text-align: center;
 
-            [theme=dark] & {
-                background-color: #18181b;
+                &.templates__subheading {
+                    max-width: 60ch;
+                    margin-inline: auto;
+                }
             }
         }
+    }
+
+    .templates__category_text {
+        margin-block: 2.5rem .5rem ;
+    }
+
+    .templates__layout {
+
     }
 }
