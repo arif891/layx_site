@@ -30,6 +30,10 @@
                 flex-direction: column;
                 gap: .5rem;
 
+                &.cs {
+                    pointer-events: none;
+                }
+
                 .thumbnail {
                     border-radius: .5rem;
                 }
