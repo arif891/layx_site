@@ -1,7 +1,7 @@
 .templates__section {
 
     .templates__hero_layout {
-        
+
         .text__wrapper {
             margin-top: 5%;
 
@@ -17,11 +17,26 @@
         }
     }
 
-    .templates__category_text {
-        margin-block: 2.5rem .5rem ;
-    }
+    .templates__container {
+        .templates__category_text {
+            margin-block: 2.5rem .5rem;
+        }
 
-    .templates__layout {
+        .templates__layout {
+            padding-block: .5rem !important;
+
+            .templates__box {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                .thumbnail {
+                    border-radius: .5rem;
+                }
+
+                .templates__text {}
+            }
+        }
 
     }
 }

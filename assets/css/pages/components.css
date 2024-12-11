@@ -1,16 +1,26 @@
 .components__section {
 
-    .components__container {
-        padding-block: 2.5rem;
+    .components__hero_layout {
 
-        .hero {
-            > * {
+        .text__wrapper {
+            margin-top: 5%;
+
+            .components__heading,
+            .components__subheading {
                 text-align: center;
+
+                &.components__subheading {
+                    max-width: 60ch;
+                    margin-inline: auto;
+                }
             }
         }
+    }
+
+    .components__container {
 
         .components__category_text {
-            margin-block: 2.5rem .5rem ;
+            margin-block: 2.5rem .5rem;
         }
 
         .components__layout {
@@ -22,7 +32,7 @@
                 flex-direction: column;
                 gap: .5rem;
 
-                img {
+                .thumbnail {
                     border-radius: .5rem;
                 }
             }
