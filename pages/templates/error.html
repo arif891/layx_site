@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Issues - LayX</title>
+    <title>Templates - LayX</title>
 
     <link rel="stylesheet" href="/layx/layx.css">
 
     <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/pages/issues.css">
+    <link rel="stylesheet" href="/assets/css/pages/templates.css">
+
+    <style>
+        .thumbnail {
+            aspect-ratio: 16/9;
+            background-color: aliceblue;
+        }
+
+        .templates__box {
+            position: relative;
+
+            &::after {
+                content: 'See Live';
+                position: absolute;
+                inset: 40% 0 auto;
+                text-align: center;
+                font-size: 1.3rem;
+                color: var(--color);
+            }
+        }
+    </style>
 
 </head>
 <body>
@@ -49,8 +69,51 @@
         </navbar>
     </header>
 
-    <main>
-
+    <main class="ts">
+        <section class="templates__section">
+                <container class="templates__container">
+                    <h4 class="templates__category_text">Http Errors</h4>
+                    <layout class="templates__layout gap-x-2 gap-y-5 num-x-1 num-x-sm-2 num-x-md-3 num-x-lg-4">
+                        <a href="/pages/error/400.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 400</h6>
+                        </a>
+                        <a href="/pages/error/401.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 401</h6>
+                        </a>
+                        <a href="/pages/error/403.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 403</h6>
+                        </a>
+                        <a href="/pages/error/405.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 405</h6>
+                        </a>
+                        <a href="/pages/error/429.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 429</h6>
+                        </a>
+                        <a href="/pages/error/500.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 500</h6>
+                        </a>
+                        <a href="/pages/error/502.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 502</h6>
+                        </a>
+                        <a href="/pages/error/503.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 503</h6>
+                        </a>
+                        <a href="/pages/error/504.html" class="templates__box">
+                            <img class="thumbnail" src="" alt="">
+                            <h6 class="templates__text">Error 504</h6>
+                        </a>
+                        
+                    </layout>
+                </container>
+        </section>
     </main>
 
     <footer class="footer__secton">
@@ -103,19 +166,18 @@
 
     <script type="speculationrules">
         {
-          "prerender": [
-            {
-              "urls": [
-              "/pages/docs/getting_started/introduction.html",
-              "/pages/components.html",
-              "/pages/download.html",
-              "/pages/templates.html",
-              "/pages/blog.html",
-              ]
-            }
-          ]
+            "prerender": [
+                {
+                    "urls": [
+                        "/pages/docs/getting_started/introduction.html",
+                        "/pages/components.html",
+                        "/pages/download.html",
+                        "/pages/blog.html"
+                    ]
+                }
+            ]
         }
-        </script>
+    </script>
     
     <script src="/layx/layx.js" type="module"></script>
 
