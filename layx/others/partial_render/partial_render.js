@@ -20,38 +20,37 @@ class PartialRender {
       onSuccess: null,
       onError: null,
       onErrorRedirect: true,
+      onNavigationChange: null,
       beforeRender: null,
-      afterRender: null,
       beforeFetch: null,
+      debug: false,
       ...options
     };
 
-    // Store the initial page state
     this.initialState = {
-      content: this.partial.innerHTML,
+      content: this.partial?.innerHTML || '',
       url: window.location.href
     };
 
     this.routesCache = new Map();
     this.prefetchQueue = new Set();
-    this.lastClickedLink = null;
 
     this.init();
   }
 
   init() {
-    this.initializeElements();
-    if (this.options.preFetch) {
-      this.setupPrefetching();
-    }
-    if (this.options.handleNavigation) {
-      this.setupNavigation();
-    }
+    if (!this.initializeElements()) return;
+    if (this.options.preFetch) this.setupPrefetching();
+    if (this.options.handleNavigation) this.setupNavigation();
   }
 
   initializeElements() {
-    if (!this.partial || !this.links.length) {
-      console.warn('No .partial-render or .partial-link elements found');
+    if (!this.partial) {
+      console.warn('No partial element found. Ensure the selector matches an existing element.');
+      return false;
+    }
+    if (!this.links.length) {
+      console.warn('No links found for partial rendering. Ensure links match the provided selector.');
       return false;
     }
     return true;
@@ -59,24 +58,22 @@ class PartialRender {
 
   setupPrefetching() {
     const observer = new IntersectionObserver(
-      this.throttlePrefetch(this.prefetchLinks.bind(this)),
+      this.throttle(this.prefetchLinks.bind(this), this.options.throttleTime),
       this.options.observerOptions
     );
 
-    this.links.forEach((link, index) => {
-      if (index < this.options.maxPrefetchLimit) {
-        observer.observe(link);
-      }
+    Array.from(this.links).slice(0, this.options.maxPrefetchLimit).forEach(link => {
+      observer.observe(link);
     });
   }
 
-  throttlePrefetch(fn) {
+  throttle(fn, limit) {
     let lastCall = 0;
     return (...args) => {
-      const now = new Date().getTime();
-      if (now - lastCall < this.options.throttleTime) return;
+      const now = Date.now();
+      if (now - lastCall < limit) return;
       lastCall = now;
-      return fn(...args);
+      fn(...args);
     };
   }
 
@@ -88,7 +85,6 @@ class PartialRender {
         const href = this.transformUrl(entry.target.href);
 
         this.prefetchQueue.add(entry.target.href);
-
         if (typeof this.options.beforeFetch === 'function') {
           this.options.beforeFetch(href);
         }
@@ -97,6 +93,7 @@ class PartialRender {
           .then(content => {
             this.routesCache.set(entry.target.href, content);
             this.prefetchQueue.delete(entry.target.href);
+            this.purgeCache();
           })
           .catch(err => {
             console.error('Prefetch failed:', err);
@@ -107,7 +104,14 @@ class PartialRender {
   }
 
   transformUrl(url) {
-    return url.replace(/\/([^\/]+)$/, `/${this.options.partialPath}$1`);
+    try {
+      const urlObj = new URL(url);
+      urlObj.pathname = urlObj.pathname.replace(/\/([^\/]+)$/, `/${this.options.partialPath}$1`);
+      return urlObj.toString();
+    } catch (e) {
+      console.error('Invalid URL:', url);
+      return url;
+    }
   }
 
   fetchContentWithTimeout(url) {
@@ -120,34 +124,34 @@ class PartialRender {
   }
 
   setupNavigation() {
-    // Store initial state when first loading
-    window.history.replaceState({ 
-      url: this.initialState.url, 
-      content: this.initialState.content 
+    window.history.replaceState({
+      url: this.initialState.url,
+      content: this.initialState.content
     }, '', this.initialState.url);
 
     this.links.forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault();
-        this.lastClickedLink = link;
         this.loadPartial(link.href);
-        
-        // Push new state with current content
-        window.history.pushState({ 
-          url: link.href, 
-          content: this.partial.innerHTML 
-        }, '', link.href);
+
+        if (this.options.handleNavigation) {
+          window.history.pushState({
+            url: link.href,
+            content: this.partial.innerHTML
+          }, '', link.href);
+        }
+
+        if (typeof this.options.onNavigationChange === 'function') {
+          this.options.onNavigationChange(link.href);
+        }
       });
     });
 
     window.addEventListener('popstate', event => {
       if (event.state) {
-        // If navigating back to initial state
-        if (event.state.url === this.initialState.url) {
-          this.partial.innerHTML = this.initialState.content;
-        } else {
-          // Otherwise, load the content from the state
-          this.loadPartial(event.state.url, false);
+        this.partial.innerHTML = event.state.content;
+        if (typeof this.options.onNavigationChange === 'function') {
+          this.options.onNavigationChange(window.location.href);
         }
       }
     });
@@ -155,69 +159,88 @@ class PartialRender {
 
   async fetchContent(url) {
     const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to fetch ${url}`);
+    if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
     return response.text();
   }
 
-  loadPartial(url, updateHistory = true) {
+  loadPartial(url) {
     const cachedContent = this.routesCache.get(url);
 
     if (cachedContent) {
-      this.updatePartial(cachedContent);
+      this.updatePartial(cachedContent, url);
       return;
     }
+
+    this.partial.classList.add('loading');
 
     const fetchUrl = this.transformUrl(url);
     this.fetchContentWithTimeout(fetchUrl)
       .then(content => {
         this.routesCache.set(url, content);
-        this.updatePartial(content);
+        this.updatePartial(content, url);
+        this.purgeCache();
       })
       .catch(error => {
-        console.error('Failed to load partial:', error);
+        this.partial.classList.add('error');
         if (typeof this.options.onError === 'function') {
-          this.options.onError(this.partial, error, this.lastClickedLink);
+          this.options.onError(this.partial, error);
         }
-        if (this.options.onErrorRedirect) window.location.href = url;
+        console.error('Failed to load partial:', error);
+
+        if (this.options.onErrorRedirect) {
+          window.location.href = url;
+        }
+      })
+      .finally(() => {
+        this.partial.classList.remove('loading');
       });
   }
 
-  updatePartial(content) {
+  updatePartial(content, url) {
     if (typeof this.options.beforeRender === 'function') {
-      this.options.beforeRender(this.partial, content, this.options.contentType, this.lastClickedLink);
+      this.options.beforeRender(this.partial, content, this.options.contentType);
     }
 
-    switch (this.options.contentType) {
-      case 'html':
-        if (this.options.defaultAction) {
-          this.partial.innerHTML = content;
-        }
-        break;
-      case 'json':
-        const parsedContent = JSON.parse(content);
-        break;
-      default:
-        this.partial.textContent = content;
+    if (this.options.defaultAction) {
+      this.partial.innerHTML = content;
     }
 
     if (typeof this.options.onSuccess === 'function') {
-      this.options.onSuccess(this.partial, content, this.lastClickedLink);
+      this.options.onSuccess(this.partial, content);
     }
 
-    if (typeof this.options.afterRender === 'function') {
-      this.options.afterRender(this.partial, content, this.lastClickedLink);
+    if (typeof this.options.onNavigationChange === 'function') {
+      this.options.onNavigationChange(url);
     }
+
+    this.focusPartial();
   }
 
-  // Optional method to manually restore initial content
+  focusPartial() {
+    this.partial.setAttribute('tabindex', '-1');
+    this.partial.focus();
+    this.partial.removeAttribute('tabindex');
+  }
+
   restoreInitialContent() {
     this.partial.innerHTML = this.initialState.content;
-    window.history.replaceState({ 
-      url: this.initialState.url, 
-      content: this.initialState.content 
+    window.history.replaceState({
+      url: this.initialState.url,
+      content: this.initialState.content
     }, '', this.initialState.url);
+  }
+
+  clearCache() {
+    this.routesCache.clear();
+    console.info('Cache cleared');
+  }
+
+  purgeCache() {
+    while (this.routesCache.size > this.options.maxCacheSize) {
+      const firstKey = this.routesCache.keys().next().value;
+      this.routesCache.delete(firstKey);
+    }
   }
 }
 
-export default new PartialRender();
 export { PartialRender };
