@@ -473,6 +473,18 @@ class DocumentationNavigation {
     }
 }
 
+
+let isOptcFile = false;
+
+const optcStyle = document.createElement('link');
+optcStyle.href = '/assets/css/pages/docs_optc.css';
+optcStyle.rel = 'stylesheet';
+
+const optcScript = document.createElement('script');
+optcScript.src = '/assets/js/pages/docs_optc.js';
+optcScript.type = 'module';
+
+
 // Initialize on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
     const documentationNav = new DocumentationNavigation();
@@ -480,7 +492,13 @@ document.addEventListener('DOMContentLoaded', () => {
         onNavigationChange: (url) => {
             documentationNav.updateActiveLink(url);
             documentationNav.updateSideProgress();
-            documentationNav.scrollToTop(); 
+            documentationNav.scrollToTop();
+            
+            if(!isOptcFile && url.includes('/components/')) {
+              document.head.appendChild(optcStyle);
+              document.body.appendChild(optcScript);
+              isOptcFile = true;
+            }
         }
     });
  
