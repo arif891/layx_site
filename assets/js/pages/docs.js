@@ -473,21 +473,27 @@ class DocumentationNavigation {
 const docMain = document.querySelector('#main');
 const docSideNav = document.querySelector('#side-nav');
 
-let isOptcFile = false;
+let isOptcFile = {style: false, script: false};
 
 const components = ['accordion','alert','carousel','dialog','draggable','form','sheet','tab','window'];
 
-function addComponentsFile() {
+function addComponentsFile(trigger) {
     const style = document.createElement('link');
     style.href = '/assets/css/pages/docs_optc.css';
     style.rel = 'stylesheet';
 
     const script = document.createElement('script');
     script.src = '/assets/js/pages/docs_optc.js';
-
-    document.head.appendChild(style);
-    //document.body.appendChild(script);
-    isOptcFile = true;
+    if (!isOptcFile.style) {
+        document.head.appendChild(style);
+        isOptcFile.style = true;
+        console.log('style');
+    }
+    if (!isOptcFile.script && (trigger !== 'timeout')) {
+       //document.body.appendChild(script);
+       isOptcFile.script = true;
+       console.log('script');
+    }
 }
 
 function initComponents() {
@@ -500,7 +506,6 @@ function initComponents() {
     })
 }
 
-
 // Initialize on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
     const documentationNav = new DocumentationNavigation();
@@ -511,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
             documentationNav.scrollToTop();
             codeInit();
 
-            if (!isOptcFile && url.includes('/components/')) {
+            if (!isOptcFile.script && url.includes('/components/')) {
                 addComponentsFile();
             }
 
@@ -538,5 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     codeInit();
+    setTimeout(() => addComponentsFile('timeout'), 5000);
 
 });
