@@ -473,55 +473,46 @@ class DocumentationNavigation {
 const docMain = document.querySelector('#main');
 const docSideNav = document.querySelector('#side-nav');
 
-let isOptcFile = {style: false, script: false};
+const components = ['Accordion', 'Alert', 'Carousel', 'Dialog', 'Draggable', 'Form', 'Sheet', 'Tab', 'Window'];
 
-const components = ['accordion','alert','carousel','dialog','draggable','form','sheet','tab','window'];
+let componentsFile = {style: false};
 
-function addComponentsFile(trigger) {
-    const style = document.createElement('link');
-    style.href = '/assets/css/pages/docs_optc.css';
-    style.rel = 'stylesheet';
-
-    const script = document.createElement('script');
-    script.src = '/assets/js/pages/docs_optc.js';
-    if (!isOptcFile.style) {
+function addComponentsFile() {
+    if (!componentsFile.style) {
+        const style = document.createElement('link');
+        style.href = '/assets/css/pages/docs_optc.css';
+        style.rel = 'stylesheet';
         document.head.appendChild(style);
-        isOptcFile.style = true;
-        console.log('style');
-    }
-    if (!isOptcFile.script && (trigger !== 'timeout')) {
-       //document.body.appendChild(script);
-       isOptcFile.script = true;
-       console.log('script');
+        componentsFile.style = true;
     }
 }
 
-function initComponents() {
-    components.forEach((component)=> {
-      const isComponent = docMain.querySelector(component);
-
-     if (isComponent) {
-        console.log(component);
-     }
-    })
+async function initComponents() {
+    for (const component of components) {
+        const element = docMain.querySelector(component.toLowerCase());
+        if (element) {
+            const { [component]: ComponentClass } = await import(`../../../layx/components/${component.toLowerCase()}/${component.toLowerCase()}.js`);
+            new ComponentClass(); 
+        }
+    }
 }
 
 // Initialize on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
     const documentationNav = new DocumentationNavigation();
     const partialRender = new PartialRender('#main', '.doc-link', {
-        onNavigationChange: (url) => {
+        onNavigationChange: async (url) => {
             documentationNav.updateActiveLink(url);
             documentationNav.updateSideProgress();
             documentationNav.scrollToTop();
             codeInit();
 
-            if (!isOptcFile.script && url.includes('/components/')) {
-                addComponentsFile();
-            }
-
             if (url.includes('/components/')) {
                 initComponents();
+
+                if (!componentsFile.style) {
+                    addComponentsFile();
+                }
             }
         }
     });
@@ -543,6 +534,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     codeInit();
-    setTimeout(() => addComponentsFile('timeout'), 5000);
-
+    setTimeout(() => addComponentsFile(), 5000);
 });
