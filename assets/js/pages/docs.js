@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     documentationNav.updateActiveLink(window.location.href);
     documentationNav.updateSideProgress();
 
-    if (window.matchMedia('(max-width: 992px)')) {
+    if (window.matchMedia('(width < 992px)').matches) {
         (async () => {
             const { Sheet } = await import('../../../layx/components/sheet/sheet.js');
             const sheet = new Sheet('#side-nav');
