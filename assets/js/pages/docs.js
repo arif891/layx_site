@@ -475,12 +475,29 @@ const docSideNav = document.querySelector('#side-nav');
 
 let isOptcFile = false;
 
-function handleComponents() {
+const components = ['accordion','alert','carousel','dialog','draggable','form','sheet','tab','window'];
+
+function addComponentsFile() {
     const style = document.createElement('link');
     style.href = '/assets/css/pages/docs_optc.css';
     style.rel = 'stylesheet';
+
+    const script = document.createElement('script');
+    script.src = '/assets/js/pages/docs_optc.js';
+
     document.head.appendChild(style);
+    //document.body.appendChild(script);
     isOptcFile = true;
+}
+
+function initComponents() {
+    components.forEach((component)=> {
+      const isComponent = docMain.querySelector(component);
+
+     if (isComponent) {
+        console.log(component);
+     }
+    })
 }
 
 
@@ -494,8 +511,12 @@ document.addEventListener('DOMContentLoaded', () => {
             documentationNav.scrollToTop();
             codeInit();
 
-            if(!isOptcFile && url.includes('/components/')) {
-                handleComponents();
+            if (!isOptcFile && url.includes('/components/')) {
+                addComponentsFile();
+            }
+
+            if (url.includes('/components/')) {
+                initComponents();
             }
         }
     });
@@ -517,4 +538,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     codeInit();
+
 });
