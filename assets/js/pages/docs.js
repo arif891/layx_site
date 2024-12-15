@@ -104,12 +104,12 @@ class PartialRender {
         });
     }
 
-   
+
     linkClickHandler(event) {
         event.preventDefault();
         const link = event.currentTarget;
         this.loadPartial(link.href);
-    
+
         if (this.options.handleNavigation) {
             window.history.pushState({
                 url: link.href,
@@ -117,7 +117,7 @@ class PartialRender {
             }, '', link.href);
         }
     }
-    
+
 
     prefetchLinks(entries) {
         entries.forEach(entry => {
@@ -239,13 +239,13 @@ class PartialRender {
         }
     }
 
-   
+
     initializeLinksInPartial() {
         const partialLinks = this.partial.querySelectorAll(this.linksSelector);
-        
+
         partialLinks.forEach(link => {
             link.removeEventListener('click', this.linkClickHandler);
-            
+
             link.addEventListener('click', this.linkClickHandler);
         });
     }
@@ -360,7 +360,7 @@ class DocumentationNavigation {
         const headingElements = this.docMain.querySelectorAll('h5, h6');
         this.headings = Array.from(headingElements).map((heading, index) => {
             const id = heading.id || this.generateId(heading.textContent, index);
-            
+
             // Ensure heading has an ID
             if (!heading.id) {
                 heading.id = id;
@@ -403,15 +403,15 @@ class DocumentationNavigation {
             entries.forEach(entry => {
                 const id = entry.target.id;
                 const link = this.docSideProgress.querySelector(`a[data-heading-id="${id}"]`);
-                
+
                 if (link) {
-                    entry.isIntersecting 
+                    entry.isIntersecting
                         ? link.classList.add('active')
                         : link.classList.remove('active');
                 }
             });
-        }, { 
-            threshold: 0.2 ,
+        }, {
+            threshold: 0.2,
             rootMargin: '-20% 0px -65% 0px'
         });
 
@@ -470,7 +470,19 @@ class DocumentationNavigation {
     }
 }
 
+const docMain = document.querySelector('#main');
 const docSideNav = document.querySelector('#side-nav');
+
+let isOptcFile = false;
+
+function handleComponents() {
+    const style = document.createElement('link');
+    style.href = '/assets/css/pages/docs_optc.css';
+    style.rel = 'stylesheet';
+    document.head.appendChild(style);
+    isOptcFile = true;
+}
+
 
 // Initialize on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -481,9 +493,13 @@ document.addEventListener('DOMContentLoaded', () => {
             documentationNav.updateSideProgress();
             documentationNav.scrollToTop();
             codeInit();
+
+            if(!isOptcFile && url.includes('/components/')) {
+                handleComponents();
+            }
         }
     });
- 
+
     documentationNav.updateActiveLink(window.location.href);
     documentationNav.updateSideProgress();
 
@@ -493,8 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const sheet = new Sheet('#side-nav');
 
             docSideNav.querySelectorAll('.doc-link').forEach((link) => {
-                link.addEventListener('click', ()=> {
-                  sheet.closeSheet(docSideNav);
+                link.addEventListener('click', () => {
+                    sheet.closeSheet(docSideNav);
                 });
             });
         })();
