@@ -1,1 +1,1 @@
-codeInt();
+codeInit();

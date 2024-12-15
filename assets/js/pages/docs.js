@@ -97,7 +97,7 @@ class PartialRender {
             if (event.state) {
                 this.partial.innerHTML = event.state.content;
                 if (typeof this.options.onNavigationChange === 'function') {
-                    this.options.onNavigationChange(window.location.href);
+                    this.options.onNavigationChange(event.state.url || window.location.href);
                 }
                 this.initializeLinksInPartial();
             }
@@ -109,18 +109,15 @@ class PartialRender {
         event.preventDefault();
         const link = event.currentTarget;
         this.loadPartial(link.href);
-
+    
         if (this.options.handleNavigation) {
             window.history.pushState({
                 url: link.href,
                 content: this.partial.innerHTML
             }, '', link.href);
         }
-
-        if (typeof this.options.onNavigationChange === 'function') {
-            this.options.onNavigationChange(link.href);
-        }
     }
+    
 
     prefetchLinks(entries) {
         entries.forEach(entry => {
@@ -473,17 +470,7 @@ class DocumentationNavigation {
     }
 }
 
-
-let isOptcFile = false;
-
-const optcStyle = document.createElement('link');
-optcStyle.href = '/assets/css/pages/docs_optc.css';
-optcStyle.rel = 'stylesheet';
-
-const optcScript = document.createElement('script');
-optcScript.src = '/assets/js/pages/docs_optc.js';
-optcScript.type = 'module';
-
+const docSideNav = document.querySelector('#side-nav');
 
 // Initialize on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -493,15 +480,25 @@ document.addEventListener('DOMContentLoaded', () => {
             documentationNav.updateActiveLink(url);
             documentationNav.updateSideProgress();
             documentationNav.scrollToTop();
-            
-            if(!isOptcFile && url.includes('/components/')) {
-              document.head.appendChild(optcStyle);
-              document.body.appendChild(optcScript);
-              isOptcFile = true;
-            }
+            codeInit();
         }
     });
  
     documentationNav.updateActiveLink(window.location.href);
     documentationNav.updateSideProgress();
+
+    if (window.matchMedia('(max-width: 992px)')) {
+        (async () => {
+            const { Sheet } = await import('../../../layx/components/sheet/sheet.js');
+            const sheet = new Sheet('#side-nav');
+
+            docSideNav.querySelectorAll('.doc-link').forEach((link) => {
+                link.addEventListener('click', ()=> {
+                  sheet.closeSheet(docSideNav);
+                });
+            });
+        })();
+    }
+
+    codeInit();
 });

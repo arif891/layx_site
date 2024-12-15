@@ -1,5 +1,4 @@
-function codeInt() {
-
+function codeInit() {
     const codeElements = document.querySelectorAll('[data-code-lang][copy]');
     codeElements.forEach(element => {
         const button = document.createElement('button');
