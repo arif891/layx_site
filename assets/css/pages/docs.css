@@ -154,6 +154,10 @@
                     height: 350px;
                     border-radius: .5rem;
                 }
+
+                h6:not(.default) {
+                    scroll-margin-top: 6.5rem;
+                }
             }
 
             .side__progress {
