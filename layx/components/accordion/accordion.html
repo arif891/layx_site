@@ -19,8 +19,6 @@
             }
 
             body {
-                margin: 0;
-                font-family: "Red Hat Display", sans-serif;
                 background-color: antiquewhite;
             }
 
@@ -31,7 +29,7 @@
 
                 accordion {
                     --bg: none;
-                    --item-bg: rgba(255, 255, 255, .7);
+                    --item-bg: rgba(var(--bg-color-rgb), .7);
                     border-radius: .5rem;
                 }
             }
