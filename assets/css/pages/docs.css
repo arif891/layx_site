@@ -119,6 +119,10 @@
                     background-color: #ecfdf5;
                     border-radius: .5rem;
 
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
                     .h6 {
                         display: flex;
                         justify-content: space-between;

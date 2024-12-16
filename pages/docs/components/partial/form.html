@@ -1,11 +1,151 @@
+<style>
+    .doc__form {
+        padding: clamp(.5rem, 1.5vw, 2rem) !important;
+        border-radius: .5rem;
+
+        [type=submit] {
+            margin-top: 1.5rem;
+            color: var(--bg-color);
+            background-color: var(--color);
+        }
+    }
+</style>
 <section class="form__component_section">
-    <h5>Form</h5>
-    <p class="doc__uc_text">Our documentation is under construction and will be available
-        soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+    <div class="doc__block">
+        <h5>Form</h5>
+        <p>The <code>form.css</code> file provides styling for all form elements, including <code>input</code>, <code>select</code>, and <code>textarea</code>. Additionally, <code>form.js</code> simplifies form handling by enabling seamless form submission and providing customizable hooks for enhanced functionality.</p>
+    </div>
+
+    <div class="doc__block">
+        <h6>Getting Started</h6>
+        <p>By default, Layx styles form elements such as <code>input</code>, <code>select</code>, and <code>textarea</code>. To disable the default styling for specific elements, add the <code>.default</code> class. The <code>form.js</code> script also intercepts form submissions, preventing page reloads and sending data via <code>POST</code>. To opt out of this behavior for a specific form, use the <code>.no-handle</code> class.</p>
+        <p>No additional setup is required; simply include the <code>form.css</code> and <code>form.js</code> files in your project to enable automatic styling and handling.</p>
+    </div>
+
+    <div class="doc__block">
+        <h6>Features</h6>
+        <ul>
+            <li><strong>Automatic Form Styling:</strong> Pre-styled form elements for consistent appearance.</li>
+            <li><strong>Seamless Form Handling:</strong> Automatically intercepts and processes form submissions.</li>
+            <li><strong>Customizable Hooks:</strong> Modify behavior with <code>onSuccess</code>, <code>onError</code>, and <code>beforeSubmit</code> callbacks.</li>
+            <li><strong>AJAX Support:</strong> Submits form data using the <code>fetch</code> API for a smooth user experience.</li>
+            <li><strong>Unique Form Identification:</strong> Adds a <code>?form=[form.name]</code> query parameter to the form's action URL, enabling precise server-side identification.</li>
+        </ul>
+    </div>
+
+    <div class="doc__block">
+        <h6>Example Usage</h6>
+        <p>Here is a basic example of a form styled and handled by Layx:</p>
+
+        <form class="doc__form">
+            <label for="email">Email</label>
+            <div class="validate-wrapper" invalid="Please enter a valid email." valid="Valid email.">
+                <input class="wide validate" type="email" name="email" required>
+            </div>
+            <label for="password">Password</label>
+            <div class="validate-wrapper" invalid="Password must be 8 character long." valid="Password okay.">
+                <input class="wide validate" type="password" name="password" minlength="8" required>
+            </div>
+            <input class="wide" type="submit" value="Sign in">
+        </form>
+
+<code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">form</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">label</span><span class="html-attribute"> for</span><span class="html-equals">=</span><span class="html-string">"email"</span><span class="html-punctuation">&gt;</span><span class="html-text">Email</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">label</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">input</span><span class="html-attribute"> type</span><span class="html-equals">=</span><span class="html-string">"email"</span><span class="html-attribute"> name</span><span class="html-equals">=</span><span class="html-string">"email"</span><span class="html-attribute"> placeholder</span><span class="html-equals">=</span><span class="html-string">"Email"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">label</span><span class="html-attribute"> for</span><span class="html-equals">=</span><span class="html-string">"password"</span><span class="html-punctuation">&gt;</span><span class="html-text">Password</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">label</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">input</span><span class="html-attribute"> type</span><span class="html-equals">=</span><span class="html-string">"password"</span><span class="html-attribute"> name</span><span class="html-equals">=</span><span class="html-string">"password"</span><span class="html-attribute"> placeholder</span><span class="html-equals">=</span><span class="html-string">"Password"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">   </span><span class="html-punctuation">&lt;</span><span class="html-tag">input</span><span class="html-attribute"> type</span><span class="html-equals">=</span><span class="html-string">"submit"</span><span class="html-attribute"> value</span><span class="html-equals">=</span><span class="html-string">"Sign in"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">form</span><span class="html-punctuation">&gt;</span></span>
+</code>
+
+    </div>
+
+    <div class="doc__block">
+        <h6>Other Form Elements</h6>
+        <p>Additional examples of form elements styled and supported by Layx:</p>
+        <form class="doc__form">
+            <label for="range">Range</label>
+            <input class="wide value" type="range" id="range" name="range">
+            <label for="file">File</label>
+            <input class="wide" type="file" id="file" name="file">
+            <label for="time">Time</label>
+            <input class="wide" type="time" id="time" name="time">
+            <label for="date">Date</label>
+            <input class="wide" type="date" id="date" name="date">
+            <label for="select">Select</label>
+            <select class="wide" id="select" name="select">
+                <option>--Please choose an option--</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="hamster">Hamster</option>
+                <option value="parrot">Parrot</option>
+                <option value="spider">Spider</option>
+                <option value="goldfish">Goldfish</option>
+            </select>
+            <label for="textarea">Textarea</label>
+            <textarea class="wide" id="textarea" name="textarea" placeholder="Textarea"></textarea>
+        </form>
+    </div>
+
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Here are some useful details about form elements:</p>
+        <ul>
+            <li>Form elements can be customized using CSS variables such as:
+                <code>--padding-x</code>, <code>--padding-y</code>, <code>--radius</code>,
+                <code>--valid-color</code>, <code>--invalid-color</code>, and <code>--form-bg-color</code>.
+            </li>
+            <li>Apply the <code>.wide</code> class to form elements to make them wider, increasing their horizontal padding.</li>
+            <li>Use the <code>.r</code> class to make form elements fully rounded.</li>
+        </ul>
+    </div>
+    
+    <div class="doc__block">
+        <h6>Form Validation</h6>
+        <p>Client-side form validation provides real-time feedback to users. Layx utilizes <code>CSS</code> for seamless validation of form elements.</p>
+        <ul>
+            <li>Apply the <code>.validate</code> class to input fields to enable real-time validation. This provides both valid and invalid feedback by default. To limit feedback to valid inputs, add the <code>.valid</code> class; for invalid inputs, use the <code>.invalid</code> class.</li>
+            <li>Wrap your input element with the <code>.validate-wrapper</code> class. Use the <code>valid</code> and <code>invalid</code> attributes to display text-based feedback to users. These attributes can be used individually or together for more detailed validation messages.</li>
+        </ul>
+    </div>    
+
+    <div class="doc__block">
+        <h6>Options</h6>
+        <p>The <code>form.js</code> script accepts the following options:</p>
+        <ul>
+            <li><code>onSuccess</code> (function): Callback executed after a successful submission.</li>
+            <li><code>onError</code> (function): Callback executed upon submission failure.</li>
+            <li><code>beforeSubmit</code> (function): Hook to modify form data before submission.</li>
+            <li><code>headers</code> (object): Custom headers for the AJAX request.</li>
+        </ul>
+    </div>
+
+    <div class="doc__block">
+        <h6>Methods</h6>
+        <p>The <code>form.js</code> script provides the following methods:</p>
+        <ul>
+            <li><code>handleFormSubmission(form)</code>: Attaches submission handling to a specified form.</li>
+            <li><code>submitFormData(formData, formUrl, formName)</code>: Submits form data via AJAX and returns a promise.</li>
+            <li><code>defaultOnSuccess(response, form)</code>: Default success callback (overridable).</li>
+            <li><code>defaultOnError(error, form)</code>: Default error callback (overridable).</li>
+            <li><code>defaultBeforeSubmit(formData, formUrl, formName, form)</code>: Default before-submit hook (overridable).</li>
+        </ul>
+    </div>
+
+    <div class="doc__block">
+        <h6>Development Tips</h6>
+        <ul>
+            <li>Ensure each form has a unique <code>name</code> attribute for proper identification.</li>
+            <li>To exclude a form from automatic handling, use the <code>.no-handle</code> class.</li>
+            <li>Customize the <code>onSuccess</code> and <code>onError</code> callbacks for better user feedback.</li>
+            <li>The script automatically adds an <code>X-Requested-With</code> header to submission requests, which can be leveraged in service workers.</li>
+        </ul>
+    </div>
 
     <a class="doc__example_box" href="/layx/components/form/form.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
+        <span class="h6">See example 
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
             </svg>
         </span>
     </a>
