@@ -143,6 +143,12 @@
 
                 }
 
+                .doc__block {
+                    &:not(:last-child) {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+
                 .doc__example_iframe {
                     width: 100%;
                     height: 350px;

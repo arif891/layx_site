@@ -171,53 +171,63 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="docs__layout-component">
-                                <h5>Layout Component</h5>
-                                <p>The LayX Layout component offers a highly flexible grid layout system with customizable columns, rows, and gaps. It includes responsive behaviors, enabling adjustable column spans and offsets at various breakpoints. This component is ideal for creating dynamic and structured layouts across all screen sizes.</p>
-                            
-                                <h6>Basic Usage</h6>
-                                <p>To use the Layout component, apply the <code>layout</code> tag or <code>.layout</code> class for grid layouts. The default setup uses a 12-column grid, customizable via classes like <code>.num-x-[number]</code> and <code>.num-y-[number]</code> or CSS variables <code>--num-x-[number]</code> and <code>--num-y-[number]</code>. Media classes are also available to control layout on different screen sizes.</p>
+<section class="docs__layout-component">
+<div class="doc__block">    
+    <h5>Layout Component</h5>
+    <p>The LayX Layout component offers a highly flexible grid layout system with customizable columns, rows, and gaps. It includes responsive behaviors, enabling adjustable column spans and offsets at various breakpoints. This component is ideal for creating dynamic and structured layouts across all screen sizes.</p>
+</div>
+
+<div class="doc__block">
+    <h6>Basic Usage</h6>
+    <p>To use the Layout component, apply the <code>layout</code> tag or <code>.layout</code> class for grid layouts. The default setup uses a 12-column grid, customizable via classes like <code>.num-x-[number]</code> and <code>.num-y-[number]</code> or CSS variables <code>--num-x-[number]</code> and <code>--num-y-[number]</code>. Media classes are also available to control layout on different screen sizes.</p>
 
 <code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">layout</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Another half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text">Half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text">Another half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">layout</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"></span></code>
 
 <p>or</p>
 
 <code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"layout"</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Another half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text">Half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6"</span><span class="html-punctuation">&gt;</span><span class="html-text">Another half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"></span></code>
-                            
-                                <h6>Edge-Aligned Layout</h6>
-                                <p>For layouts that span the viewport's full width with dynamic edge margins, use <code>.layout.edge</code>. This edge-aligned option adjusts margins based on screen width and aspect ratio, making it suitable for designs requiring edge-to-edge alignment.</p>
+</div>
+
+<div class="doc__block">
+    <h6>Edge-Aligned Layout</h6>
+    <p>For layouts that span the viewport's full width with dynamic edge margins, use <code>.layout.edge</code>. This edge-aligned option adjusts margins based on screen width and aspect ratio, making it suitable for designs requiring edge-to-edge alignment.</p>
 
 <code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">layout</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"layout"</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-14"</span><span class="html-punctuation">&gt;</span><span class="html-text"> full-width edge column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
-<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6 xs-2"</span><span class="html-punctuation">&gt;</span><span class="html-text"> half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-14"</span><span class="html-punctuation">&gt;</span><span class="html-text">full-width edge column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-6 xs-2"</span><span class="html-punctuation">&gt;</span><span class="html-text">half-width column</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">layout</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"></span></code>
-                            
-                                <h6>Responsive Variants</h6>
-                                <p>LayX provides responsive utility classes such as <code>.x-md-6</code> and <code>.xs-md-6</code> to adapt column spans and starting points dynamically:</p>
-                                <ul>
-                                    <li><strong>.x-[number]</strong>: Defines the column span width.</li>
-                                    <li><strong>.xs-[number]</strong>: Sets the column starting position.</li>
-                                    <li><strong>.y-[number]</strong>: Specifies the row span.</li>
-                                    <li><strong>.ys-[number]</strong>: Sets the row starting position.</li>
-                                </ul>
-                            
-                                <p>For nested layouts, use <code>.sub</code>, <code>.sub-x</code>, and <code>.sub-y</code> classes to achieve subgrid behavior and finer control.</p>
-                            
-                                <h6>Example</h6>
+</div>
+
+<div class="doc__block">
+    <h6>Responsive Variants</h6>
+    <p>LayX provides responsive utility classes such as <code>.x-md-6</code> and <code>.xs-md-6</code> to adapt column spans and starting points dynamically:</p>
+    <ul>
+        <li><strong>.x-[number]</strong>: Defines the column span width.</li>
+        <li><strong>.xs-[number]</strong>: Sets the column starting position.</li>
+        <li><strong>.y-[number]</strong>: Specifies the row span.</li>
+        <li><strong>.ys-[number]</strong>: Sets the row starting position.</li>
+    </ul>
+
+    <p>For nested layouts, use <code>.sub</code>, <code>.sub-x</code>, and <code>.sub-y</code> classes to achieve subgrid behavior and finer control.</p>
+</div>
+
+<div class="doc__block">
+    <h6>Example</h6>
 <code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"layout"</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-text">  </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"x-3 y-2"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Spanning columns and rows</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-text">  </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"xs-2 ys-1"</span><span class="html-punctuation">&gt;</span><span class="html-text"> Starting offset</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
 <span class="line"></span></code>
+</div>
 
 <a class="doc__example_box" href="/layx/main/layout/layout.html">
    <span class="h6">See example <svg class="icon">
@@ -225,9 +235,9 @@
             </svg>
         </span>
 </a>
-                            
-                                <p>The Layout component provides a robust, responsive grid system that supports both content-centered and edge-aligned designs, ideal for building complex layouts with precision.</p>
-                            </section>                            
+
+    <p>The Layout component provides a robust, responsive grid system that supports both content-centered and edge-aligned designs, ideal for building complex layouts with precision.</p>
+</section>                             
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 

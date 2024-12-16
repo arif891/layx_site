@@ -1,15 +1,22 @@
 <section class="docs__base-styles">
+<div class="doc__block">    
     <h5>Base Styles</h5>
     <p>Your base styles layer, inspired by Bootstrap’s Reboot, establishes consistent styling across all elements, optimizing layout, typography, and accessibility through the use of CSS variables and responsive properties.</p>
+</div>
 
+<div class="doc__block">
     <h6>Universal Box Sizing</h6>
     <p>Applies <code>box-sizing: border-box;</code> universally to ensure predictable element sizing, simplifying responsive layouts and avoiding overflow issues.</p>
     <code data-code-lang="css" copy><span class="line"><span class="css-unknown">*,</span> *<span class="css-pseudo-class">::before,</span> *<span class="css-pseudo-class">::after</span> <span class="css-punctuation">{</span> <span class="css-property">box-sizing</span><span class="css-value">: border-box</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span></code>
+</div>
 
+<div class="doc__block">
     <h6>Responsive Media</h6>
     <p>Images, SVGs, and videos are responsive by default, preventing overflow and improving mobile performance.</p>
     <code data-code-lang="css" copy><span class="line"><span class="css-selector">img</span> <span class="css-unknown">,</span> <span class="css-selector">svg</span> <span class="css-unknown">,</span> <span class="css-selector">video</span> <span class="css-punctuation">{</span> <span class="css-property">display</span><span class="css-value">: block</span><span class="css-punctuation">;</span> <span class="css-property">max-width</span><span class="css-value">: 100%</span><span class="css-punctuation">;</span> <span class="css-punctuation">}</span></span></code>
+</div>
 
+<div class="doc__block">
     <h6>Typography &amp; Structure</h6>
     <p>Consistent typography and structural defaults are applied to <code>body</code> and text elements, leveraging CSS variables for colors, font sizes, and spacing.</p>
 <code data-code-lang="css" copy><span class="line"><span class="css-selector">body</span> <span class="css-punctuation">{</span></span>
@@ -23,7 +30,9 @@
 <span class="line"><span class="css-property">line-height</span><span class="css-value">: var(--line-height)</span><span class="css-punctuation">;</span></span>
 <span class="line"><span class="css-punctuation">}</span></span>
 <span class="line"></span></code>
+</div>
 
+<div class="doc__block">
     <h6>Additional Elements</h6>
     <p>Consistent styling is applied to <code>hr</code>, lists, code blocks, and <code>backdrop</code> elements for seamless visuals and user interactions.</p>
 <code data-code-lang="css" copy><span class="line"><span class="css-selector">hr</span> <span class="css-punctuation">{</span> </span>
@@ -48,4 +57,5 @@
 <span class="line"></span></code>
 
     <p>These base styles provide a foundation for consistent, responsive, and accessible design across your layouts.</p>
+</div>    
 </section>

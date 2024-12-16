@@ -170,18 +170,21 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="overview__sec">
-                                <h5>Core Concepts</h5>
-                                <p>Layx is a modern CSS framework built to streamline web development with a modular, flexible, and customizable system. Its core principles include:</p>
-                                <ul>
-                                    <li><strong>Modular Architecture:</strong> Each component and utility functions independently, providing flexibility and ease of maintenance.</li>
-                                    <li><strong>Customization:</strong> Layx is highly customizable to meet various design requirements, allowing control over layouts, components, and styling.</li>
-                                    <li><strong>Responsive Design:</strong> Built-in breakpoints ensure optimal display across devices.</li>
-                                </ul>
-                            
-                                <h6>Project Structure</h6>
-                                <p>Layx follows a structured directory layout for organized development:</p>
-                            
+<section class="overview__sec">
+    <div class="doc__block">    
+    <h5>Core Concepts</h5>
+    <p>Layx is a modern CSS framework built to streamline web development with a modular, flexible, and customizable system. Its core principles include:</p>
+    <ul>
+        <li><strong>Modular Architecture:</strong> Each component and utility functions independently, providing flexibility and ease of maintenance.</li>
+        <li><strong>Customization:</strong> Layx is highly customizable to meet various design requirements, allowing control over layouts, components, and styling.</li>
+        <li><strong>Responsive Design:</strong> Built-in breakpoints ensure optimal display across devices.</li>
+    </ul>
+    </div>
+
+    <div class="doc__block">
+    <h6>Project Structure</h6>
+    <p>Layx follows a structured directory layout for organized development:</p>
+
 <code data-code-lang="text" copy>layx_project
 │   index.html
 ├───assets/
@@ -196,21 +199,23 @@
 │   └───utilities/
 └───pages/
 </code>
-                            
-                                <p>Key Directories:</p>
-                                <ul>
-                                    <li><code>layx/</code>: The framework's core files, including components, main styles, and utilities.</li>
-                                    <li><code>layx/layx.[css|js]</code>: Imports modular CSS and JS files, bundled during the build process.</li>
-                                    <li><code>config/</code>: Configuration files, tools, and preferences for Layx setup.</li>
-                                    <li><code>assets/</code>: Contains all assets like CSS, JS, images, and media files.</li>
-                                    <li><code>assets/[css|js]/base.[css|js]</code>: Common base CSS/JS files, added after Layx core CSS/JS in the build process, with originals moved to <code>layx/assets/[css|js]/user_base.[css|js]</code>.</li>
-                                    <li><code>assets/[css|js]/pages/</code>: For page-specific CSS/JS, minified, with originals moved to <code>layx/assets/[css|js]/pages/</code>.</li>
-                                </ul>
-                            
-                                <h6>Important Files</h6>
-                                <p>In <code>layx</code>, the key files are <code>layx.css</code> and <code>layx.js</code>. Examples:</p>
-                            
-                                <p><strong>layx.css:</strong></p>
+
+    <p>Key Directories:</p>
+    <ul>
+        <li><code>layx/</code>: The framework's core files, including components, main styles, and utilities.</li>
+        <li><code>layx/layx.[css|js]</code>: Imports modular CSS and JS files, bundled during the build process.</li>
+        <li><code>config/</code>: Configuration files, tools, and preferences for Layx setup.</li>
+        <li><code>assets/</code>: Contains all assets like CSS, JS, images, and media files.</li>
+        <li><code>assets/[css|js]/base.[css|js]</code>: Common base CSS/JS files, added after Layx core CSS/JS in the build process, with originals moved to <code>layx/assets/[css|js]/user_base.[css|js]</code>.</li>
+        <li><code>assets/[css|js]/pages/</code>: For page-specific CSS/JS, minified, with originals moved to <code>layx/assets/[css|js]/pages/</code>.</li>
+    </ul>
+    </div>
+
+    <div class="doc__block">
+    <h6>Important Files</h6>
+    <p>In <code>layx</code>, the key files are <code>layx.css</code> and <code>layx.js</code>. Examples:</p>
+
+    <p><strong>layx.css:</strong></p>
 <code data-code-lang="css" copy><span class="line"><span class="css-comment">/* Main */</span></span>
 <span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/base/variable.css);</span></span>
 <span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">main/base/scrollbar.css);</span></span>
@@ -239,8 +244,8 @@
 <span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/view_transition/mpa_view_transition/page_transition/page_transition.css);</span></span>
 <span class="line"><span class="css-atrule">@import</span> <span class="css-function">url</span><span class="css-punctuation">(</span><span class="css-unknown">others/syntax_highlighter/syntax_highlighter.css);</span></span>
 <span class="line"></span></code>
-                            
-                                <p><strong>layx.js:</strong></p>
+
+    <p><strong>layx.js:</strong></p>
 <code data-code-lang="js" copy><span class="line"><span class="js-comment">/* Theme */</span></span>
 <span class="line"><span class="js-declaration">import</span> <span class="js-identifier">Theme</span> <span class="js-declaration">from</span> <span class="js-string">"./others/theme/theme.js"</span><span class="js-punctuation">;</span></span>
 <span class="line"></span>
@@ -252,7 +257,8 @@
 <span class="line"><span class="js-declaration">import</span> <span class="js-identifier">SmoothScroll</span> <span class="js-declaration">from</span> <span class="js-string">"./others/smooth_scroll/smooth_scroll.js"</span><span class="js-punctuation">;</span></span>
 <span class="line"></span></code>
 <p style="margin-block: 1rem 0;">See <a class="doc-link" href="/pages/docs/getting_started/installation.html">Installation guide.</a></p>
-                            </section>
+</div>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
