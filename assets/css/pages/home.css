@@ -406,6 +406,7 @@
       .sponsor__text {
         opacity: .3;
         text-align: center;
+        margin-bottom: 1rem;
       }
 
       .sponsor__logo_wrapper {
