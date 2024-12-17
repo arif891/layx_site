@@ -27,7 +27,8 @@
                         <div class="warp-able left">
                             <div>
                                 <nav class="link-wrapper">
-                                    <a href="/pages/docs/getting_started/introduction.html" class="link doc-link">Docs</a>
+                                    <a href="/pages/docs/getting_started/introduction.html"
+                                        class="link doc-link">Docs</a>
                                     <a href="/pages/components.html" class="link">Components</a>
                                     <a href="/pages/download.html" class="link">Download</a>
                                     <a href="/pages/templates.html" class="link">Templates</a>
@@ -62,7 +63,8 @@
                                         class="link doc-link">Introduction</a>
                                     <a href="/pages/docs/getting_started/installation.html"
                                         class="link doc-link">Installation</a>
-                                    <a href="/pages/docs/getting_started/quick_start.html" class="link doc-link">Quick Start</a>
+                                    <a href="/pages/docs/getting_started/quick_start.html" class="link doc-link">Quick
+                                        Start</a>
                                     <a href="/pages/docs/getting_started/cli.html" class="link doc-link">CLI</a>
                                 </div>
                             </div>
@@ -81,10 +83,13 @@
                             <div class="links__wrapper">
                                 <h6>Layout System</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/layout_system/breakpoints.html" class="link doc-link">Breakpoints</a>
-                                    <a href="/pages/docs/layout_system/container_component.html" class="link doc-link">Container
+                                    <a href="/pages/docs/layout_system/breakpoints.html"
+                                        class="link doc-link">Breakpoints</a>
+                                    <a href="/pages/docs/layout_system/container_component.html"
+                                        class="link doc-link">Container
                                         Component</a>
-                                    <a href="/pages/docs/layout_system/layout_component.html" class="link doc-link">Layout
+                                    <a href="/pages/docs/layout_system/layout_component.html"
+                                        class="link doc-link">Layout
                                         Component</a>
                                 </div>
                             </div>
@@ -100,7 +105,8 @@
                                 <div class="links">
                                     <a href="/pages/docs/components/accordion.html" class="link doc-link">Accordion</a>
                                     <a href="/pages/docs/components/alert.html" class="link doc-link">Alert</a>
-                                    <a href="/pages/docs/components/breadcrumb.html" class="link doc-link">Breadcrumb</a>
+                                    <a href="/pages/docs/components/breadcrumb.html"
+                                        class="link doc-link">Breadcrumb</a>
                                     <a href="/pages/docs/components/button.html" class="link doc-link">Button</a>
                                     <a href="/pages/docs/components/card.html" class="link doc-link">Card</a>
                                     <a href="/pages/docs/components/carousel.html" class="link doc-link">Carousel</a>
@@ -111,7 +117,8 @@
                                     <a href="/pages/docs/components/footer.html" class="link doc-link">Footer</a>
                                     <a href="/pages/docs/components/media.html" class="link doc-link">Media</a>
                                     <a href="/pages/docs/components/navbar.html" class="link doc-link">Navbar</a>
-                                    <a href="/pages/docs/components/pagination.html" class="link doc-link">Pagination</a>
+                                    <a href="/pages/docs/components/pagination.html"
+                                        class="link doc-link">Pagination</a>
                                     <a href="/pages/docs/components/popover.html" class="link doc-link">Popover</a>
                                     <a href="/pages/docs/components/sheet.html" class="link doc-link">Sheet</a>
                                     <a href="/pages/docs/components/section.html" class="link doc-link">Section</a>
@@ -123,7 +130,8 @@
                             <div class="links__wrapper">
                                 <h6>Helpers</h6>
                                 <div class="links">
-                                    <a href="/pages/docs/helpers/flex_and_grid.html" class="link doc-link">Flex and Grid</a>
+                                    <a href="/pages/docs/helpers/flex_and_grid.html" class="link doc-link">Flex and
+                                        Grid</a>
                                     <a href="/pages/docs/helpers/layout.html" class="link doc-link">Layout</a>
                                 </div>
                             </div>
@@ -149,18 +157,22 @@
                                 <h6>Others</h6>
                                 <div class="links">
                                     <a href="/pages/docs/others/background.html" class="link doc-link">Background</a>
-                                    <a href="/pages/docs/others/dynamic_render.html" class="link doc-link">Dynamic Render</a>
+                                    <a href="/pages/docs/others/dynamic_render.html" class="link doc-link">Dynamic
+                                        Render</a>
                                     <a href="/pages/docs/others/icon.html" class="link doc-link">Icon</a>
                                     <a href="/pages/docs/others/pwa.html" class="link doc-link">PWA</a>
                                     <a href="/pages/docs/others/partial_render.html" class="link doc-link">Partial
                                         Render</a>
-                                    <a href="/pages/docs/others/scroll_driven_animation.html" class="link doc-link">Scroll Driven
+                                    <a href="/pages/docs/others/scroll_driven_animation.html"
+                                        class="link doc-link">Scroll Driven
                                         Animation</a>
-                                    <a href="/pages/docs/others/smooth_scroll.html" class="link doc-link">Smooth Scroll</a>
+                                    <a href="/pages/docs/others/smooth_scroll.html" class="link doc-link">Smooth
+                                        Scroll</a>
                                     <a href="/pages/docs/others/syntax_highlighter.html" class="link doc-link">Syntax
                                         Highlighter</a>
                                     <a href="/pages/docs/others/theme.html" class="link doc-link">Theme</a>
-                                    <a href="/pages/docs/others/view_transition.html" class="link doc-link">View Transition</a>
+                                    <a href="/pages/docs/others/view_transition.html" class="link doc-link">View
+                                        Transition</a>
                                 </div>
                             </div>
                             <div class="links__wrapper">
@@ -172,13 +184,79 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
+                            <style>
+                                .media__wrapper {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                    gap: 1rem;
+                                    align-items: end;
+
+                                    audio,
+                                    video {
+                                        [theme=dark] & {
+                                            --bg: var(--bg-color);
+                                            --play-button-color: rgb(25, 25, 25);
+                                        }
+                                    }
+                                }
+                            </style>
                             <section class="media__component_section">
-                                <h5>Media</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+                                <div class="doc__block">
+                                    <h5>Media</h5>
+                                    <p>The <code>media.css</code> file provides styling for all media elements such as
+                                        <code>audio</code> and <code>video</code>. It enhances both the UI and UX,
+                                        especially on Chromium-based browsers.</p>
+                                </div>
+
+                                <div class="doc__block">
+                                    <h6>Examples</h6>
+                                    <p>Below are some examples of audio and video elements:</p>
+                                    <div class="media__wrapper">
+                                        <audio src="/layx/components/media/assets/audio.mp3" controls
+                                            controlslist="nodownload noplaybackrate" style="--radius:250px"></audio>
+                                        <audio src="/layx/components/media/assets/audio.mp3" controls
+                                            controlslist="nodownload noplaybackrate"></audio>
+                                        <audio class="vertical" src="/layx/components/media/assets/audio.mp3" controls
+                                            controlslist="nodownload noplaybackrate"></audio>
+                                        <video src="/layx/components/media/assets/audio.mp3" controls
+                                            controlslist="nodownload noplaybackrate" style="width: 300px;">
+                                            <track default label="English" srclang="en"
+                                                src="/layx/components/media/assets/video.vtt" />
+                                        </video>
+                                        <video class="poster" src="/layx/components/media/assets/audio.mp3" controls
+                                            poster="/layx/components/media/assets/poster.webp"
+                                            style="width: 350px; --bg: rgba(var(--bg-color-rgb), .8);"
+                                            controlslist="nodownload noplaybackrate">
+                                            <track default label="English" srclang="en"
+                                                src="/layx/components/media/assets/video.vtt" />
+                                        </video>
+                                        <video class="fullscreen-cover" src="/layx/components/media/assets/video.mp4"
+                                            controls style="width: 450px;" controlslist="nodownload noplaybackrate">
+                                            <track default label="English " srclang="en"
+                                                src="/layx/components/media/assets/video.vtt" />
+                                        </video>
+                                    </div>
+                                </div>
+
+                                <div class="doc__block">
+                                    <h6>Useful Info</h6>
+                                    <p>Here are some useful details about media elements:</p>
+                                    <ul>
+                                        <li>Media elements can be customized using CSS variables such as:
+                                            <code>--radius</code>, <code>--play-button-color</code>,
+                                            <code>--video-bg</code>,
+                                            <code>--video-control-bg</code>, and <code>--caption-bg</code>.
+                                        </li>
+                                        <li>Apply the <code>.vertical</code> class to media elements to display them in
+                                            a vertical layout.</li>
+                                        <li>Use the <code>.fullscreen-cover</code> class to make a video element cover
+                                            the full screen.</li>
+                                    </ul>
+                                </div>
 
                                 <a class="doc__example_box" href="/layx/components/media/media.html">
-                                    <span class="h6">See example <svg class="icon">
+                                    <span class="h6">See Example
+                                        <svg class="icon">
                                             <use href="/assets/image/svg/icons.svg#arrow-right" />
                                         </svg>
                                     </span>
