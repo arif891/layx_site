@@ -2,10 +2,11 @@
     .media__wrapper {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
+        gap: 1.5rem;
         align-items: end;
 
         audio, video {
+            width: 100%;
             [theme=dark] & {
                --bg: var(--bg-color);
                --play-button-color: rgb(25,25,25);
@@ -29,16 +30,15 @@
                 controlslist="nodownload noplaybackrate"></audio>
             <audio class="vertical" src="/layx/components/media/assets/audio.mp3" controls
                 controlslist="nodownload noplaybackrate"></audio>
-            <video src="/layx/components/media/assets/audio.mp3" controls controlslist="nodownload noplaybackrate"
-                style="width: 300px;">
+            <video src="/layx/components/media/assets/audio.mp3" controls controlslist="nodownload noplaybackrate">
                 <track default label="English" srclang="en" src="/layx/components/media/assets/video.vtt" />
             </video>
             <video class="poster" src="/layx/components/media/assets/audio.mp3" controls
                 poster="/layx/components/media/assets/poster.webp"
-                style="width: 350px; --bg: rgba(var(--bg-color-rgb), .8);" controlslist="nodownload noplaybackrate">
+                style="--bg: rgba(var(--bg-color-rgb), .8);" controlslist="nodownload noplaybackrate">
                 <track default label="English" srclang="en" src="/layx/components/media/assets/video.vtt" />
             </video>
-            <video class="fullscreen-cover" src="/layx/components/media/assets/video.mp4" controls style="width: 450px;"
+            <video class="fullscreen-cover" src="/layx/components/media/assets/video.mp4" controls
                 controlslist="nodownload noplaybackrate">
                 <track default label="English " srclang="en" src="/layx/components/media/assets/video.vtt" />
             </video>
