@@ -185,18 +185,46 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="breadcrumb__component_section">
-                                <h5>Breadcrumb</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+                          <section class="breadcrumb__component_section">
+    <div class="doc__block">
+        <h5>Breadcrumb</h5>
+        <p>Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.</p>
+    </div>
 
-                                <a class="doc__example_box" href="/layx/components/breadcrumb/breadcrumb.html">
-                                    <span class="h6">See example <svg class="icon">
-                                            <use href="/assets/image/svg/icons.svg#arrow-right" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </section>
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Here are examples of the <code>Breadcrumb</code> component:</p>
+        <div class="doc__breadcrumb_wrapper">
+            <breadcrumb>
+                <div class="item"><a href="#">Home</a></div>
+                <div class="item"><a href="#">Libary</a></div>
+                <div class="item active"><a href="#">Data</a></div>
+            </breadcrumb>
+        </div>
+
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">breadcrumb</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">Home</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">Libary</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item active"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">Data</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">breadcrumb</span><span class="html-punctuation">&gt;</span></span>
+</code>       
+    </div>
+
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Here are some helpful tips for customizing and using the <code>Breadcrumb</code> component:</p>
+        <ul>
+            <li>Use <code>--separator</code> CSS variable to change separator.</li>
+        </ul>
+    </div>
+
+    <a class="doc__example_box" href="/layx/components/breadcrumb/breadcrumb.html">
+        <span class="h6">See example <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right" />
+            </svg>
+        </span>
+    </a>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 

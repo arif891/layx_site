@@ -185,11 +185,52 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
+                            <style>
+                                .doc__alert_wrapper {
+                                  
+                                    alert {
+                                        --bg: #ecfdf5;
+                            
+                                        [theme=dark] & {
+                                            --bg: #022c22;
+                                        }
+                                    }
+                                }
+                            </style>
                             <section class="alert__component_section">
-                                <h5>Alert</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
-
+                                <div class="doc__block">
+                                    <h5>Alert</h5>
+                                    <p>Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
+                                </div>
+                            
+                                <div class="doc__block">
+                                    <h6>Examples</h6>
+                                    <p>Here are examples of the <code>Alert</code> component:</p>
+                                    <div class="doc__alert_wrapper">
+                                        <alert open>
+                                            A simple alert—check it out!
+                                            <button class="close"></button>
+                                        </alert>
+                                    </div>
+                                </div>
+                            
+                                <div class="doc__block">
+                                    <h6>Useful Info</h6>
+                                    <p>Here are some helpful tips for customizing and using the <code>Alert</code> component:</p>
+                                    <ul>
+                                        <li>Customize the appearance with CSS variables:
+                                            <ul>
+                                                <li><code>--padding-x</code>, <code>--padding-y</code> - Adjust horizontal and vertical padding.</li>
+                                                <li><code>--radius</code> - Set the border radius for rounded corners.</li>
+                                                <li><code>--item-bg</code> - Define the background color of Alert items.</li>
+                                                <li><code>--animation-duration</code> - Set the speed of opening/closing transitions.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Apply the <code>.modern</code> class to make it modern.</li>
+                                        <li>Use the <code>open</code> attribute to make an item expanded by default.</li>
+                                    </ul>
+                                </div>
+                            
                                 <a class="doc__example_box" href="/layx/components/alert/alert.html">
                                     <span class="h6">See example <svg class="icon">
                                             <use href="/assets/image/svg/icons.svg#arrow-right" />
@@ -259,6 +300,9 @@
 
         <script src="/assets/js/base.js"></script>
         <script src="/assets/js/pages/docs.js"></script>
+        <script type="module">
+            import Alert from "../../../layx/components/alert/alert.js";
+        </script>
     </body>
 
 </html>
