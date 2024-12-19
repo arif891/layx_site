@@ -185,18 +185,138 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="carousel__component_section">
-                                <h5>Carousel</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<style>
+    .doc__carousel_wrapper {
+        carousel {
+            --height: 175px;
+            margin-bottom: 1rem;
 
-                                <a class="doc__example_box" href="/layx/components/carousel/carousel.html">
-                                    <span class="h6">See example <svg class="icon">
-                                            <use href="/assets/image/svg/icons.svg#arrow-right" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </section>
+            @media (width >= 992px) {
+                --height: 350px;
+                }
+
+            .main {
+                min-height: 150px !important;
+                padding: 0px !important;
+                border-radius: .5rem !important;
+            }
+
+            .item {
+                display: grid;
+                place-items: center;
+                background-size: cover;
+                animation: view_carousel_inset linear both;
+                animation-timeline: --carousel-item;
+
+                h3 {
+                    user-select: none;
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+
+    @keyframes view_carousel_inset {
+        entry 0% {
+            clip-path: inset(25%);
+        }
+
+        entry 100% {
+            clip-path: inset(0%);
+        }
+
+        exit 0% {
+            clip-path: inset(0%);
+        }
+
+        exit 100% {
+            clip-path: inset(25%);
+        }
+    }
+</style>
+<section class="carousel__component_section">
+    <!-- Carousel Overview -->
+    <div class="doc__block">
+        <h5>Carousel</h5>
+        <p>The <code>Carousel</code> component is a slideshow feature for cycling through content such as images or text slides, displayed like a rotating carousel.</p>
+    </div>
+
+    <!-- Carousel Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Below are examples of the <code>Carousel</code> component:</p>
+        <div class="doc__carousel_wrapper">
+            <carousel class="demo__carousel" indicators controls>
+                <div class="main">
+                    <div class="item" style="background-image: url('/layx/components/carousel/assets/1.webp');">
+                        <h3>First Slide</h3>
+                    </div>
+                    <div class="item" style="background-image: url('/layx/components/carousel/assets/2.webp');">
+                        <h3>Second Slide</h3>
+                    </div>
+                    <div class="item" style="background-image: url('/layx/components/carousel/assets/3.webp');">
+                        <h3>Third Slide</h3>
+                    </div>
+                </div>
+            </carousel>
+        </div>
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">carousel</span><span class="html-attribute"> indicators</span><span class="html-attribute"> controls</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"main"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">        </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">        </span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">        </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">        </span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">carousel</span><span class="html-punctuation">&gt;</span><span class="html-text">    </span></span>
+</code>
+    </div>
+
+    <!-- Useful Information -->
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Key details for customizing and utilizing the <code>Carousel</code> component:</p>
+        <ul>
+            <li>Customize dimensions and appearance using CSS variables like:
+                <ul>
+                    <li><code>--height</code> - Set the carousel height.</li>
+                    <li><code>--edge-offset</code> - Define the margin or offset at carousel edges.</li>
+                </ul>
+            </li>
+            <li>Use the <code>controls</code> attribute to add navigation controls and <code>indicators</code> to display slide indicators.</li>
+            <li>Add the <code>.vertical</code> class to the <code>.main</code> element to switch the carousel to vertical orientation.</li>
+            <li>Accessibility features like ARIA attributes are automatically applied.</li>
+            <li>Supports keyboard navigation and mouse drag gestures by default.</li>
+            <li>Each carousel item includes a timeline animation property using <code>--carousel-item</code> in the view timeline.</li>
+        </ul>
+    </div>
+
+    <!-- Carousel Options -->
+    <div class="doc__block">
+        <h6>Options</h6>
+        <p>The <code>Carousel</code> class supports the following configuration options:</p>
+        <ul>
+            <li><code>selector</code> (string): Default is <code>carousel</code>, used to target all carousel elements.</li>
+            <li><code>mainSelector</code> (string): Default is <code>.main</code>, identifying the scroll container.</li>
+            <li><code>itemSelector</code> (string): Default is <code>.item</code>, selecting individual carousel items.</li>
+            <li><code>autoplay</code> (boolean): Default is <code>false</code>, determining whether the carousel auto-plays.</li>
+            <li><code>autoplayInterval</code> (number): Specifies the auto-play interval in milliseconds.</li>
+            <li><code>loop</code> (boolean): Default is <code>false</code>, enabling or disabling looped playback of items.</li>
+            <li><code>mouseDrag</code> (boolean): Default is <code>true</code>, enabling slide transitions via mouse dragging.</li>
+            <li><code>keyboardNavigation</code> (boolean): Default is <code>true</code>, enabling navigation using keyboard keys.</li>
+        </ul>
+    </div>
+
+    <!-- Example Link -->
+    <a class="doc__example_box" href="/layx/components/carousel/carousel.html">
+        <span class="h6">
+            See Example
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
+            </svg>
+        </span>
+    </a>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
@@ -259,6 +379,10 @@
 
         <script src="/assets/js/base.js"></script>
         <script src="/assets/js/pages/docs.js"></script>
+        <script type="module">
+            import {Carousel} from "../../../layx/components/carousel/carousel.js";
+            new Carousel();
+        </script>
     </body>
 
 </html>
