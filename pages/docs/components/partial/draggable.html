@@ -1,11 +1,92 @@
-<section class="draggable__component_section">
-    <h5>Draggable</h5>
-    <p class="doc__uc_text">Our documentation is under construction and will be available
-        soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<style>
+    draggable {
+        height: 30vh;
+        width: 30vw;
+        background-color: rgba(220, 250, 255, 0.3);
+        backdrop-filter: blur(calc(1vh + .5vw));
+        border-radius: .5rem;
+        overflow: hidden;
+        display: grid;
+        place-content: center;
+    }
+</style>
 
+<section class="draggable__component_section">
+    <!-- Draggable Overview -->
+    <div class="doc__block">
+        <h5>Draggable</h5>
+        <p>The <code>Draggable</code> component is a fixed-position element that can be dragged within the browser
+            window.</p>
+    </div>
+
+    <!-- Draggable Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Here is an example of the <code>Draggable</code> component in action:</p>
+        <div class="doc__draggable_wrapper">
+            <draggable class="center middle">
+                <p>Draggable</p>
+            </draggable>
+<code data-code-lang="html"><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">draggable</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text">Content</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">draggable</span><span class="html-punctuation">&gt;</span></span>
+</code>        
+        </div>
+    </div>
+
+    <!-- Useful Information -->
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Essential details for using and customizing the <code>Draggable</code> component:</p>
+        <ul>
+            <li>Customize appearance and behavior with CSS variables:
+                <ul>
+                    <li><code>--edge-offset</code>: Defines the edge offset for the draggable element.</li>
+                    <li><code>--transition</code>: Specifies the transition effect when the element reenters the window
+                        after being dragged outside.</li>
+                </ul>
+            </li>
+            <li>The <code>Draggable</code> element is <strong>fixed</strong> by default. Ensure any custom draggable
+                element is also positioned as <code>fixed</code>.</li>
+            <li>If a draggable element contains a <code>.draggable-area</code> class, this area will serve as the drag
+                handle instead of the entire element.</li>
+            <li>Set the initial position of the draggable element using utility classes like <code>.left</code>,
+                <code>.right</code>, <code>.center</code>, <code>.top</code>, <code>.bottom</code>, and
+                <code>.middle</code>.
+            </li>
+            <li>By default:
+                <ul>
+                    <li>Draggable elements without a <code>.draggable-area</code> are entirely draggable.</li>
+                    <li>When using a <code>.draggable-area</code>, it automatically applies <code>user-select:
+                            none;</code> and <code>cursor: move;</code> for improved usability.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Draggable Options -->
+    <div class="doc__block">
+        <h6>Options</h6>
+        <p>The <code>Draggable</code> class offers the following configuration options:</p>
+        <ul>
+            <li><code>selector</code> (string): Default is <code>draggable</code>. Specifies the elements to be made
+                draggable.</li>
+            <li><code>draggableAreaSelector</code> (string): Default is <code>.draggable-area</code>. Identifies the
+                area used for dragging.</li>
+            <li><code>edgeOffset</code> (number): Default is <code>5</code>. Determines the minimum distance the element
+                should maintain from the window edge.</li>
+            <li><code>onDragStart</code> (function): Callback triggered when dragging starts.</li>
+            <li><code>onDrag</code> (function): Callback triggered while dragging.</li>
+            <li><code>onDragEnd</code> (function): Callback triggered when dragging ends.</li>
+        </ul>
+    </div>
+
+    <!-- Example Link -->
     <a class="doc__example_box" href="/layx/components/draggable/draggable.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
+        <span class="h6">
+            See Example
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
             </svg>
         </span>
     </a>
