@@ -93,7 +93,6 @@ class Dialog {
       const backdrop = this.backdropMap.get(dialog);
       if (backdrop) {
         backdrop.setAttribute('open', '');
-        document.body.style.overflow = 'hidden';
       }
     }
 
@@ -128,7 +127,6 @@ class Dialog {
     }
 
     if (this.activeDialog === dialog) {
-      document.body.style.overflow = '';
       this.activeDialog = null;
     }
 
@@ -248,5 +246,4 @@ class Dialog {
   }
 }
 
-export default new Dialog();
 export { Dialog };

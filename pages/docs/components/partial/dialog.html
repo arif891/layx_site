@@ -1,8 +1,37 @@
 <section class="dialog__component_section">
-    <h5>Dialog</h5>
+    <div class="doc__block">
+        <h5>Dialog</h5>
+        <p>A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.</p>
+    </div>
+
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Below are examples of the <code>Dialog</code> component:</p>
+        <div class="doc__carousel_wrapper">
+            <button class="lg dialog-toggler" data-dialog-target="#demo-dialog2">Show Dialog</button>
+
+            <dialog id="demo-dialog2" class="dialog middle modal">
+                <div class="content">
+                    <div class="header">
+                        <span class="title h5">Some big demo dialog header?</span>
+                        <button class="close"></button>
+                    </div>
+                    <div class="main">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit mollitia illum perferendis
+                            molestiae voluptate debitis provident veritatis ipsam autem aut quaerat recusandae</p>
+                    </div>
+                    <div class="footer grow">
+                        <button class="lg light wide" type="button">Demo</button>
+                        <button class="lg dark wide" type="button">Book</button>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </div>
+
     <p class="doc__uc_text">Our documentation is under construction and will be available
         soon! Stay tuned for comprehensive guides, examples, and API references.</p>
-
+        
     <a class="doc__example_box" href="/layx/components/dialog/dialog.html">
         <span class="h6">See example <svg class="icon">
                 <use href="/assets/image/svg/icons.svg#arrow-right" />
