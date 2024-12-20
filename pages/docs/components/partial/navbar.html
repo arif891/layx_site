@@ -1,11 +1,114 @@
+<style>
+    .doc__navbar_wrapper {
+      display: flex;  
+      flex-direction: column;
+      gap: .5rem;
+      background-color: var(--bg);
+      padding: .5rem;
+
+      navbar {
+        z-index: 1;
+      }
+    }
+</style>
 <section class="navbar__component_section">
-    <h5>Navbar</h5>
+    <!-- Navbar Overview -->
+    <div class="doc__block">
+        <h5>Navbar</h5>
+        <p>The <code>Navbar</code> component is a responsive, horizontal navigation bar that helps users navigate through different sections of a website or application. It supports branding, links, and toggles.</p>
+    </div>
+
+    <!-- Navbar Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Below is an example of a basic <code>Navbar</code> component:</p>
+        <div class="doc__navbar_wrapper">
+            <navbar class="demo__navbar">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="brand">
+                            <span class="h5 logo-text">Logo</span>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able right">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+            <navbar class="demo__navbar">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="brand">
+                            <span class="h5 logo-text">Logo</span>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able end left">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+
+            <navbar class="demo__navbar">
+                <div class="wrapper">
+                    <div class="main center">
+                        <div class="brand">
+                            <span class="h5 logo-text">Logo</span>
+                            <button class="toggler"></button>
+                        </div>
+                        <div class="warp-able full">
+                            <button class="close"></button>
+                            <nav class="link-wrapper">
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                                <a href="#" class="link">link</a>
+                            </nav>
+                            <div>
+                                <button class="dark">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </navbar>
+        </div>
+    </div>
+
     <p class="doc__uc_text">Our documentation is under construction and will be available
         soon! Stay tuned for comprehensive guides, examples, and API references.</p>
 
+    <!-- Example Link -->
     <a class="doc__example_box" href="/layx/components/navbar/navbar.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
+        <span class="h6">
+            See Example
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
             </svg>
         </span>
     </a>

@@ -185,18 +185,75 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="pagination__component_section">
-                                <h5>Pagination</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<style>
+    .doc__pagination_wrapper {
+        pagination {
+            padding: .5rem;
+        }
+    }
+</style>
 
-                                <a class="doc__example_box" href="/layx/components/pagination/pagination.html">
-                                    <span class="h6">See example <svg class="icon">
-                                            <use href="/assets/image/svg/icons.svg#arrow-right" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </section>
+<section class="pagination__component_section">
+    <!-- Pagination Overview -->
+    <div class="doc__block">
+        <h5>Pagination</h5>
+        <p>The <code>Pagination</code> component allows users to navigate through multiple pages of content, such as search results or a list of items. It supports dynamic rendering, customization, and accessibility.</p>
+    </div>
+
+    <!-- Pagination Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Below is an example of a basic <code>Pagination</code> component:</p>
+        <div class="doc__pagination_wrapper">
+            <pagination>
+                <div class="item prev"><a href="#"></a></div>
+                <div class="item"><a href="#">1</a></div>
+                <div class="item active"><a href="#">2</a></div>
+                <div class="item"><a href="#">3</a></div>
+                <div class="item next"><a href="#"></a></div>
+            </pagination>
+        </div>
+<code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">nav</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"pagination"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item prev"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">1</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item active"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">2</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-text">3</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">div</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"item next"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-tag">a</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"#"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">a</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">div</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">nav</span><span class="html-punctuation">&gt;</span></span>
+</code>
+    </div>
+
+    <!-- Useful Information -->
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Key details for customizing and utilizing the <code>Pagination</code> component:</p>
+        <ul>
+            <li>CSS variables allow for easy customization:
+                <ul>
+                    <li><code>--gap</code>: Space between pagination items.</li>
+                    <li><code>--color</code>: Text color of pagination links.</li>
+                    <li><code>--bg</code>: Background color of pagination.</li>
+                    <li><code>--item-bg</code>: Background color of pagination items.</li>
+                    <li><code>--item-hover-bg</code>: Color of the hovered pagination item.</li>
+                    <li><code>--item-active-bg</code>: Color of the active pagination item.</li>
+                </ul>
+            </li>
+            <li>Add the <code>.active</code> class to the current page's <code>.item</code>.</li>
+            <li>Use semantic HTML with <code>&lt;nav&gt;</code> and proper ARIA attributes for accessibility.</li>
+            <li>Icons can be used instead of text for "Previous" and "Next" buttons.</li>
+        </ul>
+    </div>
+
+    <!-- Example Link -->
+    <a class="doc__example_box" href="/layx/components/pagination/pagination.html">
+        <span class="h6">
+            See Example
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
+            </svg>
+        </span>
+    </a>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 

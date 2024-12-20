@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             docSideNav.querySelectorAll('.doc-link').forEach((link) => {
                 link.addEventListener('click', () => {
-                    sheet.closeSheet(docSideNav);
+                    sheet.close(docSideNav);
                 });
             });
         })();
