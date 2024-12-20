@@ -1,11 +1,114 @@
-<section class="sheet__component_section">
-    <h5>Sheet</h5>
-    <p class="doc__uc_text">Our documentation is under construction and will be available
-        soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<style>
+    .doc__sheet_wrapper {
+        sheet {
+            --padding-x: 1.5rem;
+            --padding-y: 1.5rem;
+            --bg: rgba(var(--bg-color-rgb), .9);
 
+
+            .wrapper {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .other__wrapper {
+                display: grid;
+                place-items: center;
+
+                .h4 {
+                    opacity: .4;
+                }
+            }
+        }
+    }
+</style>
+<section class="sheet__component_section">
+    <!-- Sheet Overview -->
+    <div class="doc__block">
+        <h5>Sheet</h5>
+        <p>The <code>Sheet</code> component provides a versatile, draggable, and customizable interface for displaying secondary content or interactive elements. It supports smooth transitions, snap points, and flexible positioning for a modern user experience.</p>
+    </div>
+
+    <!-- Sheet Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Here is an example of the <code>Sheet</code> component in action:</p>
+        <button class="dark" data-sheet-target="#demoSheet">Open Sheet</button>
+        <div class="doc__sheet_wrapper">
+            <sheet id="demoSheet" class="bottom">
+                <div class="wrapper snap" style="height: 30vh;">
+                    <span class="h3">Sheet Demo</span>
+                    <button class="close" aria-label="Close Sheet"></button>
+                </div>
+                <div class="other__wrapper snap" style="background-color: rgba(215, 250, 236, 0.8); height: 20vh;">
+                    <span class="h4">Snap Point 2</span>
+                </div>
+                <div class="other__wrapper snap" style="background-color: rgba(212, 253, 255, 0.8); height: 10vh; padding: 0;">
+                    <span class="h4">Snap Point 3</span>
+                </div>
+            </sheet>
+        </div>
+<code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">sheet</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"bottom"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span><span class="html-text">Content</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">p</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">sheet</span><span class="html-punctuation">&gt;</span></span>
+</code>
+    </div>
+
+    <!-- Useful Information -->
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Key details for using and customizing the <code>Sheet</code> component:</p>
+        <ul>
+            <li>CSS Variables for Customization:
+                <ul>
+                    <li><code>--edge-offset-x</code> and <code>--edge-offset-y</code>: Controls the edge offset for the sheet; default is <code>0</code>.</li>
+                    <li><code>--padding-x</code> and <code>--padding-y</code>: Manages internal padding within the sheet.</li>
+                    <li><code>--radius</code>: Defines the sheet's corner roundness.</li>
+                    <li><code>--bg</code>: Sets the sheet's background color.</li>
+                    <li><code>--transition</code>: Specifies the transition effect when the sheet enters or exits the viewport.</li>
+                </ul>
+            </li>
+            <li>Positioning and Behavior:
+                <ul>
+                    <li>Set the initial position using utility classes: <code>.left</code>, <code>.right</code>, <code>.top</code>, or <code>.bottom</code>.</li>
+                    <li>The default position is <code>fixed</code>. Ensure any custom sheet element is similarly positioned.</li>
+                </ul>
+            </li>
+            <li>Drag Functionality:
+                <ul>
+                    <li>Add the <code>.draggable-area</code> class to specify a drag handle; otherwise, the entire sheet is draggable.</li>
+                    <li>Sheets without a <code>.draggable-area</code> automatically apply <code>user-select: none</code> for enhanced usability.</li>
+                </ul>
+            </li>
+            <li>Additional Options:
+                <ul>
+                    <li>Use <code>.rounded-all</code> to round all corners.</li>
+                    <li>Add <code>.no-indicator</code> to hide the drag indicator.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sheet Options -->
+    <div class="doc__block">
+        <h6>Options</h6>
+        <p>The <code>Sheet</code> component provides the following configuration options:</p>
+        <ul>
+            <li><code>selector</code> (string): Default is <code>.sheet</code>. Targets elements to initialize as sheets.</li>
+            <li><code>draggableAreaSelector</code> (string): Default is <code>.draggable-area</code>. Specifies the area used for dragging.</li>
+            <li><code>dragThreshold</code> (number): Default is <code>0.4</code> (40% of the sheet). Determines when the sheet closes after dragging.</li>
+            <li><code>oppositeDirectionAllowed</code> (number): Default is <code>0</code>. Controls how far the sheet can be dragged in the opposite direction.</li>
+            <li><code>snapElementSelector</code> (string): Default is <code>.snap</code>. Identifies elements to serve as snap points.</li>
+            <li><code>dragClose</code> (boolean): Default is <code>true</code>. Enables closing the sheet by dragging.</li>
+            <li><code>keyboardClose</code> (boolean): Default is <code>true</code>. Enables closing the sheet using the <kbd>ESC</kbd> key.</li>
+        </ul>
+    </div>
+
+    <!-- Example Link -->
     <a class="doc__example_box" href="/layx/components/sheet/sheet.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
+        <span class="h6">See Example 
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
             </svg>
         </span>
     </a>
