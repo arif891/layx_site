@@ -173,18 +173,110 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="smooth_scroll__section">
-                                <h5>Smooth Scroll</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<section id="smooth__scroll_section">
 
-                                <a class="doc__example_box" href="/layx/others/smooth_scroll/smooth_scroll.html">
-                                    <span class="h6">See example <svg class="icon">
-                                            <use href="/assets/image/svg/icons.svg#arrow-right" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </section>
+    <div class="doc__block">
+        <h5>Smooth Scroll</h5>
+        <p>
+            The <strong>Smooth Scroll</strong> class enhances the user experience by implementing fluid,
+            inertia-based scrolling behavior. This reduces the harsh jumps typically seen in default scroll actions,
+            providing a seamless scrolling effect across the page. The system dynamically adjusts the scroll position
+            based on user input, gradually easing to the target position.
+        </p>
+    </div>
+
+    <div class="doc__block">
+        <h6>Key Features:</h6>
+        <ul>
+            <li><strong>Inertia-based Scrolling:</strong> Smoothly transitions to the target position, giving a more
+                natural
+                scrolling experience.</li>
+            <li><strong>Wheel & Key Support:</strong> Captures mouse wheel, arrow keys, page up/down, home, and end keys
+                for
+                smooth movement.</li>
+            <li><strong>Touch Support:</strong> Optionally enables smooth scrolling on touch devices by translating
+                touch
+                gestures into inertia scrolling.</li>
+            <li><strong>Clamping:</strong> Prevents over-scrolling by limiting the target scroll to the page bounds.
+            </li>
+            <li><strong>Customizable:</strong> Fine-tune the easing effect, scroll threshold, and touch sensitivity
+                using
+                configurable options.</li>
+        </ul>
+    </div>
+
+    <div class="doc__block">
+        <h6>Options:</h6>
+        <ul>
+            <li><code>ease</code> (default: <code>0.075</code>) – Controls the scroll easing. Lower values result in
+                slower
+                easing.</li>
+            <li><code>threshold</code> (default: <code>0.5</code>) – Minimum difference required between current and
+                target
+                scroll to continue easing.</li>
+            <li><code>enableTouch</code> (default: <code>false</code>) – Enables touch-based scrolling.</li>
+            <li><code>touchSensitivity</code> (default: <code>2</code>) – Adjusts the responsiveness of touch scroll.
+                Higher
+                values increase the movement.</li>
+        </ul>
+    </div>
+
+    <div class="doc__block">
+        <h6>Example Usage:</h6>
+<code data-code-lang="js" copy><span class="line"><span class="js-declaration">import</span> <span class="js-identifier">SmoothScroll</span> <span class="js-identifier">from</span> <span class="js-string">'./SmoothScroll.js'</span><span class="js-punctuation">;</span></span>
+<span class="line"><span class="js-declaration">const</span> <span class="js-identifier">smoothScroll</span> <span class="js-operator">=</span> <span class="js-object-oriented">new</span> <span class="js-function">SmoothScroll</span><span class="js-punctuation">(</span><span class="js-punctuation">{</span></span>
+<span class="line"><span class="js-identifier">ease</span><span class="js-operator">:</span> <span class="js-number">0.08</span><span class="js-punctuation">,</span></span>
+<span class="line"><span class="js-identifier">threshold</span><span class="js-operator">:</span> <span class="js-number">0.5</span><span class="js-punctuation">,</span></span>
+<span class="line"><span class="js-identifier">enableTouch</span><span class="js-operator">:</span> <span class="js-boolean">true</span><span class="js-punctuation">,</span></span>
+<span class="line"><span class="js-identifier">touchSensitivity</span><span class="js-operator">:</span> <span class="js-number">2</span></span>
+<span class="line"><span class="js-punctuation">}</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span></span>
+</code>
+    </div>
+
+
+    <div class="doc__block">
+        <h6>How It Works:</h6>
+        <p>
+            Smooth Scroll listens for wheel, keyboard, and touch events. When triggered, it prevents the default
+            behavior
+            and calculates the target scroll position. The <code>requestAnimationFrame</code> loop incrementally adjusts
+            the
+            scroll,
+            easing towards the target until the difference falls below the threshold. This ensures a polished and
+            responsive
+            interaction.
+        </p>
+    </div>
+
+
+    <div class="doc__block">
+        <h6>Destroying Smooth Scroll:</h6>
+        <p>
+            To disable Smooth Scroll and restore default scrolling, call the <code>destroy()</code> method.
+            This removes all event listeners and cancels any active animation frames.
+        </p>
+
+        <h6>Example:</h6>
+<code data-code-lang="js" copy><span class="line"><span class="js-identifier">smoothScroll</span><span class="js-punctuation">.</span><span class="js-function">destroy</span><span class="js-punctuation">(</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span></span>
+</code>
+    </div>
+
+    <div class="doc__block">
+        <h6>Benefits:</h6>
+        <ul>
+            <li>Improved user experience through fluid navigation.</li>
+            <li>Enhances accessibility by allowing natural scroll behavior on various input devices.</li>
+            <li>Supports both desktop and touch-based interactions for consistency across devices.</li>
+        </ul>
+    </div>
+
+    <a class="doc__example_box" href="/layx/others/smooth_scroll/smooth_scroll.html">
+        <span class="h6">See example <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right" />
+            </svg>
+        </span>
+    </a>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
