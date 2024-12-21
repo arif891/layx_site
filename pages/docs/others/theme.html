@@ -165,18 +165,78 @@
                             </div>
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
-                            <section class="theme__section">
-                                <h5>Theme</h5>
-                                <p class="doc__uc_text">Our documentation is under construction and will be available
-                                    soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+                           <section class="theme__section">
 
-                                <a class="doc__example_box" href="/layx/others/theme/theme.html">
-                                    <span class="h6">See example <svg class="icon">
+    <div class="doc__block">
+    <h5>Theme Management</h5>
+    <p>
+        The <strong>Theme</strong> class facilitates dynamic theme switching between light and dark modes, or adapting to the system's 
+        preferred color scheme. It manages <code>theme</code> attributes, local storage, and UI updates to ensure a seamless and 
+        consistent experience across user sessions.
+    </p>
+    </div>
+
+    <div class="doc__block">
+    <h6>Key Features:</h6>
+    <ul>
+        <li><strong>Auto Mode:</strong> Adapts to the system's preferred color scheme, automatically switching between light and dark.</li>
+        <li><strong>Persistent Theme:</strong> Remembers the user's choice by saving the theme in <code>localStorage</code>.</li>
+        <li><strong>Interactive Toggle:</strong> Includes a toggle button to switch between themes instantly.</li>
+        <li><strong>Meta Theme Update:</strong> Dynamically updates the <code>&lt;meta name="theme-color"&gt;</code> to match the applied theme.</li>
+        <li><strong>Element Attribute Sync:</strong> Updates specific elements to reflect the current theme state.</li>
+    </ul>
+    </div>
+
+    <div class="doc__block">
+    <h6>Options:</h6>
+    <ul>
+        <li><code>data-theme-value</code> – Allows buttons to explicitly set light or dark themes through <code>data-theme-value</code> attributes.</li>
+        <li><code>.theme-toggler</code> – Toggles the theme between light and dark modes.</li>
+        <li><code>.theme-update</code> – Elements that sync to the active theme for real-time adjustments.</li>
+    </ul>
+    </div>
+
+    <div class="doc__block">
+    <h6>Example Usage:</h6>
+<code data-code-lang="js" copy>
+<span class="line"><span class="js-declaration">import</span> <span class="js-identifier">Theme</span> <span class="js-identifier">from</span> <span class="js-string">'./others/theme/theme.js'</span><span class="js-punctuation">;</span></span>
+</code>
+    </div>
+
+    <div class="doc__block">
+    <h6>How It Works:</h6>
+    <p>
+        Upon initialization, the theme is set based on either the stored value or the system's preference. 
+        Clicking the toggle button switches between light and dark themes, updating <code>localStorage</code> and applying 
+        the relevant theme attributes. Additionally, <code>meta[name="theme-color"]</code> is updated to reflect the background 
+        color of the active theme, enhancing the visual integration with browsers and mobile UIs.
+    </p>
+    </div>
+
+    <div class="doc__block">
+    <h6>Meta Theme Color:</h6>
+    <p>
+        The <code>meta[name="theme-color"]</code> tag ensures that the browser interface reflects the active theme. If the tag is missing, 
+        the class automatically creates and appends it to the <code>&lt;head&gt;</code>.
+    </p>
+    </div>
+
+    <div class="doc__block">
+    <h6>Benefits:</h6>
+    <ul>
+        <li>Enhances user experience by offering seamless light/dark switching.</li>
+        <li>Improves visual aesthetics with dynamic meta theme color updates.</li>
+        <li>Respects user preferences by adapting to system-level theme settings.</li>
+    </ul>
+    </div>
+
+    <a class="doc__example_box" href="/layx/others/theme/theme.html">
+        <span class="h6">See example <svg class="icon">
                 <use href="/assets/image/svg/icons.svg#arrow-right" />
             </svg>
-        </span>
-                                </a>
-                            </section>
+        </span>                                         
+    </a>
+</section>
                         </div>
                         <div class="x-3 side__progress" id="side-progress">
 
