@@ -1,12 +1,51 @@
 <section class="icon__section">
-    <h5>Icon</h5>
-    <p class="doc__uc_text">Our documentation is under construction and will be available
-        soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+    <!-- Icon Overview -->
+    <div class="doc__block">
+        <h5>Icon</h5>
+        <p>The <code>Icon</code> component is a lightweight, scalable solution for embedding vector graphics. It enables easy reference to SVG symbols for a consistent and customizable icon system.</p>
+    </div>
 
-    <a class="doc__example_box" href="/layx/others/icon/icon.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
+    <!-- Icon Examples -->
+    <div class="doc__block">
+        <h6>Examples</h6>
+        <p>Here's an example of the <code>Icon</code> component in action:</p>
+        <div class="doc__icon_wrapper">
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#sun-fill"></use>
             </svg>
-        </span>                                
+        </div>
+<code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">svg</span><span class="html-attribute"> class</span><span class="html-equals">=</span><span class="html-string">"icon"</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-text">    </span><span class="html-punctuation">&lt;</span><span class="html-tag">use</span><span class="html-attribute"> href</span><span class="html-equals">=</span><span class="html-string">"/assets/image/svg/icons.svg#icon-id"</span><span class="html-punctuation">&gt;</span><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">use</span><span class="html-punctuation">&gt;</span></span>
+<span class="line"><span class="html-punctuation">&lt;</span><span class="html-punctuation">/</span><span class="html-tag">svg</span><span class="html-punctuation">&gt;</span></span>
+</code>        
+    </div>
+
+    <!-- How It Works -->
+    <div class="doc__block">
+        <h6>How It Works</h6>
+        <p>The <code>Icon</code> component is a simple SVG element that references symbols from the <code>icons.svg</code> sprite sheet located at <code>/assets/image/svg/</code>. To display an icon, reference its ID using the format <code>icons.svg#icon-id</code>.</p>
+        <p>For example:</p>
+        <pre><code>&lt;use href="/assets/image/svg/icons.svg#star" /&gt;</code></pre>
+    </div>
+
+    <!-- Useful Information -->
+    <div class="doc__block">
+        <h6>Useful Info</h6>
+        <p>Key points for using and customizing the <code>Icon</code> component:</p>
+        <ul>
+            <li>The default icon color is set to <code>currentColor</code>, allowing it to inherit text color and adapt to theme changes.</li>
+            <li>Icons are styled with <code>height: 1em;</code> and <code>aspect-ratio: 1;</code> to maintain consistent size and proportions.</li>
+            <li>Use CSS to override size, color, and other properties globally or on individual icons.</li>
+            <li>Ensure accessibility by adding <code>aria-hidden="true"</code> for decorative icons or <code>role="img"</code> with <code>aria-label</code> for meaningful icons.</li>
+        </ul>
+    </div>
+
+    <!-- Example Link -->
+    <a class="doc__example_box" href="/layx/others/icon/icon.html">
+        <span class="h6">See Example 
+            <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#arrow-right"></use>
+            </svg>
+        </span>
     </a>
 </section>
