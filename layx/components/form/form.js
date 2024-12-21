@@ -34,7 +34,7 @@ class Form {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 form.classList.add('submitting');
-                form.classList.remove('error', 'success')
+                form.classList.remove('error', 'success');
 
                 const formData = new FormData(form);
                 let formUrl = form.action;
