@@ -1,12 +1,178 @@
-<section class="partial__rendering__section">
-    <h5>Partial Rendering</h5>
-    <p class="doc__uc_text">Our documentation is under construction and will be available
-        soon! Stay tuned for comprehensive guides, examples, and API references.</p>
+<section class="partial-render__section">
 
-    <a class="doc__example_box" href="/layx/others/partial_render/partial_render.html">
-        <span class="h6">See example <svg class="icon">
-                <use href="/assets/image/svg/icons.svg#arrow-right" />
-            </svg>
-        </span>
+    <!-- Overview Section -->
+    <div class="doc__block">
+        <h5>Partial Render</h5>
+        <p>
+            The <code>PartialRender</code> class dynamically fetches and updates sections of a webpage without requiring full reloads, 
+            enhancing user experience and reducing load times by asynchronously fetching content.
+        </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="doc__block">
+        <h6>Key Features</h6>
+        <ul>
+            <li>Efficient AJAX-based partial page updates.</li>
+            <li>Link prefetching to anticipate navigation and speed up page loads.</li>
+            <li>Configurable caching with automatic cache purging to optimize memory usage.</li>
+            <li>Built-in retry and timeout mechanisms to handle network issues.</li>
+            <li>Seamless integration with browser history for native-like navigation.</li>
+            <li>Custom event hooks for pre-fetch, pre-render, and post-render customization.</li>
+        </ul>
+    </div>
+
+    <!-- Example Usage Section -->
+    <div class="doc__block">
+        <h6>Example</h6>
+        <p>
+            For example, see our documentation pages, where <strong>Partial Render</strong> powers the seamless navigation experience. 
+            Since the overall structure remains consistent, side navigation links serve as partial links. 
+            Main content is pre-fetched for faster load times, and the dynamic progress indicators are generated in real-time as you scroll.
+        </p>          
+        <p>Initialize <code>PartialRender</code> with custom options:</p>
+<code data-code-lang="js" copy><span class="line"><span class="js-declaration">import</span> <span class="js-punctuation">{</span> <span class="js-identifier">PartialRender</span> <span class="js-punctuation">}</span> <span class="js-identifier">from</span> <span class="js-string">'./others/partial_render/partial_render.js'</span><span class="js-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="js-object-oriented">new</span> <span class="js-function">PartialRender</span><span class="js-punctuation">(</span><span class="js-string">'.partial-render'</span><span class="js-punctuation">,</span> <span class="js-string">'.partial-link'</span><span class="js-punctuation">,</span> <span class="js-punctuation">{</span></span>
+<span class="line">    <span class="js-identifier">partialPath</span><span class="js-operator">:</span> <span class="js-string">'fragments/'</span><span class="js-punctuation">,</span></span>
+<span class="line">    <span class="js-identifier">throttleTime</span><span class="js-operator">:</span> <span class="js-number">20</span><span class="js-punctuation">,</span></span>
+<span class="line">    <span class="js-identifier">timeout</span><span class="js-operator">:</span> <span class="js-number">7000</span><span class="js-punctuation">,</span></span>
+<span class="line">    <span class="js-identifier">onSuccess</span><span class="js-operator">:</span> <span class="js-punctuation">(</span><span class="js-identifier">partial</span><span class="js-punctuation">,</span> <span class="js-identifier">content</span><span class="js-punctuation">)</span> <span class="js-operator">=</span><span class="js-operator">&gt;</span> <span class="js-punctuation">{</span></span>
+<span class="line">        <span class="js-builtin">console</span><span class="js-punctuation">.</span><span class="js-function">log</span><span class="js-punctuation">(</span><span class="js-string">'Loaded:'</span><span class="js-punctuation">,</span> <span class="js-identifier">content</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span></span>
+<span class="line">    <span class="js-punctuation">}</span><span class="js-punctuation">,</span></span>
+<span class="line">    <span class="js-identifier">onError</span><span class="js-operator">:</span> <span class="js-punctuation">(</span><span class="js-identifier">partial</span><span class="js-punctuation">,</span> <span class="js-identifier">error</span><span class="js-punctuation">)</span> <span class="js-operator">=</span><span class="js-operator">&gt;</span> <span class="js-punctuation">{</span></span>
+<span class="line">        <span class="js-function">alert</span><span class="js-punctuation">(</span><span class="js-string">'Loading error!'</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span></span>
+<span class="line">    <span class="js-punctuation">}</span></span>
+<span class="line"><span class="js-punctuation">}</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span></span>
+</code>
+    </div>
+
+    <!-- Configuration Section -->
+    <div class="doc__block">
+        <h6>Configuration Options</h6>
+        <p>Customize <code>PartialRender</code> with these options:</p>
+
+        <div style="overflow: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>fetch</code></td>
+                    <td><code>true</code></td>
+                    <td>Enable AJAX fetching of content on link click.</td>
+                </tr>
+                <tr>
+                    <td><code>preFetch</code></td>
+                    <td><code>true</code></td>
+                    <td>Automatically prefetch links when in viewport.</td>
+                </tr>
+                <tr>
+                    <td><code>handleNavigation</code></td>
+                    <td><code>true</code></td>
+                    <td>Push states to history during partial load.</td>
+                </tr>
+                <tr>
+                    <td><code>defaultAction</code></td>
+                    <td><code>true</code></td>
+                    <td>Determines if content should be injected into the target element after fetch.</td>
+                </tr>
+                <tr>
+                    <td><code>partialPath</code></td>
+                    <td><code>'partial/'</code></td>
+                    <td>Path prefix for fetching partial content files.</td>
+                </tr>
+                <tr>
+                    <td><code>maxPrefetchLimit</code></td>
+                    <td><code>150</code></td>
+                    <td>Limits the number of links prefetched.</td>
+                </tr>
+                <tr>
+                    <td><code>maxCacheSize</code></td>
+                    <td><code>250</code></td>
+                    <td>Maximum number of partials stored in cache.</td>
+                </tr>
+                <tr>
+                    <td><code>observerOptions</code></td>
+                    <td><code>{ rootMargin: '50px' }</code></td>
+                    <td>Options for the IntersectionObserver (used for prefetching).</td>
+                </tr>
+                <tr>
+                    <td><code>throttleTime</code></td>
+                    <td><code>10</code></td>
+                    <td>Throttle delay for prefetch observation (in ms).</td>
+                </tr>
+                <tr>
+                    <td><code>timeout</code></td>
+                    <td><code>5000</code></td>
+                    <td>Time to wait before aborting a fetch request (in ms).</td>
+                </tr>
+                <tr>
+                    <td><code>retryAttempts</code></td>
+                    <td><code>2</code></td>
+                    <td>Number of times to retry a failed fetch.</td>
+                </tr>
+                <tr>
+                    <td><code>retryDelay</code></td>
+                    <td><code>1000</code></td>
+                    <td>Delay between fetch retries (in ms).</td>
+                </tr>
+                <tr>
+                    <td><code>onSuccess</code></td>
+                    <td><code>null</code></td>
+                    <td>Callback triggered after successful render.</td>
+                </tr>
+                <tr>
+                    <td><code>onError</code></td>
+                    <td><code>null</code></td>
+                    <td>Callback triggered after a fetch error.</td>
+                </tr>
+                <tr>
+                    <td><code>onNavigationChange</code></td>
+                    <td><code>null</code></td>
+                    <td>Triggered when navigation occurs (popstate or pushState).</td>
+                </tr>
+                <tr>
+                    <td><code>beforeRender</code></td>
+                    <td><code>null</code></td>
+                    <td>Callback before content is injected.</td>
+                </tr>
+                <tr>
+                    <td><code>beforeFetch</code></td>
+                    <td><code>null</code></td>
+                    <td>Callback before a fetch request is initiated.</td>
+                </tr>
+                <tr>
+                    <td><code>debug</code></td>
+                    <td><code>false</code></td>
+                    <td>Enables console logging for debugging.</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+    </div>
+
+    <!-- Notes Section -->
+    <div class="doc__block">
+        <h6>Important Notes</h6>
+        <ul>
+            <li>Ensure the target element (with <code>.partial-render</code>) exists on the page.</li>
+            <li>Prefetched content is cached until cache limit is reached, then older entries are purged.</li>
+            <li>Timeout and retry settings ensure resilient loading under poor network conditions.</li>
+            <li>Use the <code>restoreInitialContent()</code> method to reset the initial page state.</li>
+        </ul>
+    </div>
+
+    <a class="doc__example_box"
+    href="/layx/others/partial_render/partial_render.html">
+    <span class="h6">See example <svg class="icon">
+            <use href="/assets/image/svg/icons.svg#arrow-right" />
+        </svg>
+    </span>
     </a>
 </section>
