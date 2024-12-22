@@ -1,3 +1,4 @@
+/*<base>*/
 layout,.layout {
     display: grid;
     grid-template-columns: repeat(var(--num-x, 12), 1fr);
@@ -45,10 +46,11 @@ layout,.layout {
     .sub-y {
         grid-template-rows: subgrid;
     }
-
 }
+/*</base>*/
 
 
+/*<x>*/
 .x-1 {
     grid-column-end: span 1;
 }
@@ -104,8 +106,10 @@ layout,.layout {
 .x-14 {
     grid-column-end: span 14;
 }
+/*</x>*/
 
 
+/*<xs>*/
 .xs-1 {
     grid-column-start: 1;
 }
@@ -161,10 +165,12 @@ layout,.layout {
 .xs-14 {
     grid-column-start: 14;
 }
+/*</xs>*/
 
 
 
 
+/*<y>*/
 .y-1 {
     grid-row-end: span 1;
 }
@@ -188,8 +194,10 @@ layout,.layout {
 .y-6 {
     grid-row-end: span 6;
 }
+/*</y>*/
 
 
+/*<ys>*/
 .ys-1 {
     grid-row-start: 1;
 }
@@ -213,11 +221,59 @@ layout,.layout {
 .ys-6 {
     grid-row-start: 6;
 }
+/*</ys>*/
+
+
+
+/*<gap>*/
+layout, .layout {
+    &.gap-x, &.gap  {
+        --gap-x: clamp(.2rem, 1vw, 1rem);
+    }
+
+    &.gap-x-2, &.gap-2 {
+        --gap-x: clamp(.4rem, 2vw, 2rem);
+    }
+
+    &.gap-x-3, &.gap-3 {
+        --gap-x: clamp(.6rem, 3vw, 3rem);
+    }
+
+    &.gap-x-4, &.gap-4 {
+        --gap-x: clamp(.8rem, 4vw, 4rem);
+    }
+
+    &.gap-x-5, &.gap-5 {
+        --gap-x: clamp(1rem, 5vw, 5rem);
+    }
+
+    &.gap-y, &.gap {
+        --gap-y: clamp(.2rem, 1vh, 1rem);
+    }
+
+    &.gap-y-2, &.gap-2 {
+        --gap-y: clamp(.4rem, 2vh, 2rem);
+    }
+
+    &.gap-y-3, &.gap-3 {
+        --gap-y: clamp(.6rem, 3vh, 3rem);
+    }
+
+    &.gap-y-4, &.gap-4 {
+        --gap-y: clamp(.8rem, 4vh, 4rem);
+    }
+
+    &.gap-y-5, &.gap-5 {
+        --gap-y: clamp(1rem, 5vh, 5rem);
+    }
+}
+/*</gap>*/
 
 
 
 
 /* (sm) Small devices (landscape phones, 576px and up) */
+/*<x-sm>*/
 @media (width >=576px) {
     .x-sm-1 {
         grid-column-end: span 1;
@@ -275,7 +331,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-sm>*/
 
+/*<xs-sm>*/
 @media (width >=576px) {
     .xs-sm-1 {
         grid-column-start: 1;
@@ -333,11 +391,13 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
+/*</xs-sm>*/
 
 
 
 
 /* (md) Medium devices (tablets, 768px and up) */
+/*<x-md>*/
 @media (width >=768px) {
     .x-md-1 {
         grid-column-end: span 1;
@@ -395,7 +455,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-md>*/
 
+/*<xs-md>*/
 @media (width >=768px) {
     .xs-md-1 {
         grid-column-start: 1;
@@ -453,11 +515,13 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
+/*</xs-md>*/
 
 
 
 
 /* (lg) Large devices (desktops, 992px and up) */
+/*<x-lg>*/
 @media (width >=992px) {
     .x-lg-1 {
         grid-column-end: span 1;
@@ -515,7 +579,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-lg>*/
 
+/*<xs-lg>*/
 @media (width >=992px) {
     .xs-lg-1 {
         grid-column-start: 1;
@@ -573,11 +639,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-lg>*/
 
 
 
 /* (xl) X-Large devices (large desktops, 1200px and up) */
+/*<x-xl>*/
 @media (width >=1200px) {
     .x-xl-1 {
         grid-column-end: span 1;
@@ -635,7 +702,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-xl>*/
 
+/*<xs-xl>*/
 @media (width >=1200px) {
     .xs-xl-1 {
         grid-column-start: 1;
@@ -693,11 +762,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-xl>*/
 
 
 
 /* (xxl) XX-Large devices (larger desktops, 1400px and up) */
+/*<x-xxl>*/
 @media (width >=1400px) {
     .x-xxl-1 {
         grid-column-end: span 1;
@@ -755,7 +825,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-xxl>*/
 
+/*<xs-xxl>*/
 @media (width >=1400px) {
     .xs-xxl-1 {
         grid-column-start: 1;
@@ -813,11 +885,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-xxl>*/
 
 
 
 /* (xxxl) XXX-Large devices (Extra larger desktops, 1800px and up) */
+/*<x-xxxl>*/
 @media (width >=1800px) {
     .x-xxxl-1 {
         grid-column-end: span 1;
@@ -875,7 +948,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-xxxl>*/
 
+/*<xs-xxxl>*/
 @media (width >=1800px) {
     .xs-xxxl-1 {
         grid-column-start: 1;
@@ -933,11 +1008,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-xxxl>*/
 
 
 
 /* Wide screens */
+/*<x-wd>*/
 @media (aspect-ratio >=16 / 9) and (width >=1800px) {
     .x-wd-1 {
         grid-column-end: span 1;
@@ -995,7 +1071,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-wd>*/
 
+/*<xs-wd>*/
 @media (aspect-ratio >=16 / 9) and (width >=1800px) {
     .xs-wd-1 {
         grid-column-start: 1;
@@ -1053,11 +1131,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-wd>*/
 
 
 
 /* Ultrawide screens */
+/*<x-uwd>*/
 @media (aspect-ratio >=21 / 9) and (width >=2000px) {
     .x-uwd-1 {
         grid-column-end: span 1;
@@ -1115,7 +1194,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-uwd>*/
 
+/*<xs-uwd>*/
 @media (aspect-ratio >=21 / 9) and (width >=2000px) {
     .xs-uwd-1 {
         grid-column-start: 1;
@@ -1173,11 +1254,12 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
-
+/*</xs-uwd>*/
 
 
 
 /* Super ultrawide screens */
+/*<x-suwd>*/
 @media (aspect-ratio >=32 / 9) and (width >=3000px) {
     .x-suwd-1 {
         grid-column-end: span 1;
@@ -1235,7 +1317,9 @@ layout,.layout {
         grid-column-end: span 14;
     }
 }
+/*</x-suwd>*/
 
+/*<xs-suwd>*/
 @media (aspect-ratio >=32 / 9) and (width >=3000px) {
     .xs-suwd-1 {
         grid-column-start: 1;
@@ -1293,3 +1377,4 @@ layout,.layout {
         grid-column-start: 14;
     }
 }
+/*</xs-suwd>*/
