@@ -8,11 +8,11 @@ body {
 }
 
 .layx__navbar {
-    --navbar-bg: rgba(var(--bg-color-rgb), .6);
+    --bg: rgba(var(--bg-color-rgb), .6);
     --radius: .5rem;
     --blur: 10px;
 
-    .warp-able {
+    .warp-area {
         justify-content: space-between;
 
         .link-wrapper {
