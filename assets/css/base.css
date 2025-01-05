@@ -8,7 +8,7 @@ body {
 }
 
 .layx__navbar {
-    --bg: rgba(var(--bg-color-rgb), .6);
+    --bg: rgba(var(--bg-color-rgb), .7);
     --radius: .5rem;
     --blur: 10px;
 
