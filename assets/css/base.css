@@ -29,6 +29,12 @@ body {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        @media (width < 992px) {
+            .btn.dark.wide {
+                --padding-y: 1.25rem;
+            }
+        }
     }
 
     .nav__theme_wrapper {
@@ -67,7 +73,7 @@ body {
             }
 
             @media (width < 992px) {
-                background-color: var(--bg);
+                background-color: var(--surface-color);
 
                 button {
                     padding: .5rem;

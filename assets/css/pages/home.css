@@ -258,7 +258,7 @@
       .feature__sub {
         padding: 1.5rem;
         min-height: 250px;
-        background-color: var(--bg);
+        background-color: var(--surface-color);
         background-repeat: no-repeat;
         background-size: auto 55%;
         background-position: bottom -25% right;
@@ -413,7 +413,7 @@
         padding: 2rem 0;
         gap: 1rem;
         border-radius: .5rem;
-        background: var(--bg);
+        background: var(--surface-color);
 
         div {
           display: grid;

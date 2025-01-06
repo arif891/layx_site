@@ -5,7 +5,7 @@ footer {
         padding-block: clamp(1rem, 5vh, 3rem);
         layout {
             min-height: 45vh;
-            background: var(--bg);
+            background: var(--surface-color);
             padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
             border-radius: .5rem;
         }
