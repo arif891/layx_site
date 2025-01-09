@@ -79,11 +79,6 @@ accordion, .accordion {
             :last-child {
                margin-bottom: unset;
             }
-
-            p {
-                color: rgb(40, 40, 50);
-                font-size: min(calc(.9rem + .3vw), 1.2rem);
-            }
         }
     }
 
