@@ -21,7 +21,7 @@
                 background-color: var(--bg-color);
 
                 [theme=dark] & {
-                    background-color: var(--bg);
+                    background-color: var(--surface-color);
                 }
             }
 
