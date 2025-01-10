@@ -46,7 +46,7 @@
                         }
 
                         .description {
-                            color: #f1f1f1;
+                            color: #eaeaea;
                         }
 
                         .read__btn {
@@ -74,4 +74,16 @@
 
 .blog__section {
     padding-block: 2.5rem;
+
+    .blog__container {
+
+        .blog__layout {
+            padding-block: 1.5rem;
+
+            .blog__wrapper {
+                min-height: 250px;
+                background-color: aliceblue;
+            }
+        }
+    }
 }
