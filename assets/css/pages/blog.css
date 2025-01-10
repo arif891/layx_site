@@ -1,21 +1,24 @@
 @import url(../../../layx/components/carousel/carousel.css);
 
-.blog__section {
-    padding-top: 2.5rem;
+.blog__hero_section {
+    padding-block: 2.5rem;
 
-    .blog__container {
+    .blog__hero_container {
         margin-inline: 0;
 
-        .blog__carousel {
+        .blog__hero_carousel {
             .main {
                 gap: .5rem;
                 scroll-margin-inline-start: var(--edge-offset-x);
 
                 .item {
+                    display: grid;
+                    align-items: end;
+                    padding: 2rem;
+                    width: calc(100% - var(--edge-offset-x) * 2);
                     background-size: cover;
                     background-image: var(--bg-url);
                     background-position: center;
-                    width: calc(100% - var(--edge-offset-x) * 2);
                     border-radius: .5rem;
 
                     &:first-child {
@@ -25,21 +28,50 @@
                     &:last-child {
                         margin-inline-end: var(--edge-offset-x);
                     }
+
+                    .text__wrapper {
+                        max-width: 60ch;
+                        translate: 0 25%;
+                        opacity: 0;
+                        transition-duration: .3s;
+                        transition-delay: .6s;
+
+                        .active & {
+                            translate: 0 0;
+                            opacity: 1;
+                        }
+
+                        .heading {
+                            color: #fff;
+                        }
+
+                        .description {
+                            color: #f1f1f1;
+                        }
+
+                        .read__btn {
+                            display: flex;
+                            gap: .25rem;
+                            width: fit-content;
+                            color: rgb(65, 65, 65);
+                            background-color: #fff;
+
+                            .icon {
+                                height: 1lh;
+                            }
+                        }
+
+                    }
                 }
             }
-        }
 
-        /* .blog__layout {
-            display: grid;
-            place-items: center;
-            min-height: 600px;
-            background-color: #f8fafc;
-            margin-top: 2.5rem;
-            border-radius: .5rem;
-
-            [theme=dark] & {
-                background-color: #18181b;
+            .indicator-wrapper {
+                inset: auto calc(var(--edge-offset-x) + .75rem)  var(--edge-offset) auto;
             }
-        } */
+        }
     }
+}
+
+.blog__section {
+    padding-block: 2.5rem;
 }
