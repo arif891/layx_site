@@ -49,7 +49,7 @@ body {
             padding: .25rem;
             border-radius: 5rem;
             width: fit-content;
-            background-color: var(--bg-color);
+            background-color: rgba(var(--bg-color-rgb), .7);
 
             button {
                 --radius: 5rem;

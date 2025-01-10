@@ -1,8 +1,35 @@
+@import url(../../../layx/components/carousel/carousel.css);
+
 .blog__section {
+    padding-top: 2.5rem;
 
     .blog__container {
+        margin-inline: 0;
 
-        .blog__layout {
+        .blog__carousel {
+            .main {
+                gap: .5rem;
+                scroll-margin-inline-start: var(--edge-offset-x);
+
+                .item {
+                    background-size: cover;
+                    background-image: var(--bg-url);
+                    background-position: center;
+                    width: calc(100% - var(--edge-offset-x) * 2);
+                    border-radius: .5rem;
+
+                    &:first-child {
+                        margin-inline-start: var(--edge-offset-x);
+                    }
+
+                    &:last-child {
+                        margin-inline-end: var(--edge-offset-x);
+                    }
+                }
+            }
+        }
+
+        /* .blog__layout {
             display: grid;
             place-items: center;
             min-height: 600px;
@@ -13,6 +40,6 @@
             [theme=dark] & {
                 background-color: #18181b;
             }
-        }
+        } */
     }
 }
