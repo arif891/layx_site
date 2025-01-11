@@ -7,6 +7,12 @@
         margin-inline: 0;
 
         .blog__hero_carousel {
+            --height: 275px;
+
+            @media (width >=992px) {
+                --height: 500px;
+            }
+
             .main {
                 gap: .5rem;
                 scroll-margin-inline-start: var(--edge-offset-x);
@@ -14,12 +20,16 @@
                 .item {
                     display: grid;
                     align-items: end;
-                    padding: 2rem;
+                    padding: 1.5rem;
                     width: calc(100% - var(--edge-offset-x) * 2);
                     background-size: cover;
                     background-image: var(--bg-url);
                     background-position: center;
                     border-radius: .5rem;
+
+                    @media (width >=992px) {
+                        padding: 2rem;
+                    }
 
                     &:first-child {
                         margin-inline-start: var(--edge-offset-x);
@@ -66,7 +76,11 @@
             }
 
             .indicator-wrapper {
-                inset: auto calc(var(--edge-offset-x) + .75rem)  var(--edge-offset) auto;
+                inset: auto var(--edge-offset-x) 0 auto;
+
+                @media (width >=992px) {
+                    inset: auto calc(var(--edge-offset-x) + .75rem) var(--edge-offset) auto;
+                }
             }
         }
     }
@@ -81,8 +95,61 @@
             padding-block: 1.5rem;
 
             .blog__wrapper {
-                min-height: 250px;
-                background-color: aliceblue;
+
+                .anchor__wrapper {
+                  color: inherit;
+                }
+
+                .image__wrapper {
+                    position: relative;
+
+                    .blog__image {
+                        border-radius: .5rem;
+                    }
+                }
+
+                .meta__info_wrapper {
+                    padding-block: .5rem;
+
+                    .meta__info {
+                        opacity: .6;
+                    }
+                }
+
+                .blog__heading, .blog__description {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    line-clamp: 2;
+                    -webkit-line-clamp: 2;
+                }
+
+                .blog__description {
+                  opacity: .8;
+                }
+
+                .author__wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: .5rem;
+                    margin-top: 1rem;
+
+                    .avatar__img {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                    }
+
+                    .author__name, .author__role {
+                        display: block;
+
+                        &.author__role {
+                            font-size: .8rem;
+                            opacity: .8;
+                        }
+                    }
+                }
             }
         }
     }
