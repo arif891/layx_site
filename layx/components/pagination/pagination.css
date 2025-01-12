@@ -57,6 +57,10 @@ pagination, .pagination {
       }
     }
 
+    &.disabled {
+      pointer-events: none;
+    }
+
     &:active {
       scale: .8;
     }
