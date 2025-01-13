@@ -2,13 +2,17 @@
 @import url(../../../layx/components/pagination/pagination.css);
 
 .blog__hero_section {
-    padding-block: 2.5rem;
+    padding-block: 1.5rem;
+
+    @media (width >=992px) {
+        padding-block: 2.5rem;
+    }
 
     .blog__hero_container {
         margin-inline: 0;
 
         .blog__hero_carousel {
-            --height: 250px;
+            --height: 225px;
 
             @media (width >=992px) {
                 --height: 500px;
@@ -53,12 +57,20 @@
                             opacity: 1;
                         }
 
+                        .heading , .description {
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            line-clamp: 2;
+                            -webkit-line-clamp: 2;
+                        }
+
                         .heading {
                             color: #fff;
                         }
 
                         .description {
-                            color: #eaeaea;
+                            color: #f0f0f0;
                         }
 
                         .read__btn {
@@ -161,6 +173,10 @@
                         opacity: .6;
                         height: 1.5rem;
                     }
+
+                    &::before {
+                        display: none;
+                    }
                 }
             }
         }
@@ -207,8 +223,7 @@
                     }
                 }
 
-                .blog__heading,
-                .blog__description {
+                .blog__heading, .blog__description {
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
