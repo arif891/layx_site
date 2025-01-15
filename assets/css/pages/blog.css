@@ -12,7 +12,7 @@
         margin-inline: 0;
 
         .blog__hero_carousel {
-            --height: 225px;
+            --height: 215px;
 
             @media (width >=992px) {
                 --height: 500px;
@@ -26,7 +26,7 @@
                     display: flex;
                     align-items: end;
                     justify-content: space-between;
-                    padding: 1.5rem;
+                    padding: 1.25rem;
                     width: calc(100% - var(--edge-offset-x) * 2);
                     background-size: cover;
                     background-image: var(--bg-url);
@@ -57,19 +57,11 @@
                             opacity: 1;
                         }
 
-                        .heading , .description {
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            line-clamp: 2;
-                            -webkit-line-clamp: 2;
-                        }
-
-                        .heading {
+                        .blog__heading {
                             color: #fff;
                         }
 
-                        .description {
+                        .blog__description {
                             color: #f0f0f0;
                         }
 
@@ -223,14 +215,6 @@
                     }
                 }
 
-                .blog__heading, .blog__description {
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    line-clamp: 2;
-                    -webkit-line-clamp: 2;
-                }
-
                 .blog__description {
                     opacity: .8;
                 }
@@ -249,6 +233,14 @@
             border-radius: .5rem;
         }
     }
+}
+
+.blog__heading , .blog__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
 }
 
 .anchor__wrapper {
