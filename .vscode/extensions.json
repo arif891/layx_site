@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "layx.layx"
+        "layx.layx",
+        "ritwickdey.liveserver"
     ]
 }
