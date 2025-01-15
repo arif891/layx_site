@@ -1,6 +1,7 @@
 .download__section {
 
     .download__container {
+        --edge-offset-x:0;
 
         .download__layout {
 
