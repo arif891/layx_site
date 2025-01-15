@@ -1,4 +1,5 @@
 :root {
+    --line-height: 1.5;
     --page-transition-duration: 1.2s;
     --page-transition-bg-color: rgb(240, 250, 255);
 }
@@ -19,7 +20,7 @@ body {
 
             a {
                 @media (width < 992px) {
-                   font-size: 1.25rem;
+                    font-size: 1.25rem;
                 }
             }
         }

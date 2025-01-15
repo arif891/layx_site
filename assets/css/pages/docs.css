@@ -71,7 +71,7 @@
                         .link {
                             text-decoration: none;
                             color: inherit;
-                            padding-block: .15rem;
+                            padding-block: .1rem;
                             margin-block: .05rem;
                             padding-inline-start: .75rem;
                             border-left: 2px solid #efefef;
@@ -166,6 +166,10 @@
 
                 h6:not(.default) {
                     scroll-margin-top: 6.5rem;
+                }
+
+                p {
+                    font-size: min(calc(.9rem + .3vw), 1.05rem);
                 }
             }
 
