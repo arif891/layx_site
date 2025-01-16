@@ -172,9 +172,16 @@
                         </div>
                         <div class="x-12 x-lg-6 main" id="main">
 <style>
-    .doc__form {
+       .doc__form {
         padding: clamp(.5rem, 1.5vw, 2rem) !important;
         border-radius: .5rem;
+
+        :is(form, label, input, textarea, select, option, .validate-wrapper):not(.default) {
+            
+            @media (width >= 576px) {
+             --padding-y: 1.05rem;
+            }
+        }
 
         [type=submit] {
             margin-top: 1.5rem;
@@ -213,13 +220,13 @@
         <form class="doc__form">
             <label for="email">Email</label>
             <div class="validate-wrapper" invalid="Please enter a valid email." valid="Valid email.">
-                <input class="wide validate" type="email" name="email" required>
+                <input class=" validate" type="email" name="email" required>
             </div>
             <label for="password">Password</label>
             <div class="validate-wrapper" invalid="Password must be 8 character long." valid="Password okay.">
-                <input class="wide validate" type="password" name="password" minlength="8" required>
+                <input class=" validate" type="password" name="password" minlength="8" required>
             </div>
-            <input class="wide" type="submit" value="Sign in">
+            <input class="" type="submit" value="Sign in">
         </form>
 
 <code data-code-lang="html" copy><span class="line"><span class="html-punctuation">&lt;</span><span class="html-tag">form</span><span class="html-punctuation">&gt;</span></span>
@@ -260,15 +267,15 @@
         <p>Additional examples of form elements styled and supported by Layx:</p>
         <form class="doc__form">
             <label for="range">Range</label>
-            <input class="wide value" type="range" id="range" name="range">
+            <input class=" value" type="range" id="range" name="range">
             <label for="file">File</label>
-            <input class="wide" type="file" id="file" name="file">
+            <input class="" type="file" id="file" name="file">
             <label for="time">Time</label>
-            <input class="wide" type="time" id="time" name="time">
+            <input class="" type="time" id="time" name="time">
             <label for="date">Date</label>
-            <input class="wide" type="date" id="date" name="date">
+            <input class="" type="date" id="date" name="date">
             <label for="select">Select</label>
-            <select class="wide" id="select" name="select">
+            <select class="" id="select" name="select">
                 <option>--Please choose an option--</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
@@ -278,7 +285,7 @@
                 <option value="goldfish">Goldfish</option>
             </select>
             <label for="textarea">Textarea</label>
-            <textarea class="wide" id="textarea" name="textarea" placeholder="Textarea"></textarea>
+            <textarea class="" id="textarea" name="textarea" placeholder="Textarea"></textarea>
         </form>
     </div>
 
