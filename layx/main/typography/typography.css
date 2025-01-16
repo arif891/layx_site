@@ -22,7 +22,6 @@ h6,h5,h4,h3,h2,h1, .h6,.h5,.h4,.h3,.h2,.h1 {
 :is(p, h6, h5, h4, h3, h2, h1,  .h6,.h5,.h4,.h3,.h2,.h1).ui-text {
     margin: unset;
     line-height: 1;
-    text-box: trim-both cap alphabetic;
 }
 
 h1, .h1 {
