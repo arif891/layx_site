@@ -168,8 +168,9 @@
                     scroll-margin-top: 6.5rem;
                 }
 
-                p {
+                &, p {
                     font-size: min(calc(.9rem + .3vw), 1.05rem);
+                    line-height: 1.65;
                 }
             }
 
