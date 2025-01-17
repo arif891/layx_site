@@ -30,6 +30,7 @@
 
         .hero__heading {
           text-align: center;
+          text-wrap: pretty;
         }
 
         .hero__subheading {
