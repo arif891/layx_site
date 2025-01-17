@@ -104,6 +104,8 @@
            & > .main {
                 min-height: 100vh;
                 border-radius: .5rem;
+                color: var(--paragraph-color);
+
 
                 @media (width <992px) {
                 border-radius: 1.75rem 1.75rem 0 0;

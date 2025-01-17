@@ -1,28 +1,34 @@
+<style>
+    #demo-dialog {
+        --bg: var(--bg-color);
+    }
+</style>
 <section class="dialog__component_section">
     <div class="doc__block">
         <h5>Dialog</h5>
-        <p>A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.</p>
+        <p>A window overlaid on either the primary window or another dialog window, rendering the content underneath
+            inert.</p>
     </div>
 
     <div class="doc__block">
         <h6>Examples</h6>
         <p>Below are examples of the <code>Dialog</code> component:</p>
         <div class="doc__carousel_wrapper">
-            <button class="dark dialog-toggler" data-dialog-target="#demo-dialog">Show Dialog</button>
+            <button class="dark wide dialog-toggler" data-dialog-target="#demo-dialog">Show Dialog</button>
 
             <dialog id="demo-dialog" class="dialog middle modal">
                 <div class="content">
                     <div class="header">
-                        <span class="title h5">Some big demo dialog header?</span>
+                        <span class="title h5">Are you absolutely sure?</span>
                         <button class="close"></button>
                     </div>
                     <div class="main">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit mollitia illum perferendis
-                            molestiae voluptate debitis provident veritatis ipsam autem aut quaerat recusandae</p>
+                        <p>This action cannot be undone. This will permanently delete your account and remove your data
+                            from our servers.</p>
                     </div>
-                    <div class="footer grow">
-                        <button class="lg light wide" type="button">Demo</button>
-                        <button class="lg dark wide" type="button">Book</button>
+                    <div class="footer end">
+                        <button class="lg close" type="button">Cancel</button>
+                        <button class="lg dark close" type="button">Continue</button>
                     </div>
                 </div>
             </dialog>
@@ -31,7 +37,7 @@
 
     <p class="doc__uc_text">Our documentation is under construction and will be available
         soon! Stay tuned for comprehensive guides, examples, and API references.</p>
-        
+
     <a class="doc__example_box" href="/layx/components/dialog/dialog.html">
         <span class="h6">See example <svg class="icon">
                 <use href="/assets/image/svg/icons.svg#arrow-right" />

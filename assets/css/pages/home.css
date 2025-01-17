@@ -35,6 +35,8 @@
 
         .hero__subheading {
           text-align: center;
+          max-width: 60ch;
+          margin-inline: auto;
         }
 
         .hero__btn_wrapper {
