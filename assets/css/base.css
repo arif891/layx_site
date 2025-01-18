@@ -13,6 +13,11 @@ body {
     --radius: .5rem;
     --blur: 10px;
 
+    @media (width < 992px) {
+       --padding-y: .9rem;
+       --radius: .25rem;
+    }
+
     .warp-area {
         justify-content: space-between;
 
@@ -50,7 +55,7 @@ body {
             padding: .25rem;
             border-radius: 5rem;
             width: fit-content;
-            background-color: rgba(var(--bg-color-rgb), .7);
+            background-color: rgba(var(--bg-color-rgb), .8);
 
             button {
                 --radius: 5rem;
