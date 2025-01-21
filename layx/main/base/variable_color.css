@@ -1,6 +1,5 @@
 /* Other color variables (light theme) */
-:root,
-[theme=light] {
+:root, [theme=light] {
     /* Colors */
     --brand-color: #2DD4BF;
     --primary-color: #3B82F6;
