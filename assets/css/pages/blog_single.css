@@ -42,7 +42,7 @@
 
                         .link {
                             color: inherit;
-                            opacity: 1;
+                            opacity: .9;
 
                             &.subheading {
                                 padding-left: 1rem;
@@ -58,6 +58,7 @@
             }
 
             .main {
+                color: var(--paragraph-color);
 
                 .blog__heading {
                     margin-bottom: 2.25rem;
