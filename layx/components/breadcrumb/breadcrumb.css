@@ -14,7 +14,7 @@ breadcrumb,.breadcrumb {
 
         &:not(:last-child)::after {
             content: var(--separator, '/');
-            margin-inline: .5rem;
+            margin-inline: var(--space, .5rem);
             color: var(--separator-color, var(--color, #2e2e2e));
         }
     }

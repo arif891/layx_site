@@ -203,7 +203,7 @@
                         transition: .3s;
 
                         &:not(.active) {
-                            opacity: .7;
+                            opacity: .8;
                         }
 
                         &.active {

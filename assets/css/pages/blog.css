@@ -183,6 +183,8 @@
 
                     .blog__image {
                         border-radius: .5rem;
+                        aspect-ratio: 16 / 9;
+                        object-fit: cover;
                     }
 
                     .tags__wrapper {
@@ -252,13 +254,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: .5rem;
+    gap: 1rem;
     margin-top: 1rem;
 
     .avatar__img {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
+        object-fit: cover;
     }
 
     .author__name, .author__role {
