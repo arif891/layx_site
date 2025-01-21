@@ -69,6 +69,10 @@
                     aspect-ratio: 16 / 9;
                     object-fit: cover;
                     border-radius: .5rem;
+
+                    @media (aspect-ratio >= 16/9) {
+                        aspect-ratio: 21 / 9;
+                    }
                 }
 
                 .meta__info_wrapper {
